@@ -1,0 +1,35 @@
+{
+    "configurations": [
+        {
+            "browse": {
+                "databaseFilename": "${default}",
+                "limitSymbolsToIncludedHeaders": false
+            },
+            "includePath": [
+                "/home/asimkumar/asitlor_ws/install/ros2_control_demo_example_2/include/**",
+                "/home/asimkumar/asitlorbot8_ws/install/asitlorbot8_localization/include/**",
+                "/home/asimkumar/asitlorbot8_ws/install/asitlorbot8_controller/include/**",
+                "/home/asimkumar/asitlorbot8_ws/install/asitlorbot8_localization/include/**",
+                "/home/asimkumar/asitlorbot8_ws/install/asitlorbot8_firmware/include/**",
+                "/opt/ros/humble/include/**",
+                "/home/asimkumar/asitlorbot8_ws/src/asitlorbot8_autonomy/include/**",
+                "/home/asimkumar/asitlorbot8_ws/src/asitlorbot8_controller/include/**",
+                "/home/asimkumar/asitlorbot8_ws/src/asitlorbot8_localization/include/**",
+                "/home/asimkumar/asitlorbot8_ws/src/asitlorbot8_cpp_examples/include/**",
+                "/home/asimkumar/asitlorbot8_ws/src/asitlorbot8_firmware/src/**",
+                "/home/asimkumar/asitlorbot8_ws/src/asitlorbot8_firmware/src/**",
+                "/home/asimkumar/asitlorbot8_ws/src/asitlorbot8_description/include/**",
+                "/home/asimkumar/asitlorbot8_ws/src/asitlorbot8_firmware/src/**",
+                "/home/asimkumar/asitlorbot8_ws/install/asitlorbot8_firmware/include/**",
+                "/usr/include/**",
+                "${workspaceFolder}/asitlorbot8_firmware/include"
+            ],
+            "name": "ROS",
+            "intelliSenseMode": "gcc-x64",
+            "compilerPath": "/usr/bin/gcc",
+            "cStandard": "gnu11",
+            "cppStandard": "c++14"
+        }
+    ],
+    "version": 4
+}

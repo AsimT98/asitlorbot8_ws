@@ -1,0 +1,1 @@
+/home/asimkumar/asitlorbot8_ws/build/asitlorbot8_firmware/ament_cmake_core/asitlorbot8_firmwareConfig-version.cmake

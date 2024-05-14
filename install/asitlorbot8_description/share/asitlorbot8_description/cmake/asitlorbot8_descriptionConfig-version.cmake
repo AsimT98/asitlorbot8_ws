@@ -1,0 +1,1 @@
+/home/asimkumar/asitlorbot8_ws/build/asitlorbot8_description/ament_cmake_core/asitlorbot8_descriptionConfig-version.cmake

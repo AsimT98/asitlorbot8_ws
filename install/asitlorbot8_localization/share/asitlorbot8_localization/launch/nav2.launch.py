@@ -1,0 +1,1 @@
+/home/asimkumar/asitlorbot8_ws/src/asitlorbot8_localization/launch/nav2.launch.py

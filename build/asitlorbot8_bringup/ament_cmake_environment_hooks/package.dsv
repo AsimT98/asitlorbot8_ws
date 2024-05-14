@@ -1,0 +1,4 @@
+source;share/asitlorbot8_bringup/local_setup.bash
+source;share/asitlorbot8_bringup/local_setup.dsv
+source;share/asitlorbot8_bringup/local_setup.sh
+source;share/asitlorbot8_bringup/local_setup.zsh

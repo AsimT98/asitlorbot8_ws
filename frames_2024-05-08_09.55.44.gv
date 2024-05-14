@@ -1,0 +1,17 @@
+digraph G {
+"odom" -> "base_footprint_noisy"[label=" Broadcaster: default_authority\nAverage rate: 29.432\nBuffer length: 5.062\nMost recent transform: 1715142344.785884\nOldest transform: 1715142339.723398\n"];
+"base_link" -> "base_footprint"[label=" Broadcaster: default_authority\nAverage rate: 10000.0\nBuffer length: 0.0\nMost recent transform: 0.0\nOldest transform: 0.0\n"];
+"base_link" -> "chassis"[label=" Broadcaster: default_authority\nAverage rate: 10000.0\nBuffer length: 0.0\nMost recent transform: 0.0\nOldest transform: 0.0\n"];
+"base_link" -> "imu_link"[label=" Broadcaster: default_authority\nAverage rate: 10000.0\nBuffer length: 0.0\nMost recent transform: 0.0\nOldest transform: 0.0\n"];
+"chassis" -> "laser_frame"[label=" Broadcaster: default_authority\nAverage rate: 10000.0\nBuffer length: 0.0\nMost recent transform: 0.0\nOldest transform: 0.0\n"];
+"odom" -> "base_footprint_ekf"[label=" Broadcaster: default_authority\nAverage rate: 48.723\nBuffer length: 5.028\nMost recent transform: 1715142344.751672\nOldest transform: 1715142339.723224\n"];
+"base_footprint_ekf" -> "imu_link_ekf"[label=" Broadcaster: default_authority\nAverage rate: 10000.0\nBuffer length: 0.0\nMost recent transform: 0.0\nOldest transform: 0.0\n"];
+"base_link" -> "left_back_wheel"[label=" Broadcaster: default_authority\nAverage rate: 14.907\nBuffer length: 4.964\nMost recent transform: 462.12\nOldest transform: 457.156\n"];
+"base_link" -> "left_front_wheel"[label=" Broadcaster: default_authority\nAverage rate: 14.907\nBuffer length: 4.964\nMost recent transform: 462.12\nOldest transform: 457.156\n"];
+"base_link" -> "right_back_wheel"[label=" Broadcaster: default_authority\nAverage rate: 14.907\nBuffer length: 4.964\nMost recent transform: 462.12\nOldest transform: 457.156\n"];
+"base_link" -> "right_front_wheel"[label=" Broadcaster: default_authority\nAverage rate: 14.907\nBuffer length: 4.964\nMost recent transform: 462.12\nOldest transform: 457.156\n"];
+edge [style=invis];
+ subgraph cluster_legend { style=bold; color=black; label ="view_frames Result";
+"Recorded at time: 1715142344.8040624"[ shape=plaintext ] ;
+}->"base_link";
+}

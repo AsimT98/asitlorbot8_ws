@@ -1,0 +1,2 @@
+Invoking command in '/home/asimkumar/asitlorbot8_ws/build/asitlorbot8_localization': /usr/bin/cmake /home/asimkumar/asitlorbot8_ws/src/asitlorbot8_localization -DCMAKE_INSTALL_PREFIX=/home/asimkumar/asitlorbot8_ws/install/asitlorbot8_localization
+Invoked command in '/home/asimkumar/asitlorbot8_ws/build/asitlorbot8_localization' returned '1': /usr/bin/cmake /home/asimkumar/asitlorbot8_ws/src/asitlorbot8_localization -DCMAKE_INSTALL_PREFIX=/home/asimkumar/asitlorbot8_ws/install/asitlorbot8_localization

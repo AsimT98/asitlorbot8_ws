@@ -1,0 +1,41 @@
+{
+  "configurations": [
+    {
+      "browse": {
+        "databaseFilename": "${default}",
+        "limitSymbolsToIncludedHeaders": false
+      },
+      "includePath": [
+        "/home/asimkumar/asitlor_ws/install/serial_motor_demo_msgs/include/**",
+        "/home/asimkumar/asitlor_ws/install/ros2_control_demo_example_2/include/**",
+        "/home/asimkumar/asitlor_ws/install/asitlorbot_five_localization/include/**",
+        "/home/asimkumar/asitlor_ws/install/asitlorbot_five_controller/include/**",
+        "/home/asimkumar/asitlor_ws/install/asitlorbot_firmware/include/**",
+        "/home/asimkumar/asitlor_ws/install/asitlorbot_cpp_examples/include/**",
+        "/home/asimkumar/asitlorbot8_ws/install/asitlorbot8_localization/include/**",
+        "/home/asimkumar/asitlorbot8_ws/install/asitlorbot8_firmware/include/**",
+        "/home/asimkumar/asitlorbot8_ws/install/asitlorbot8_controller/include/**",
+        "/home/asimkumar/asitlorbot7_ws/install/asitlorbot7_controller/include/**",
+        "/home/asimkumar/asitlorbotsix_ws/install/asitlotbotsix_controller/include/**",
+        "/home/asimkumar/asitlorbotsix_ws/install/asitlorbotsix_localization/include/**",
+        "/home/asimkumar/asitlorbotsix_ws/install/asitlorbotsix_firmware/include/**",
+        "/home/asimkumar/asitlorbotsix_ws/install/asitlorbotsix_cpp_examples/include/**",
+        "/opt/ros/humble/include/**",
+        "/home/asimkumar/asitlorbot8_ws/src/asitlorbot8_autonomy/include/**",
+        "/home/asimkumar/asitlorbot8_ws/src/asitlorbot8_bringup/include/**",
+        "/home/asimkumar/asitlorbot8_ws/src/asitlorbot8_controller/include/**",
+        "/home/asimkumar/asitlorbot8_ws/src/asitlorbot8_cpp_examples/include/**",
+        "/home/asimkumar/asitlorbot8_ws/src/asitlorbot8_description/include/**",
+        "/home/asimkumar/asitlorbot8_ws/src/asitlorbot8_firmware/include/**",
+        "/home/asimkumar/asitlorbot8_ws/src/asitlorbot8_localization/include/**",
+        "/usr/include/**"
+      ],
+      "name": "ROS",
+      "intelliSenseMode": "gcc-x64",
+      "compilerPath": "/usr/bin/gcc",
+      "cStandard": "gnu11",
+      "cppStandard": "c++14"
+    }
+  ],
+  "version": 4
+}

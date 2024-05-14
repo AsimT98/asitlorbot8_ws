@@ -1,0 +1,25 @@
+[0.102s] Invoking command in '/home/asimkumar/asitlorbot8_ws/build/asitlorbot8_autonomy': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/asimkumar/asitlor11_ws/install/asitlor11_py_examples:/home/asimkumar/asitlor_ws/install/serial_motor_demo:/home/asimkumar/asitlorbotsix_ws/install/asitlorbot_six:/opt/ros/humble /usr/bin/cmake --build /home/asimkumar/asitlorbot8_ws/build/asitlorbot8_autonomy -- -j8 -l8
+[0.255s] [100%] Built target autonomy_node
+[0.307s] Invoked command in '/home/asimkumar/asitlorbot8_ws/build/asitlorbot8_autonomy' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/asimkumar/asitlor11_ws/install/asitlor11_py_examples:/home/asimkumar/asitlor_ws/install/serial_motor_demo:/home/asimkumar/asitlorbotsix_ws/install/asitlorbot_six:/opt/ros/humble /usr/bin/cmake --build /home/asimkumar/asitlorbot8_ws/build/asitlorbot8_autonomy -- -j8 -l8
+[0.401s] Invoking command in '/home/asimkumar/asitlorbot8_ws/build/asitlorbot8_autonomy': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/asimkumar/asitlor11_ws/install/asitlor11_py_examples:/home/asimkumar/asitlor_ws/install/serial_motor_demo:/home/asimkumar/asitlorbotsix_ws/install/asitlorbot_six:/opt/ros/humble /usr/bin/cmake --install /home/asimkumar/asitlorbot8_ws/build/asitlorbot8_autonomy
+[0.421s] -- Install configuration: ""
+[0.422s] -- Execute custom install script
+[0.423s] -- Up-to-date symlink: /home/asimkumar/asitlorbot8_ws/install/asitlorbot8_autonomy/share/asitlorbot8_autonomy/bt_xml/tree.xml
+[0.424s] -- Up-to-date symlink: /home/asimkumar/asitlorbot8_ws/install/asitlorbot8_autonomy/share/asitlorbot8_autonomy/launch/autonomy.launch.py
+[0.424s] -- Up-to-date symlink: /home/asimkumar/asitlorbot8_ws/install/asitlorbot8_autonomy/lib/asitlorbot8_autonomy/autonomy_node
+[0.425s] -- Up-to-date symlink: /home/asimkumar/asitlorbot8_ws/install/asitlorbot8_autonomy/share/ament_index/resource_index/package_run_dependencies/asitlorbot8_autonomy
+[0.425s] -- Up-to-date symlink: /home/asimkumar/asitlorbot8_ws/install/asitlorbot8_autonomy/share/ament_index/resource_index/parent_prefix_path/asitlorbot8_autonomy
+[0.425s] -- Up-to-date symlink: /home/asimkumar/asitlorbot8_ws/install/asitlorbot8_autonomy/share/asitlorbot8_autonomy/environment/ament_prefix_path.sh
+[0.426s] -- Up-to-date symlink: /home/asimkumar/asitlorbot8_ws/install/asitlorbot8_autonomy/share/asitlorbot8_autonomy/environment/ament_prefix_path.dsv
+[0.426s] -- Up-to-date symlink: /home/asimkumar/asitlorbot8_ws/install/asitlorbot8_autonomy/share/asitlorbot8_autonomy/environment/path.sh
+[0.427s] -- Up-to-date symlink: /home/asimkumar/asitlorbot8_ws/install/asitlorbot8_autonomy/share/asitlorbot8_autonomy/environment/path.dsv
+[0.427s] -- Up-to-date symlink: /home/asimkumar/asitlorbot8_ws/install/asitlorbot8_autonomy/share/asitlorbot8_autonomy/local_setup.bash
+[0.427s] -- Up-to-date symlink: /home/asimkumar/asitlorbot8_ws/install/asitlorbot8_autonomy/share/asitlorbot8_autonomy/local_setup.sh
+[0.428s] -- Up-to-date symlink: /home/asimkumar/asitlorbot8_ws/install/asitlorbot8_autonomy/share/asitlorbot8_autonomy/local_setup.zsh
+[0.428s] -- Up-to-date symlink: /home/asimkumar/asitlorbot8_ws/install/asitlorbot8_autonomy/share/asitlorbot8_autonomy/local_setup.dsv
+[0.429s] -- Symlinking: /home/asimkumar/asitlorbot8_ws/install/asitlorbot8_autonomy/share/asitlorbot8_autonomy/package.dsv
+[0.460s] -- Up-to-date symlink: /home/asimkumar/asitlorbot8_ws/install/asitlorbot8_autonomy/share/ament_index/resource_index/packages/asitlorbot8_autonomy
+[0.460s] -- Up-to-date symlink: /home/asimkumar/asitlorbot8_ws/install/asitlorbot8_autonomy/share/asitlorbot8_autonomy/cmake/asitlorbot8_autonomyConfig.cmake
+[0.461s] -- Up-to-date symlink: /home/asimkumar/asitlorbot8_ws/install/asitlorbot8_autonomy/share/asitlorbot8_autonomy/cmake/asitlorbot8_autonomyConfig-version.cmake
+[0.461s] -- Up-to-date symlink: /home/asimkumar/asitlorbot8_ws/install/asitlorbot8_autonomy/share/asitlorbot8_autonomy/package.xml
+[0.472s] Invoked command in '/home/asimkumar/asitlorbot8_ws/build/asitlorbot8_autonomy' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/asimkumar/asitlor11_ws/install/asitlor11_py_examples:/home/asimkumar/asitlor_ws/install/serial_motor_demo:/home/asimkumar/asitlorbotsix_ws/install/asitlorbot_six:/opt/ros/humble /usr/bin/cmake --install /home/asimkumar/asitlorbot8_ws/build/asitlorbot8_autonomy

@@ -1,0 +1,44 @@
+[0.094s] Invoking command in '/home/asimkumar/asitlorbot8_ws/build/asitlorbot8_bringup': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/asimkumar/asitlor11_ws/install/asitlor11_py_examples:/home/asimkumar/asitlor_ws/install/serial_motor_demo:/home/asimkumar/asitlorbotsix_ws/install/asitlorbot_six:/opt/ros/humble /usr/bin/cmake /home/asimkumar/asitlorbot8_ws/src/asitlorbot8_bringup -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/home/asimkumar/asitlorbot8_ws/install/asitlorbot8_bringup
+[0.234s] -- The C compiler identification is GNU 11.4.0
+[0.379s] -- The CXX compiler identification is GNU 11.4.0
+[0.400s] -- Detecting C compiler ABI info
+[0.556s] -- Detecting C compiler ABI info - done
+[0.567s] -- Check for working C compiler: /usr/bin/cc - skipped
+[0.567s] -- Detecting C compile features
+[0.568s] -- Detecting C compile features - done
+[0.573s] -- Detecting CXX compiler ABI info
+[0.724s] -- Detecting CXX compiler ABI info - done
+[0.740s] -- Check for working CXX compiler: /usr/bin/c++ - skipped
+[0.741s] -- Detecting CXX compile features
+[0.742s] -- Detecting CXX compile features - done
+[0.760s] -- Found ament_cmake: 1.3.8 (/opt/ros/humble/share/ament_cmake/cmake)
+[1.123s] -- Found Python3: /usr/bin/python3 (found version "3.10.12") found components: Interpreter 
+[1.250s] -- Override CMake install command with custom implementation using symlinks instead of copying resources
+[1.429s] -- Found ament_lint_auto: 0.12.10 (/opt/ros/humble/share/ament_lint_auto/cmake)
+[1.626s] -- Added test 'lint_cmake' to check CMake code style
+[1.629s] -- Added test 'xmllint' to check XML markup files
+[1.634s] -- Configuring done
+[1.639s] -- Generating done
+[1.640s] -- Build files have been written to: /home/asimkumar/asitlorbot8_ws/build/asitlorbot8_bringup
+[1.648s] Invoked command in '/home/asimkumar/asitlorbot8_ws/build/asitlorbot8_bringup' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/asimkumar/asitlor11_ws/install/asitlor11_py_examples:/home/asimkumar/asitlor_ws/install/serial_motor_demo:/home/asimkumar/asitlorbotsix_ws/install/asitlorbot_six:/opt/ros/humble /usr/bin/cmake /home/asimkumar/asitlorbot8_ws/src/asitlorbot8_bringup -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/home/asimkumar/asitlorbot8_ws/install/asitlorbot8_bringup
+[1.650s] Invoking command in '/home/asimkumar/asitlorbot8_ws/build/asitlorbot8_bringup': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/asimkumar/asitlor11_ws/install/asitlor11_py_examples:/home/asimkumar/asitlor_ws/install/serial_motor_demo:/home/asimkumar/asitlorbotsix_ws/install/asitlorbot_six:/opt/ros/humble /usr/bin/cmake --build /home/asimkumar/asitlorbot8_ws/build/asitlorbot8_bringup -- -j8 -l8
+[1.724s] Invoked command in '/home/asimkumar/asitlorbot8_ws/build/asitlorbot8_bringup' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/asimkumar/asitlor11_ws/install/asitlor11_py_examples:/home/asimkumar/asitlor_ws/install/serial_motor_demo:/home/asimkumar/asitlorbotsix_ws/install/asitlorbot_six:/opt/ros/humble /usr/bin/cmake --build /home/asimkumar/asitlorbot8_ws/build/asitlorbot8_bringup -- -j8 -l8
+[1.777s] Invoking command in '/home/asimkumar/asitlorbot8_ws/build/asitlorbot8_bringup': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/asimkumar/asitlor11_ws/install/asitlor11_py_examples:/home/asimkumar/asitlor_ws/install/serial_motor_demo:/home/asimkumar/asitlorbotsix_ws/install/asitlorbot_six:/opt/ros/humble /usr/bin/cmake --install /home/asimkumar/asitlorbot8_ws/build/asitlorbot8_bringup
+[1.792s] -- Install configuration: ""
+[1.792s] -- Execute custom install script
+[1.793s] -- Symlinking: /home/asimkumar/asitlorbot8_ws/install/asitlorbot8_bringup/share/ament_index/resource_index/package_run_dependencies/asitlorbot8_bringup
+[1.811s] -- Symlinking: /home/asimkumar/asitlorbot8_ws/install/asitlorbot8_bringup/share/ament_index/resource_index/parent_prefix_path/asitlorbot8_bringup
+[1.830s] -- Symlinking: /home/asimkumar/asitlorbot8_ws/install/asitlorbot8_bringup/share/asitlorbot8_bringup/environment/ament_prefix_path.sh
+[1.849s] -- Symlinking: /home/asimkumar/asitlorbot8_ws/install/asitlorbot8_bringup/share/asitlorbot8_bringup/environment/ament_prefix_path.dsv
+[1.866s] -- Symlinking: /home/asimkumar/asitlorbot8_ws/install/asitlorbot8_bringup/share/asitlorbot8_bringup/environment/path.sh
+[1.884s] -- Symlinking: /home/asimkumar/asitlorbot8_ws/install/asitlorbot8_bringup/share/asitlorbot8_bringup/environment/path.dsv
+[1.901s] -- Symlinking: /home/asimkumar/asitlorbot8_ws/install/asitlorbot8_bringup/share/asitlorbot8_bringup/local_setup.bash
+[1.920s] -- Symlinking: /home/asimkumar/asitlorbot8_ws/install/asitlorbot8_bringup/share/asitlorbot8_bringup/local_setup.sh
+[1.937s] -- Symlinking: /home/asimkumar/asitlorbot8_ws/install/asitlorbot8_bringup/share/asitlorbot8_bringup/local_setup.zsh
+[1.954s] -- Symlinking: /home/asimkumar/asitlorbot8_ws/install/asitlorbot8_bringup/share/asitlorbot8_bringup/local_setup.dsv
+[1.971s] -- Symlinking: /home/asimkumar/asitlorbot8_ws/install/asitlorbot8_bringup/share/asitlorbot8_bringup/package.dsv
+[1.990s] -- Symlinking: /home/asimkumar/asitlorbot8_ws/install/asitlorbot8_bringup/share/ament_index/resource_index/packages/asitlorbot8_bringup
+[2.007s] -- Symlinking: /home/asimkumar/asitlorbot8_ws/install/asitlorbot8_bringup/share/asitlorbot8_bringup/cmake/asitlorbot8_bringupConfig.cmake
+[2.024s] -- Symlinking: /home/asimkumar/asitlorbot8_ws/install/asitlorbot8_bringup/share/asitlorbot8_bringup/cmake/asitlorbot8_bringupConfig-version.cmake
+[2.042s] -- Symlinking: /home/asimkumar/asitlorbot8_ws/install/asitlorbot8_bringup/share/asitlorbot8_bringup/package.xml
+[2.064s] Invoked command in '/home/asimkumar/asitlorbot8_ws/build/asitlorbot8_bringup' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/asimkumar/asitlor11_ws/install/asitlor11_py_examples:/home/asimkumar/asitlor_ws/install/serial_motor_demo:/home/asimkumar/asitlorbotsix_ws/install/asitlorbot_six:/opt/ros/humble /usr/bin/cmake --install /home/asimkumar/asitlorbot8_ws/build/asitlorbot8_bringup

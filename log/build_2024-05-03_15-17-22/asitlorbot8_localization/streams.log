@@ -1,0 +1,84 @@
+[0.028s] Invoking command in '/home/asimkumar/asitlorbot8_ws/build/asitlorbot8_localization': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/asimkumar/asitlorbotsix_ws/install/asitlorbot_six:/opt/ros/humble /usr/bin/cmake --build /home/asimkumar/asitlorbot8_ws/build/asitlorbot8_localization -- -j8 -l8
+[0.056s] -- Found ament_cmake: 1.3.8 (/opt/ros/humble/share/ament_cmake/cmake)
+[0.206s] -- Override CMake install command with custom implementation using symlinks instead of copying resources
+[0.219s] -- Found rclcpp: 16.0.8 (/opt/ros/humble/share/rclcpp/cmake)
+[0.300s] -- Found rosidl_generator_c: 3.1.5 (/opt/ros/humble/share/rosidl_generator_c/cmake)
+[0.313s] -- Found rosidl_adapter: 3.1.5 (/opt/ros/humble/share/rosidl_adapter/cmake)
+[0.329s] -- Found rosidl_generator_cpp: 3.1.5 (/opt/ros/humble/share/rosidl_generator_cpp/cmake)
+[0.350s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[0.381s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[0.487s] -- Found rmw_implementation_cmake: 6.1.1 (/opt/ros/humble/share/rmw_implementation_cmake/cmake)
+[0.494s] -- Found rmw_cyclonedds_cpp: 1.3.4 (/opt/ros/humble/share/rmw_cyclonedds_cpp/cmake)
+[0.550s] -- Using RMW implementation 'rmw_cyclonedds_cpp' as default
+[0.572s] -- Looking for pthread.h
+[0.664s] -- Looking for pthread.h - found
+[0.665s] -- Performing Test CMAKE_HAVE_LIBC_PTHREAD
+[0.755s] -- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Success
+[0.756s] -- Found Threads: TRUE  
+[0.922s] -- Found rclpy: 3.3.12 (/opt/ros/humble/share/rclpy/cmake)
+[0.927s] -- Found nav_msgs: 4.2.3 (/opt/ros/humble/share/nav_msgs/cmake)
+[1.050s] -- Found sensor_msgs: 4.2.3 (/opt/ros/humble/share/sensor_msgs/cmake)
+[1.138s] -- Found nav2_bringup: 1.1.14 (/opt/ros/humble/share/nav2_bringup/cmake)
+[1.226s] -- Found ament_lint_auto: 0.12.10 (/opt/ros/humble/share/ament_lint_auto/cmake)
+[1.297s] -- Added test 'flake8' to check Python code syntax and style conventions
+[1.298s] -- Added test 'lint_cmake' to check CMake code style
+[1.298s] -- Added test 'pep257' to check Python code against some of the docstring style conventions in PEP 257
+[1.300s] -- Added test 'xmllint' to check XML markup files
+[1.301s] -- Configuring done
+[1.308s] -- Generating done
+[1.310s] -- Build files have been written to: /home/asimkumar/asitlorbot8_ws/build/asitlorbot8_localization
+[1.366s] Built target ament_cmake_python_symlink_asitlorbot8_localization
+[1.624s] running egg_info
+[1.624s] creating asitlorbot8_localization.egg-info
+[1.625s] writing asitlorbot8_localization.egg-info/PKG-INFO
+[1.625s] writing dependency_links to asitlorbot8_localization.egg-info/dependency_links.txt
+[1.625s] writing top-level names to asitlorbot8_localization.egg-info/top_level.txt
+[1.625s] writing manifest file 'asitlorbot8_localization.egg-info/SOURCES.txt'
+[1.627s] reading manifest file 'asitlorbot8_localization.egg-info/SOURCES.txt'
+[1.628s] writing manifest file 'asitlorbot8_localization.egg-info/SOURCES.txt'
+[1.661s] Built target ament_cmake_python_build_asitlorbot8_localization_egg
+[1.675s] Invoked command in '/home/asimkumar/asitlorbot8_ws/build/asitlorbot8_localization' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/asimkumar/asitlorbotsix_ws/install/asitlorbot_six:/opt/ros/humble /usr/bin/cmake --build /home/asimkumar/asitlorbot8_ws/build/asitlorbot8_localization -- -j8 -l8
+[1.716s] Invoking command in '/home/asimkumar/asitlorbot8_ws/build/asitlorbot8_localization': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/asimkumar/asitlorbotsix_ws/install/asitlorbot_six:/opt/ros/humble /usr/bin/cmake --install /home/asimkumar/asitlorbot8_ws/build/asitlorbot8_localization
+[1.725s] -- Install configuration: ""
+[1.725s] -- Execute custom install script
+[1.726s] -- Symlinking: /home/asimkumar/asitlorbot8_ws/install/asitlorbot8_localization/share/asitlorbot8_localization/environment/pythonpath.sh
+[1.737s] -- Symlinking: /home/asimkumar/asitlorbot8_ws/install/asitlorbot8_localization/share/asitlorbot8_localization/environment/pythonpath.dsv
+[1.749s] -- Symlinking: /home/asimkumar/asitlorbot8_ws/install/asitlorbot8_localization/local/lib/python3.10/dist-packages/asitlorbot8_localization-0.0.0-py3.10.egg-info/PKG-INFO
+[1.761s] -- Symlinking: /home/asimkumar/asitlorbot8_ws/install/asitlorbot8_localization/local/lib/python3.10/dist-packages/asitlorbot8_localization-0.0.0-py3.10.egg-info/SOURCES.txt
+[1.773s] -- Symlinking: /home/asimkumar/asitlorbot8_ws/install/asitlorbot8_localization/local/lib/python3.10/dist-packages/asitlorbot8_localization-0.0.0-py3.10.egg-info/dependency_links.txt
+[1.785s] -- Symlinking: /home/asimkumar/asitlorbot8_ws/install/asitlorbot8_localization/local/lib/python3.10/dist-packages/asitlorbot8_localization-0.0.0-py3.10.egg-info/top_level.txt
+[1.796s] -- Symlinking: /home/asimkumar/asitlorbot8_ws/install/asitlorbot8_localization/local/lib/python3.10/dist-packages/asitlorbot8_localization/__init__.py
+[1.809s] -- Symlinking: /home/asimkumar/asitlorbot8_ws/install/asitlorbot8_localization/local/lib/python3.10/dist-packages/asitlorbot8_localization/bayesian_optimization.py
+[1.822s] -- Symlinking: /home/asimkumar/asitlorbot8_ws/install/asitlorbot8_localization/local/lib/python3.10/dist-packages/asitlorbot8_localization/imu_republisher.py
+[1.833s] -- Symlinking: /home/asimkumar/asitlorbot8_ws/install/asitlorbot8_localization/local/lib/python3.10/dist-packages/asitlorbot8_localization/rmse.py
+[1.845s] -- Symlinking: /home/asimkumar/asitlorbot8_ws/install/asitlorbot8_localization/local/lib/python3.10/dist-packages/asitlorbot8_localization/set_init_amcl_pose.py
+[1.856s] -- Symlinking: /home/asimkumar/asitlorbot8_ws/install/asitlorbot8_localization/local/lib/python3.10/dist-packages/asitlorbot8_localization/test.py
+[1.868s] -- Symlinking: /home/asimkumar/asitlorbot8_ws/install/asitlorbot8_localization/share/asitlorbot8_localization/launch/local_localization.launch.py
+[1.881s] -- Symlinking: /home/asimkumar/asitlorbot8_ws/install/asitlorbot8_localization/share/asitlorbot8_localization/launch/nav2.launch.py
+[1.892s] -- Symlinking: /home/asimkumar/asitlorbot8_ws/install/asitlorbot8_localization/share/asitlorbot8_localization/config/ekf.yaml
+[1.905s] -- Symlinking: /home/asimkumar/asitlorbot8_ws/install/asitlorbot8_localization/lib/asitlorbot8_localization/imu_republisher.py
+[1.916s] -- Symlinking: /home/asimkumar/asitlorbot8_ws/install/asitlorbot8_localization/lib/asitlorbot8_localization/rmse.py
+[1.929s] -- Symlinking: /home/asimkumar/asitlorbot8_ws/install/asitlorbot8_localization/lib/asitlorbot8_localization/set_init_amcl_pose.py
+[1.941s] -- Up-to-date symlink: /home/asimkumar/asitlorbot8_ws/install/asitlorbot8_localization/share/ament_index/resource_index/package_run_dependencies/asitlorbot8_localization
+[1.941s] -- Up-to-date symlink: /home/asimkumar/asitlorbot8_ws/install/asitlorbot8_localization/share/ament_index/resource_index/parent_prefix_path/asitlorbot8_localization
+[1.941s] -- Up-to-date symlink: /home/asimkumar/asitlorbot8_ws/install/asitlorbot8_localization/share/asitlorbot8_localization/environment/ament_prefix_path.sh
+[1.941s] -- Up-to-date symlink: /home/asimkumar/asitlorbot8_ws/install/asitlorbot8_localization/share/asitlorbot8_localization/environment/ament_prefix_path.dsv
+[1.942s] -- Up-to-date symlink: /home/asimkumar/asitlorbot8_ws/install/asitlorbot8_localization/share/asitlorbot8_localization/environment/path.sh
+[1.942s] -- Up-to-date symlink: /home/asimkumar/asitlorbot8_ws/install/asitlorbot8_localization/share/asitlorbot8_localization/environment/path.dsv
+[1.942s] -- Up-to-date symlink: /home/asimkumar/asitlorbot8_ws/install/asitlorbot8_localization/share/asitlorbot8_localization/local_setup.bash
+[1.943s] -- Up-to-date symlink: /home/asimkumar/asitlorbot8_ws/install/asitlorbot8_localization/share/asitlorbot8_localization/local_setup.sh
+[1.943s] -- Up-to-date symlink: /home/asimkumar/asitlorbot8_ws/install/asitlorbot8_localization/share/asitlorbot8_localization/local_setup.zsh
+[1.943s] -- Up-to-date symlink: /home/asimkumar/asitlorbot8_ws/install/asitlorbot8_localization/share/asitlorbot8_localization/local_setup.dsv
+[1.943s] -- Symlinking: /home/asimkumar/asitlorbot8_ws/install/asitlorbot8_localization/share/asitlorbot8_localization/package.dsv
+[1.955s] -- Up-to-date symlink: /home/asimkumar/asitlorbot8_ws/install/asitlorbot8_localization/share/ament_index/resource_index/packages/asitlorbot8_localization
+[1.955s] -- Up-to-date symlink: /home/asimkumar/asitlorbot8_ws/install/asitlorbot8_localization/share/asitlorbot8_localization/cmake/asitlorbot8_localizationConfig.cmake
+[1.955s] -- Up-to-date symlink: /home/asimkumar/asitlorbot8_ws/install/asitlorbot8_localization/share/asitlorbot8_localization/cmake/asitlorbot8_localizationConfig-version.cmake
+[1.955s] -- Up-to-date symlink: /home/asimkumar/asitlorbot8_ws/install/asitlorbot8_localization/share/asitlorbot8_localization/package.xml
+[1.992s] Listing '/home/asimkumar/asitlorbot8_ws/install/asitlorbot8_localization/local/lib/python3.10/dist-packages/asitlorbot8_localization'...
+[1.993s] Compiling '/home/asimkumar/asitlorbot8_ws/install/asitlorbot8_localization/local/lib/python3.10/dist-packages/asitlorbot8_localization/__init__.py'...
+[1.993s] Compiling '/home/asimkumar/asitlorbot8_ws/install/asitlorbot8_localization/local/lib/python3.10/dist-packages/asitlorbot8_localization/bayesian_optimization.py'...
+[1.993s] Compiling '/home/asimkumar/asitlorbot8_ws/install/asitlorbot8_localization/local/lib/python3.10/dist-packages/asitlorbot8_localization/imu_republisher.py'...
+[1.993s] Compiling '/home/asimkumar/asitlorbot8_ws/install/asitlorbot8_localization/local/lib/python3.10/dist-packages/asitlorbot8_localization/rmse.py'...
+[1.993s] Compiling '/home/asimkumar/asitlorbot8_ws/install/asitlorbot8_localization/local/lib/python3.10/dist-packages/asitlorbot8_localization/set_init_amcl_pose.py'...
+[1.993s] Compiling '/home/asimkumar/asitlorbot8_ws/install/asitlorbot8_localization/local/lib/python3.10/dist-packages/asitlorbot8_localization/test.py'...
+[2.001s] Invoked command in '/home/asimkumar/asitlorbot8_ws/build/asitlorbot8_localization' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/asimkumar/asitlorbotsix_ws/install/asitlorbot_six:/opt/ros/humble /usr/bin/cmake --install /home/asimkumar/asitlorbot8_ws/build/asitlorbot8_localization

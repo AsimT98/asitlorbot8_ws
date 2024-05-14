@@ -1,0 +1,8 @@
+setup.py
+asitlorbot8_firmware/__init__.py
+asitlorbot8_firmware/simple_serial_receiver.py
+asitlorbot8_firmware/simple_serial_transmitter.py
+asitlorbot8_firmware.egg-info/PKG-INFO
+asitlorbot8_firmware.egg-info/SOURCES.txt
+asitlorbot8_firmware.egg-info/dependency_links.txt
+asitlorbot8_firmware.egg-info/top_level.txt

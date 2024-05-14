@@ -1,0 +1,144 @@
+[0.255s] DEBUG:colcon:Command line arguments: ['/usr/bin/colcon', 'list', '-p', '--base-paths', '/home/asimkumar/asitlorbot8_ws']
+[0.255s] DEBUG:colcon:Parsed command line arguments: Namespace(log_base=None, log_level=None, verb_name='list', build_base='build', ignore_user_meta=False, metas=['./colcon.meta'], base_paths=['/home/asimkumar/asitlorbot8_ws'], packages_ignore=None, packages_ignore_regex=None, paths=None, packages_up_to=None, packages_up_to_regex=None, packages_above=None, packages_above_and_dependencies=None, packages_above_depth=None, packages_select_by_dep=None, packages_skip_by_dep=None, packages_skip_up_to=None, packages_select_build_failed=False, packages_skip_build_finished=False, packages_select_test_failures=False, packages_skip_test_passed=False, packages_select=None, packages_skip=None, packages_select_regex=None, packages_skip_regex=None, packages_start=None, packages_end=None, allow_overriding=[], topological_order=False, names_only=False, paths_only=True, topological_graph=False, topological_graph_dot=False, topological_graph_density=False, topological_graph_legend=False, topological_graph_dot_cluster=False, topological_graph_dot_include_skipped=False, verb_parser=<colcon_defaults.argument_parser.defaults.DefaultArgumentsDecorator object at 0x7d55416642e0>, verb_extension=<colcon_package_information.verb.list.ListVerb object at 0x7d5541770610>, main=<bound method ListVerb.main of <colcon_package_information.verb.list.ListVerb object at 0x7d5541770610>>)
+[1.020s] Level 1:colcon.colcon_core.package_discovery:discover_packages(colcon_meta) check parameters
+[1.020s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) check parameters
+[1.020s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) check parameters
+[1.020s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) check parameters
+[1.020s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) discover
+[1.021s] INFO:colcon.colcon_core.package_discovery:Crawling recursively for packages in '/home/asimkumar/asitlorbot8_ws'
+[1.021s] Level 1:colcon.colcon_core.package_identification:_identify(/home/asimkumar/asitlorbot8_ws) by extensions ['ignore', 'ignore_ament_install']
+[1.021s] Level 1:colcon.colcon_core.package_identification:_identify(/home/asimkumar/asitlorbot8_ws) by extension 'ignore'
+[1.021s] Level 1:colcon.colcon_core.package_identification:_identify(/home/asimkumar/asitlorbot8_ws) by extension 'ignore_ament_install'
+[1.021s] Level 1:colcon.colcon_core.package_identification:_identify(/home/asimkumar/asitlorbot8_ws) by extensions ['colcon_pkg']
+[1.021s] Level 1:colcon.colcon_core.package_identification:_identify(/home/asimkumar/asitlorbot8_ws) by extension 'colcon_pkg'
+[1.022s] Level 1:colcon.colcon_core.package_identification:_identify(/home/asimkumar/asitlorbot8_ws) by extensions ['colcon_meta']
+[1.022s] Level 1:colcon.colcon_core.package_identification:_identify(/home/asimkumar/asitlorbot8_ws) by extension 'colcon_meta'
+[1.022s] Level 1:colcon.colcon_core.package_identification:_identify(/home/asimkumar/asitlorbot8_ws) by extensions ['ros']
+[1.022s] Level 1:colcon.colcon_core.package_identification:_identify(/home/asimkumar/asitlorbot8_ws) by extension 'ros'
+[1.078s] Level 1:colcon.colcon_core.package_identification:_identify(/home/asimkumar/asitlorbot8_ws) by extensions ['cmake', 'python']
+[1.078s] Level 1:colcon.colcon_core.package_identification:_identify(/home/asimkumar/asitlorbot8_ws) by extension 'cmake'
+[1.078s] Level 1:colcon.colcon_core.package_identification:_identify(/home/asimkumar/asitlorbot8_ws) by extension 'python'
+[1.078s] Level 1:colcon.colcon_core.package_identification:_identify(/home/asimkumar/asitlorbot8_ws) by extensions ['python_setup_py']
+[1.078s] Level 1:colcon.colcon_core.package_identification:_identify(/home/asimkumar/asitlorbot8_ws) by extension 'python_setup_py'
+[1.078s] Level 1:colcon.colcon_core.package_identification:_identify(/home/asimkumar/asitlorbot8_ws/build) by extensions ['ignore', 'ignore_ament_install']
+[1.079s] Level 1:colcon.colcon_core.package_identification:_identify(/home/asimkumar/asitlorbot8_ws/build) by extension 'ignore'
+[1.079s] Level 1:colcon.colcon_core.package_identification:_identify(/home/asimkumar/asitlorbot8_ws/build) ignored
+[1.079s] Level 1:colcon.colcon_core.package_identification:_identify(/home/asimkumar/asitlorbot8_ws/install) by extensions ['ignore', 'ignore_ament_install']
+[1.079s] Level 1:colcon.colcon_core.package_identification:_identify(/home/asimkumar/asitlorbot8_ws/install) by extension 'ignore'
+[1.079s] Level 1:colcon.colcon_core.package_identification:_identify(/home/asimkumar/asitlorbot8_ws/install) ignored
+[1.080s] Level 1:colcon.colcon_core.package_identification:_identify(/home/asimkumar/asitlorbot8_ws/log) by extensions ['ignore', 'ignore_ament_install']
+[1.080s] Level 1:colcon.colcon_core.package_identification:_identify(/home/asimkumar/asitlorbot8_ws/log) by extension 'ignore'
+[1.080s] Level 1:colcon.colcon_core.package_identification:_identify(/home/asimkumar/asitlorbot8_ws/log) ignored
+[1.080s] Level 1:colcon.colcon_core.package_identification:_identify(/home/asimkumar/asitlorbot8_ws/src) by extensions ['ignore', 'ignore_ament_install']
+[1.081s] Level 1:colcon.colcon_core.package_identification:_identify(/home/asimkumar/asitlorbot8_ws/src) by extension 'ignore'
+[1.081s] Level 1:colcon.colcon_core.package_identification:_identify(/home/asimkumar/asitlorbot8_ws/src) by extension 'ignore_ament_install'
+[1.081s] Level 1:colcon.colcon_core.package_identification:_identify(/home/asimkumar/asitlorbot8_ws/src) by extensions ['colcon_pkg']
+[1.081s] Level 1:colcon.colcon_core.package_identification:_identify(/home/asimkumar/asitlorbot8_ws/src) by extension 'colcon_pkg'
+[1.081s] Level 1:colcon.colcon_core.package_identification:_identify(/home/asimkumar/asitlorbot8_ws/src) by extensions ['colcon_meta']
+[1.081s] Level 1:colcon.colcon_core.package_identification:_identify(/home/asimkumar/asitlorbot8_ws/src) by extension 'colcon_meta'
+[1.081s] Level 1:colcon.colcon_core.package_identification:_identify(/home/asimkumar/asitlorbot8_ws/src) by extensions ['ros']
+[1.081s] Level 1:colcon.colcon_core.package_identification:_identify(/home/asimkumar/asitlorbot8_ws/src) by extension 'ros'
+[1.081s] Level 1:colcon.colcon_core.package_identification:_identify(/home/asimkumar/asitlorbot8_ws/src) by extensions ['cmake', 'python']
+[1.082s] Level 1:colcon.colcon_core.package_identification:_identify(/home/asimkumar/asitlorbot8_ws/src) by extension 'cmake'
+[1.082s] Level 1:colcon.colcon_core.package_identification:_identify(/home/asimkumar/asitlorbot8_ws/src) by extension 'python'
+[1.082s] Level 1:colcon.colcon_core.package_identification:_identify(/home/asimkumar/asitlorbot8_ws/src) by extensions ['python_setup_py']
+[1.082s] Level 1:colcon.colcon_core.package_identification:_identify(/home/asimkumar/asitlorbot8_ws/src) by extension 'python_setup_py'
+[1.082s] Level 1:colcon.colcon_core.package_identification:_identify(/home/asimkumar/asitlorbot8_ws/src/Arduino) by extensions ['ignore', 'ignore_ament_install']
+[1.082s] Level 1:colcon.colcon_core.package_identification:_identify(/home/asimkumar/asitlorbot8_ws/src/Arduino) by extension 'ignore'
+[1.082s] Level 1:colcon.colcon_core.package_identification:_identify(/home/asimkumar/asitlorbot8_ws/src/Arduino) by extension 'ignore_ament_install'
+[1.082s] Level 1:colcon.colcon_core.package_identification:_identify(/home/asimkumar/asitlorbot8_ws/src/Arduino) by extensions ['colcon_pkg']
+[1.082s] Level 1:colcon.colcon_core.package_identification:_identify(/home/asimkumar/asitlorbot8_ws/src/Arduino) by extension 'colcon_pkg'
+[1.083s] Level 1:colcon.colcon_core.package_identification:_identify(/home/asimkumar/asitlorbot8_ws/src/Arduino) by extensions ['colcon_meta']
+[1.083s] Level 1:colcon.colcon_core.package_identification:_identify(/home/asimkumar/asitlorbot8_ws/src/Arduino) by extension 'colcon_meta'
+[1.083s] Level 1:colcon.colcon_core.package_identification:_identify(/home/asimkumar/asitlorbot8_ws/src/Arduino) by extensions ['ros']
+[1.084s] Level 1:colcon.colcon_core.package_identification:_identify(/home/asimkumar/asitlorbot8_ws/src/Arduino) by extension 'ros'
+[1.084s] Level 1:colcon.colcon_core.package_identification:_identify(/home/asimkumar/asitlorbot8_ws/src/Arduino) by extensions ['cmake', 'python']
+[1.084s] Level 1:colcon.colcon_core.package_identification:_identify(/home/asimkumar/asitlorbot8_ws/src/Arduino) by extension 'cmake'
+[1.084s] Level 1:colcon.colcon_core.package_identification:_identify(/home/asimkumar/asitlorbot8_ws/src/Arduino) by extension 'python'
+[1.084s] Level 1:colcon.colcon_core.package_identification:_identify(/home/asimkumar/asitlorbot8_ws/src/Arduino) by extensions ['python_setup_py']
+[1.084s] Level 1:colcon.colcon_core.package_identification:_identify(/home/asimkumar/asitlorbot8_ws/src/Arduino) by extension 'python_setup_py'
+[1.085s] Level 1:colcon.colcon_core.package_identification:_identify(/home/asimkumar/asitlorbot8_ws/src/Arduino/sketch_may07a) by extensions ['ignore', 'ignore_ament_install']
+[1.085s] Level 1:colcon.colcon_core.package_identification:_identify(/home/asimkumar/asitlorbot8_ws/src/Arduino/sketch_may07a) by extension 'ignore'
+[1.085s] Level 1:colcon.colcon_core.package_identification:_identify(/home/asimkumar/asitlorbot8_ws/src/Arduino/sketch_may07a) by extension 'ignore_ament_install'
+[1.085s] Level 1:colcon.colcon_core.package_identification:_identify(/home/asimkumar/asitlorbot8_ws/src/Arduino/sketch_may07a) by extensions ['colcon_pkg']
+[1.085s] Level 1:colcon.colcon_core.package_identification:_identify(/home/asimkumar/asitlorbot8_ws/src/Arduino/sketch_may07a) by extension 'colcon_pkg'
+[1.085s] Level 1:colcon.colcon_core.package_identification:_identify(/home/asimkumar/asitlorbot8_ws/src/Arduino/sketch_may07a) by extensions ['colcon_meta']
+[1.085s] Level 1:colcon.colcon_core.package_identification:_identify(/home/asimkumar/asitlorbot8_ws/src/Arduino/sketch_may07a) by extension 'colcon_meta'
+[1.086s] Level 1:colcon.colcon_core.package_identification:_identify(/home/asimkumar/asitlorbot8_ws/src/Arduino/sketch_may07a) by extensions ['ros']
+[1.086s] Level 1:colcon.colcon_core.package_identification:_identify(/home/asimkumar/asitlorbot8_ws/src/Arduino/sketch_may07a) by extension 'ros'
+[1.086s] Level 1:colcon.colcon_core.package_identification:_identify(/home/asimkumar/asitlorbot8_ws/src/Arduino/sketch_may07a) by extensions ['cmake', 'python']
+[1.086s] Level 1:colcon.colcon_core.package_identification:_identify(/home/asimkumar/asitlorbot8_ws/src/Arduino/sketch_may07a) by extension 'cmake'
+[1.086s] Level 1:colcon.colcon_core.package_identification:_identify(/home/asimkumar/asitlorbot8_ws/src/Arduino/sketch_may07a) by extension 'python'
+[1.086s] Level 1:colcon.colcon_core.package_identification:_identify(/home/asimkumar/asitlorbot8_ws/src/Arduino/sketch_may07a) by extensions ['python_setup_py']
+[1.086s] Level 1:colcon.colcon_core.package_identification:_identify(/home/asimkumar/asitlorbot8_ws/src/Arduino/sketch_may07a) by extension 'python_setup_py'
+[1.086s] Level 1:colcon.colcon_core.package_identification:_identify(/home/asimkumar/asitlorbot8_ws/src/asitlorbot8_autonomy) by extensions ['ignore', 'ignore_ament_install']
+[1.087s] Level 1:colcon.colcon_core.package_identification:_identify(/home/asimkumar/asitlorbot8_ws/src/asitlorbot8_autonomy) by extension 'ignore'
+[1.087s] Level 1:colcon.colcon_core.package_identification:_identify(/home/asimkumar/asitlorbot8_ws/src/asitlorbot8_autonomy) by extension 'ignore_ament_install'
+[1.087s] Level 1:colcon.colcon_core.package_identification:_identify(/home/asimkumar/asitlorbot8_ws/src/asitlorbot8_autonomy) by extensions ['colcon_pkg']
+[1.087s] Level 1:colcon.colcon_core.package_identification:_identify(/home/asimkumar/asitlorbot8_ws/src/asitlorbot8_autonomy) by extension 'colcon_pkg'
+[1.087s] Level 1:colcon.colcon_core.package_identification:_identify(/home/asimkumar/asitlorbot8_ws/src/asitlorbot8_autonomy) by extensions ['colcon_meta']
+[1.087s] Level 1:colcon.colcon_core.package_identification:_identify(/home/asimkumar/asitlorbot8_ws/src/asitlorbot8_autonomy) by extension 'colcon_meta'
+[1.087s] Level 1:colcon.colcon_core.package_identification:_identify(/home/asimkumar/asitlorbot8_ws/src/asitlorbot8_autonomy) by extensions ['ros']
+[1.087s] Level 1:colcon.colcon_core.package_identification:_identify(/home/asimkumar/asitlorbot8_ws/src/asitlorbot8_autonomy) by extension 'ros'
+[1.093s] DEBUG:colcon.colcon_core.package_identification:Package '/home/asimkumar/asitlorbot8_ws/src/asitlorbot8_autonomy' with type 'ros.ament_cmake' and name 'asitlorbot8_autonomy'
+[1.094s] Level 1:colcon.colcon_core.package_identification:_identify(/home/asimkumar/asitlorbot8_ws/src/asitlorbot8_bringup) by extensions ['ignore', 'ignore_ament_install']
+[1.094s] Level 1:colcon.colcon_core.package_identification:_identify(/home/asimkumar/asitlorbot8_ws/src/asitlorbot8_bringup) by extension 'ignore'
+[1.094s] Level 1:colcon.colcon_core.package_identification:_identify(/home/asimkumar/asitlorbot8_ws/src/asitlorbot8_bringup) by extension 'ignore_ament_install'
+[1.094s] Level 1:colcon.colcon_core.package_identification:_identify(/home/asimkumar/asitlorbot8_ws/src/asitlorbot8_bringup) by extensions ['colcon_pkg']
+[1.094s] Level 1:colcon.colcon_core.package_identification:_identify(/home/asimkumar/asitlorbot8_ws/src/asitlorbot8_bringup) by extension 'colcon_pkg'
+[1.094s] Level 1:colcon.colcon_core.package_identification:_identify(/home/asimkumar/asitlorbot8_ws/src/asitlorbot8_bringup) by extensions ['colcon_meta']
+[1.094s] Level 1:colcon.colcon_core.package_identification:_identify(/home/asimkumar/asitlorbot8_ws/src/asitlorbot8_bringup) by extension 'colcon_meta'
+[1.094s] Level 1:colcon.colcon_core.package_identification:_identify(/home/asimkumar/asitlorbot8_ws/src/asitlorbot8_bringup) by extensions ['ros']
+[1.094s] Level 1:colcon.colcon_core.package_identification:_identify(/home/asimkumar/asitlorbot8_ws/src/asitlorbot8_bringup) by extension 'ros'
+[1.095s] DEBUG:colcon.colcon_core.package_identification:Package '/home/asimkumar/asitlorbot8_ws/src/asitlorbot8_bringup' with type 'ros.ament_cmake' and name 'asitlorbot8_bringup'
+[1.096s] Level 1:colcon.colcon_core.package_identification:_identify(/home/asimkumar/asitlorbot8_ws/src/asitlorbot8_controller) by extensions ['ignore', 'ignore_ament_install']
+[1.096s] Level 1:colcon.colcon_core.package_identification:_identify(/home/asimkumar/asitlorbot8_ws/src/asitlorbot8_controller) by extension 'ignore'
+[1.096s] Level 1:colcon.colcon_core.package_identification:_identify(/home/asimkumar/asitlorbot8_ws/src/asitlorbot8_controller) by extension 'ignore_ament_install'
+[1.096s] Level 1:colcon.colcon_core.package_identification:_identify(/home/asimkumar/asitlorbot8_ws/src/asitlorbot8_controller) by extensions ['colcon_pkg']
+[1.096s] Level 1:colcon.colcon_core.package_identification:_identify(/home/asimkumar/asitlorbot8_ws/src/asitlorbot8_controller) by extension 'colcon_pkg'
+[1.096s] Level 1:colcon.colcon_core.package_identification:_identify(/home/asimkumar/asitlorbot8_ws/src/asitlorbot8_controller) by extensions ['colcon_meta']
+[1.096s] Level 1:colcon.colcon_core.package_identification:_identify(/home/asimkumar/asitlorbot8_ws/src/asitlorbot8_controller) by extension 'colcon_meta'
+[1.096s] Level 1:colcon.colcon_core.package_identification:_identify(/home/asimkumar/asitlorbot8_ws/src/asitlorbot8_controller) by extensions ['ros']
+[1.097s] Level 1:colcon.colcon_core.package_identification:_identify(/home/asimkumar/asitlorbot8_ws/src/asitlorbot8_controller) by extension 'ros'
+[1.107s] DEBUG:colcon.colcon_core.package_identification:Package '/home/asimkumar/asitlorbot8_ws/src/asitlorbot8_controller' with type 'ros.ament_cmake' and name 'asitlorbot8_controller'
+[1.107s] Level 1:colcon.colcon_core.package_identification:_identify(/home/asimkumar/asitlorbot8_ws/src/asitlorbot8_cpp_examples) by extensions ['ignore', 'ignore_ament_install']
+[1.107s] Level 1:colcon.colcon_core.package_identification:_identify(/home/asimkumar/asitlorbot8_ws/src/asitlorbot8_cpp_examples) by extension 'ignore'
+[1.108s] Level 1:colcon.colcon_core.package_identification:_identify(/home/asimkumar/asitlorbot8_ws/src/asitlorbot8_cpp_examples) by extension 'ignore_ament_install'
+[1.108s] Level 1:colcon.colcon_core.package_identification:_identify(/home/asimkumar/asitlorbot8_ws/src/asitlorbot8_cpp_examples) by extensions ['colcon_pkg']
+[1.108s] Level 1:colcon.colcon_core.package_identification:_identify(/home/asimkumar/asitlorbot8_ws/src/asitlorbot8_cpp_examples) by extension 'colcon_pkg'
+[1.108s] Level 1:colcon.colcon_core.package_identification:_identify(/home/asimkumar/asitlorbot8_ws/src/asitlorbot8_cpp_examples) by extensions ['colcon_meta']
+[1.108s] Level 1:colcon.colcon_core.package_identification:_identify(/home/asimkumar/asitlorbot8_ws/src/asitlorbot8_cpp_examples) by extension 'colcon_meta'
+[1.108s] Level 1:colcon.colcon_core.package_identification:_identify(/home/asimkumar/asitlorbot8_ws/src/asitlorbot8_cpp_examples) by extensions ['ros']
+[1.108s] Level 1:colcon.colcon_core.package_identification:_identify(/home/asimkumar/asitlorbot8_ws/src/asitlorbot8_cpp_examples) by extension 'ros'
+[1.114s] DEBUG:colcon.colcon_core.package_identification:Package '/home/asimkumar/asitlorbot8_ws/src/asitlorbot8_cpp_examples' with type 'ros.ament_cmake' and name 'asitlorbot8_cpp_examples'
+[1.114s] Level 1:colcon.colcon_core.package_identification:_identify(/home/asimkumar/asitlorbot8_ws/src/asitlorbot8_description) by extensions ['ignore', 'ignore_ament_install']
+[1.117s] Level 1:colcon.colcon_core.package_identification:_identify(/home/asimkumar/asitlorbot8_ws/src/asitlorbot8_description) by extension 'ignore'
+[1.117s] Level 1:colcon.colcon_core.package_identification:_identify(/home/asimkumar/asitlorbot8_ws/src/asitlorbot8_description) by extension 'ignore_ament_install'
+[1.118s] Level 1:colcon.colcon_core.package_identification:_identify(/home/asimkumar/asitlorbot8_ws/src/asitlorbot8_description) by extensions ['colcon_pkg']
+[1.118s] Level 1:colcon.colcon_core.package_identification:_identify(/home/asimkumar/asitlorbot8_ws/src/asitlorbot8_description) by extension 'colcon_pkg'
+[1.118s] Level 1:colcon.colcon_core.package_identification:_identify(/home/asimkumar/asitlorbot8_ws/src/asitlorbot8_description) by extensions ['colcon_meta']
+[1.118s] Level 1:colcon.colcon_core.package_identification:_identify(/home/asimkumar/asitlorbot8_ws/src/asitlorbot8_description) by extension 'colcon_meta'
+[1.118s] Level 1:colcon.colcon_core.package_identification:_identify(/home/asimkumar/asitlorbot8_ws/src/asitlorbot8_description) by extensions ['ros']
+[1.120s] Level 1:colcon.colcon_core.package_identification:_identify(/home/asimkumar/asitlorbot8_ws/src/asitlorbot8_description) by extension 'ros'
+[1.121s] DEBUG:colcon.colcon_core.package_identification:Package '/home/asimkumar/asitlorbot8_ws/src/asitlorbot8_description' with type 'ros.ament_cmake' and name 'asitlorbot8_description'
+[1.121s] Level 1:colcon.colcon_core.package_identification:_identify(/home/asimkumar/asitlorbot8_ws/src/asitlorbot8_firmware) by extensions ['ignore', 'ignore_ament_install']
+[1.122s] Level 1:colcon.colcon_core.package_identification:_identify(/home/asimkumar/asitlorbot8_ws/src/asitlorbot8_firmware) by extension 'ignore'
+[1.139s] Level 1:colcon.colcon_core.package_identification:_identify(/home/asimkumar/asitlorbot8_ws/src/asitlorbot8_firmware) by extension 'ignore_ament_install'
+[1.139s] Level 1:colcon.colcon_core.package_identification:_identify(/home/asimkumar/asitlorbot8_ws/src/asitlorbot8_firmware) by extensions ['colcon_pkg']
+[1.139s] Level 1:colcon.colcon_core.package_identification:_identify(/home/asimkumar/asitlorbot8_ws/src/asitlorbot8_firmware) by extension 'colcon_pkg'
+[1.139s] Level 1:colcon.colcon_core.package_identification:_identify(/home/asimkumar/asitlorbot8_ws/src/asitlorbot8_firmware) by extensions ['colcon_meta']
+[1.139s] Level 1:colcon.colcon_core.package_identification:_identify(/home/asimkumar/asitlorbot8_ws/src/asitlorbot8_firmware) by extension 'colcon_meta'
+[1.139s] Level 1:colcon.colcon_core.package_identification:_identify(/home/asimkumar/asitlorbot8_ws/src/asitlorbot8_firmware) by extensions ['ros']
+[1.139s] Level 1:colcon.colcon_core.package_identification:_identify(/home/asimkumar/asitlorbot8_ws/src/asitlorbot8_firmware) by extension 'ros'
+[1.141s] DEBUG:colcon.colcon_core.package_identification:Package '/home/asimkumar/asitlorbot8_ws/src/asitlorbot8_firmware' with type 'ros.ament_cmake' and name 'asitlorbot8_firmware'
+[1.142s] Level 1:colcon.colcon_core.package_identification:_identify(/home/asimkumar/asitlorbot8_ws/src/asitlorbot8_localization) by extensions ['ignore', 'ignore_ament_install']
+[1.142s] Level 1:colcon.colcon_core.package_identification:_identify(/home/asimkumar/asitlorbot8_ws/src/asitlorbot8_localization) by extension 'ignore'
+[1.142s] Level 1:colcon.colcon_core.package_identification:_identify(/home/asimkumar/asitlorbot8_ws/src/asitlorbot8_localization) by extension 'ignore_ament_install'
+[1.142s] Level 1:colcon.colcon_core.package_identification:_identify(/home/asimkumar/asitlorbot8_ws/src/asitlorbot8_localization) by extensions ['colcon_pkg']
+[1.142s] Level 1:colcon.colcon_core.package_identification:_identify(/home/asimkumar/asitlorbot8_ws/src/asitlorbot8_localization) by extension 'colcon_pkg'
+[1.142s] Level 1:colcon.colcon_core.package_identification:_identify(/home/asimkumar/asitlorbot8_ws/src/asitlorbot8_localization) by extensions ['colcon_meta']
+[1.142s] Level 1:colcon.colcon_core.package_identification:_identify(/home/asimkumar/asitlorbot8_ws/src/asitlorbot8_localization) by extension 'colcon_meta'
+[1.143s] Level 1:colcon.colcon_core.package_identification:_identify(/home/asimkumar/asitlorbot8_ws/src/asitlorbot8_localization) by extensions ['ros']
+[1.143s] Level 1:colcon.colcon_core.package_identification:_identify(/home/asimkumar/asitlorbot8_ws/src/asitlorbot8_localization) by extension 'ros'
+[1.144s] DEBUG:colcon.colcon_core.package_identification:Package '/home/asimkumar/asitlorbot8_ws/src/asitlorbot8_localization' with type 'ros.ament_cmake' and name 'asitlorbot8_localization'
+[1.144s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) using defaults

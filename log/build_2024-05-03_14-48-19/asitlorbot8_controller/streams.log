@@ -1,0 +1,44 @@
+[0.040s] Invoking command in '/home/asimkumar/asitlorbot8_ws/build/asitlorbot8_controller': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/asimkumar/asitlorbotsix_ws/install/asitlorbot_six:/opt/ros/humble /usr/bin/cmake /home/asimkumar/asitlorbot8_ws/src/asitlorbot8_controller -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/home/asimkumar/asitlorbot8_ws/install/asitlorbot8_controller
+[0.142s] -- The C compiler identification is GNU 11.4.0
+[0.240s] -- The CXX compiler identification is GNU 11.4.0
+[0.254s] -- Detecting C compiler ABI info
+[0.374s] -- Detecting C compiler ABI info - done
+[0.384s] -- Check for working C compiler: /usr/bin/cc - skipped
+[0.384s] -- Detecting C compile features
+[0.385s] -- Detecting C compile features - done
+[0.390s] -- Detecting CXX compiler ABI info
+[0.527s] -- Detecting CXX compiler ABI info - done
+[0.539s] -- Check for working CXX compiler: /usr/bin/c++ - skipped
+[0.539s] -- Detecting CXX compile features
+[0.540s] -- Detecting CXX compile features - done
+[0.549s] -- Found ament_cmake: 1.3.8 (/opt/ros/humble/share/ament_cmake/cmake)
+[0.801s] -- Found Python3: /usr/bin/python3 (found version "3.10.12") found components: Interpreter 
+[0.897s] -- Override CMake install command with custom implementation using symlinks instead of copying resources
+[1.013s] -- Found ament_lint_auto: 0.12.10 (/opt/ros/humble/share/ament_lint_auto/cmake)
+[1.174s] -- Added test 'lint_cmake' to check CMake code style
+[1.177s] -- Added test 'xmllint' to check XML markup files
+[1.180s] -- Configuring done
+[1.185s] -- Generating done
+[1.186s] -- Build files have been written to: /home/asimkumar/asitlorbot8_ws/build/asitlorbot8_controller
+[1.192s] Invoked command in '/home/asimkumar/asitlorbot8_ws/build/asitlorbot8_controller' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/asimkumar/asitlorbotsix_ws/install/asitlorbot_six:/opt/ros/humble /usr/bin/cmake /home/asimkumar/asitlorbot8_ws/src/asitlorbot8_controller -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/home/asimkumar/asitlorbot8_ws/install/asitlorbot8_controller
+[1.196s] Invoking command in '/home/asimkumar/asitlorbot8_ws/build/asitlorbot8_controller': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/asimkumar/asitlorbotsix_ws/install/asitlorbot_six:/opt/ros/humble /usr/bin/cmake --build /home/asimkumar/asitlorbot8_ws/build/asitlorbot8_controller -- -j8 -l8
+[1.266s] Invoked command in '/home/asimkumar/asitlorbot8_ws/build/asitlorbot8_controller' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/asimkumar/asitlorbotsix_ws/install/asitlorbot_six:/opt/ros/humble /usr/bin/cmake --build /home/asimkumar/asitlorbot8_ws/build/asitlorbot8_controller -- -j8 -l8
+[1.313s] Invoking command in '/home/asimkumar/asitlorbot8_ws/build/asitlorbot8_controller': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/asimkumar/asitlorbotsix_ws/install/asitlorbot_six:/opt/ros/humble /usr/bin/cmake --install /home/asimkumar/asitlorbot8_ws/build/asitlorbot8_controller
+[1.327s] -- Install configuration: ""
+[1.328s] -- Execute custom install script
+[1.328s] -- Symlinking: /home/asimkumar/asitlorbot8_ws/install/asitlorbot8_controller/share/ament_index/resource_index/package_run_dependencies/asitlorbot8_controller
+[1.345s] -- Symlinking: /home/asimkumar/asitlorbot8_ws/install/asitlorbot8_controller/share/ament_index/resource_index/parent_prefix_path/asitlorbot8_controller
+[1.363s] -- Symlinking: /home/asimkumar/asitlorbot8_ws/install/asitlorbot8_controller/share/asitlorbot8_controller/environment/ament_prefix_path.sh
+[1.380s] -- Symlinking: /home/asimkumar/asitlorbot8_ws/install/asitlorbot8_controller/share/asitlorbot8_controller/environment/ament_prefix_path.dsv
+[1.398s] -- Symlinking: /home/asimkumar/asitlorbot8_ws/install/asitlorbot8_controller/share/asitlorbot8_controller/environment/path.sh
+[1.415s] -- Symlinking: /home/asimkumar/asitlorbot8_ws/install/asitlorbot8_controller/share/asitlorbot8_controller/environment/path.dsv
+[1.435s] -- Symlinking: /home/asimkumar/asitlorbot8_ws/install/asitlorbot8_controller/share/asitlorbot8_controller/local_setup.bash
+[1.453s] -- Symlinking: /home/asimkumar/asitlorbot8_ws/install/asitlorbot8_controller/share/asitlorbot8_controller/local_setup.sh
+[1.470s] -- Symlinking: /home/asimkumar/asitlorbot8_ws/install/asitlorbot8_controller/share/asitlorbot8_controller/local_setup.zsh
+[1.487s] -- Symlinking: /home/asimkumar/asitlorbot8_ws/install/asitlorbot8_controller/share/asitlorbot8_controller/local_setup.dsv
+[1.504s] -- Symlinking: /home/asimkumar/asitlorbot8_ws/install/asitlorbot8_controller/share/asitlorbot8_controller/package.dsv
+[1.522s] -- Symlinking: /home/asimkumar/asitlorbot8_ws/install/asitlorbot8_controller/share/ament_index/resource_index/packages/asitlorbot8_controller
+[1.539s] -- Symlinking: /home/asimkumar/asitlorbot8_ws/install/asitlorbot8_controller/share/asitlorbot8_controller/cmake/asitlorbot8_controllerConfig.cmake
+[1.557s] -- Symlinking: /home/asimkumar/asitlorbot8_ws/install/asitlorbot8_controller/share/asitlorbot8_controller/cmake/asitlorbot8_controllerConfig-version.cmake
+[1.574s] -- Symlinking: /home/asimkumar/asitlorbot8_ws/install/asitlorbot8_controller/share/asitlorbot8_controller/package.xml
+[1.595s] Invoked command in '/home/asimkumar/asitlorbot8_ws/build/asitlorbot8_controller' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/asimkumar/asitlorbotsix_ws/install/asitlorbot_six:/opt/ros/humble /usr/bin/cmake --install /home/asimkumar/asitlorbot8_ws/build/asitlorbot8_controller

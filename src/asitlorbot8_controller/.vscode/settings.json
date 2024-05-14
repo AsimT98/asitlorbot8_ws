@@ -1,0 +1,28 @@
+{
+    "python.autoComplete.extraPaths": [
+        "/home/asimkumar/asitlorbot7_ws/install/asitlorbot7_controller/local/lib/python3.10/dist-packages",
+        "/home/asimkumar/asitlor_ws/install/asitlorbot_five_localization/local/lib/python3.10/dist-packages",
+        "/home/asimkumar/asitlor_ws/install/asitlorbot_five_controller/local/lib/python3.10/dist-packages",
+        "/home/asimkumar/asitlor_ws/install/asitlorbot_firmware/local/lib/python3.10/dist-packages",
+        "/home/asimkumar/asitlorbot8_ws/install/asitlotbotsix_controller/local/lib/python3.10/dist-packages",
+        "/home/asimkumar/asitlorbot8_ws/install/asitlorbot8_localization/local/lib/python3.10/dist-packages",
+        "/home/asimkumar/asitlorbot8_ws/install/asitlorbot8_firmware/local/lib/python3.10/dist-packages",
+        "/home/asimkumar/asitlorbot8_ws/build/asitlorbot_six",
+        "/home/asimkumar/asitlorbot8_ws/install/asitlorbot_six/lib/python3.10/site-packages",
+        "/opt/ros/humble/lib/python3.10/site-packages",
+        "/opt/ros/humble/local/lib/python3.10/dist-packages"
+    ],
+    "python.analysis.extraPaths": [
+        "/home/asimkumar/asitlorbot7_ws/install/asitlorbot7_controller/local/lib/python3.10/dist-packages",
+        "/home/asimkumar/asitlor_ws/install/asitlorbot_five_localization/local/lib/python3.10/dist-packages",
+        "/home/asimkumar/asitlor_ws/install/asitlorbot_five_controller/local/lib/python3.10/dist-packages",
+        "/home/asimkumar/asitlor_ws/install/asitlorbot_firmware/local/lib/python3.10/dist-packages",
+        "/home/asimkumar/asitlorbot8_ws/install/asitlotbotsix_controller/local/lib/python3.10/dist-packages",
+        "/home/asimkumar/asitlorbot8_ws/install/asitlorbot8_localization/local/lib/python3.10/dist-packages",
+        "/home/asimkumar/asitlorbot8_ws/install/asitlorbot8_firmware/local/lib/python3.10/dist-packages",
+        "/home/asimkumar/asitlorbot8_ws/build/asitlorbot_six",
+        "/home/asimkumar/asitlorbot8_ws/install/asitlorbot_six/lib/python3.10/site-packages",
+        "/opt/ros/humble/lib/python3.10/site-packages",
+        "/opt/ros/humble/local/lib/python3.10/dist-packages"
+    ]
+}

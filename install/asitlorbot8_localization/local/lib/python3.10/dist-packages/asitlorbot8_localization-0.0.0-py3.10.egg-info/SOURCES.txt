@@ -1,0 +1,1 @@
+/home/asimkumar/asitlorbot8_ws/build/asitlorbot8_localization/ament_cmake_python/asitlorbot8_localization/asitlorbot8_localization.egg-info/SOURCES.txt

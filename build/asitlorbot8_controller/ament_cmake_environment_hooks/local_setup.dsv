@@ -1,0 +1,3 @@
+source;share/asitlorbot8_controller/environment/ament_prefix_path.sh
+source;share/asitlorbot8_controller/environment/path.sh
+source;share/asitlorbot8_controller/environment/pythonpath.sh

@@ -1,0 +1,8 @@
+[01m[K/home/asimkumar/asitlorbot8_ws/src/asitlorbot8_firmware/src/asitlorbot8_interface.cpp:1:10:[m[K [01;31m[Kfatal error: [m[Kasitlorbot8_firmware/asitlorbot8_interface.hpp: No such file or directory
+    1 | #include [01;31m[K"asitlorbot8_firmware/asitlorbot8_interface.hpp"[m[K
+      |          [01;31m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+compilation terminated.
+gmake[2]: *** [CMakeFiles/asitlorbot8_firmware.dir/build.make:76: CMakeFiles/asitlorbot8_firmware.dir/src/asitlorbot8_interface.cpp.o] Error 1
+gmake[1]: *** [CMakeFiles/Makefile2:196: CMakeFiles/asitlorbot8_firmware.dir/all] Error 2
+gmake[1]: *** Waiting for unfinished jobs....
+gmake: *** [Makefile:146: all] Error 2

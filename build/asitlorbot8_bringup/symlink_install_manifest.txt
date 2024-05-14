@@ -1,0 +1,17 @@
+/home/asimkumar/asitlorbot8_ws/install/asitlorbot8_bringup/share/asitlorbot8_bringup/launch/real_robot.launch.py
+/home/asimkumar/asitlorbot8_ws/install/asitlorbot8_bringup/share/asitlorbot8_bringup/launch/simulated_robot.launch.py
+/home/asimkumar/asitlorbot8_ws/install/asitlorbot8_bringup/share/ament_index/resource_index/package_run_dependencies/asitlorbot8_bringup
+/home/asimkumar/asitlorbot8_ws/install/asitlorbot8_bringup/share/ament_index/resource_index/parent_prefix_path/asitlorbot8_bringup
+/home/asimkumar/asitlorbot8_ws/install/asitlorbot8_bringup/share/asitlorbot8_bringup/environment/ament_prefix_path.sh
+/home/asimkumar/asitlorbot8_ws/install/asitlorbot8_bringup/share/asitlorbot8_bringup/environment/ament_prefix_path.dsv
+/home/asimkumar/asitlorbot8_ws/install/asitlorbot8_bringup/share/asitlorbot8_bringup/environment/path.sh
+/home/asimkumar/asitlorbot8_ws/install/asitlorbot8_bringup/share/asitlorbot8_bringup/environment/path.dsv
+/home/asimkumar/asitlorbot8_ws/install/asitlorbot8_bringup/share/asitlorbot8_bringup/local_setup.bash
+/home/asimkumar/asitlorbot8_ws/install/asitlorbot8_bringup/share/asitlorbot8_bringup/local_setup.sh
+/home/asimkumar/asitlorbot8_ws/install/asitlorbot8_bringup/share/asitlorbot8_bringup/local_setup.zsh
+/home/asimkumar/asitlorbot8_ws/install/asitlorbot8_bringup/share/asitlorbot8_bringup/local_setup.dsv
+/home/asimkumar/asitlorbot8_ws/install/asitlorbot8_bringup/share/asitlorbot8_bringup/package.dsv
+/home/asimkumar/asitlorbot8_ws/install/asitlorbot8_bringup/share/ament_index/resource_index/packages/asitlorbot8_bringup
+/home/asimkumar/asitlorbot8_ws/install/asitlorbot8_bringup/share/asitlorbot8_bringup/cmake/asitlorbot8_bringupConfig.cmake
+/home/asimkumar/asitlorbot8_ws/install/asitlorbot8_bringup/share/asitlorbot8_bringup/cmake/asitlorbot8_bringupConfig-version.cmake
+/home/asimkumar/asitlorbot8_ws/install/asitlorbot8_bringup/share/asitlorbot8_bringup/package.xml

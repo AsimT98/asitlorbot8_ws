@@ -1,0 +1,11 @@
+setup.py
+asitlorbot8_localization/__init__.py
+asitlorbot8_localization/bayesian_optimization.py
+asitlorbot8_localization/imu_republisher.py
+asitlorbot8_localization/rmse.py
+asitlorbot8_localization/set_init_amcl_pose.py
+asitlorbot8_localization/test.py
+asitlorbot8_localization.egg-info/PKG-INFO
+asitlorbot8_localization.egg-info/SOURCES.txt
+asitlorbot8_localization.egg-info/dependency_links.txt
+asitlorbot8_localization.egg-info/top_level.txt
