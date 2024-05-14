@@ -1,3 +1,4 @@
+/home/asimkumar/asitlorbot8_ws/install/asitlorbot8_bringup/share/asitlorbot8_bringup/launch/autonomous_navigation.launch.py
 /home/asimkumar/asitlorbot8_ws/install/asitlorbot8_bringup/share/asitlorbot8_bringup/launch/real_robot.launch.py
 /home/asimkumar/asitlorbot8_ws/install/asitlorbot8_bringup/share/asitlorbot8_bringup/launch/simulated_robot.launch.py
 /home/asimkumar/asitlorbot8_ws/install/asitlorbot8_bringup/share/ament_index/resource_index/package_run_dependencies/asitlorbot8_bringup
