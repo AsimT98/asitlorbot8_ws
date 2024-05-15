@@ -45,10 +45,17 @@ def generate_launch_description():
             ),
         ],
     )
-
+    imu_node = Node(
+            package='dextrobot_controller',
+            executable='imu_sense.py',
+            name='imu_sense',
+            output='screen',
+            respawn=True
+        )
     return LaunchDescription(
         [
             robot_state_publisher_node,
             controller_manager,
+            imu_node
         ]
     )   

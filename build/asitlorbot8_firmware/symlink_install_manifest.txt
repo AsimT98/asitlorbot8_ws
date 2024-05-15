@@ -11,6 +11,7 @@
 /home/asimkumar/asitlorbot8_ws/install/asitlorbot8_firmware/lib/libasitlorbot8_firmware.so
 /home/asimkumar/asitlorbot8_ws/install/asitlorbot8_firmware/include/include/asitlorbot8_firmware/asitlorbot8_interface.hpp
 /home/asimkumar/asitlorbot8_ws/install/asitlorbot8_firmware/share/asitlorbot8_firmware/launch/hardware_interface.launch.py
+/home/asimkumar/asitlorbot8_ws/install/asitlorbot8_firmware/share/asitlorbot8_firmware/launch/imu_sense.py
 /home/asimkumar/asitlorbot8_ws/install/asitlorbot8_firmware/lib/asitlorbot8_firmware/simple_serial_transmitter.py
 /home/asimkumar/asitlorbot8_ws/install/asitlorbot8_firmware/lib/asitlorbot8_firmware/simple_serial_receiver.py
 /home/asimkumar/asitlorbot8_ws/install/asitlorbot8_firmware/bin/simple_serial_receiver
