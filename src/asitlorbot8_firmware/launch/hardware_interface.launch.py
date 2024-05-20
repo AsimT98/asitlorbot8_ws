@@ -11,7 +11,7 @@ from launch.launch_description_sources import PythonLaunchDescriptionSource
 
 def generate_launch_description():
 
-    robot_description = ParameterValue(
+    robot_description = ParameterValue( 
         Command(
             [
                 "xacro ",
@@ -56,6 +56,6 @@ def generate_launch_description():
         [
             robot_state_publisher_node,
             controller_manager,
-            imu_node
+            # imu_node
         ]
     )   

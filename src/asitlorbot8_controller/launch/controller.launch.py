@@ -109,7 +109,7 @@ def generate_launch_description():
             joint_state_broadcaster_spawner,
             simple_controller,
             noisy_controller_launch,
-            # my_custom_node
+            my_custom_node
                 
         ]
         

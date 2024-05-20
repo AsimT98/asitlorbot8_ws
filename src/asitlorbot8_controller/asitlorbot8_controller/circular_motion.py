@@ -288,80 +288,159 @@
 #     main()
 
 #LIDAR and obstacle avoidance
+# import rclpy
+# from rclpy.node import Node
+# from geometry_msgs.msg import Twist, PoseStamped
+# from nav_msgs.msg import Odometry, Path
+# from sensor_msgs.msg import LaserScan
+# import math
+# import random
+
+# class RandomMotionNode(Node):
+#     def __init__(self):
+#         super().__init__('random_motion_node')
+#         self.publisher_cmd_vel = self.create_publisher(Twist, 'diff_cont/cmd_vel_unstamped', 10)
+#         self.publisher_odom = self.create_publisher(Odometry, 'odom', 10)
+#         self.publisher_path_base_link = self.create_publisher(Path, 'path_base_footprint', 10)
+#         self.subscription = self.create_subscription(
+#             LaserScan,
+#             '/laser_controller/out',  # Replace 'scan' with the actual topic of your lidar data
+#             self.lidar_callback,
+#             10)
+#         self.timer = self.create_timer(0.1, self.timer_callback)
+#         self.linear_velocity = 0.2
+#         self.angular_velocity = 0.65
+#         self.robot_width = 0.4  # Width of the robot
+#         self.obstacle_distance_threshold = 0.6  # Adjust based on the range of your lidar
+#         self.path_base_link = Path()
+#         self.path_base_link.header.frame_id = 'base_link'
+#         self.obstacle_detected = False
+
+#     def timer_callback(self):
+#         twist_msg = Twist()
+#         if not self.obstacle_detected:
+#             twist_msg.linear.x = self.linear_velocity
+#             twist_msg.angular.z = random.uniform(-self.angular_velocity, self.angular_velocity)
+#         else:
+#             twist_msg.angular.z = self.angular_velocity  # Rotate in place
+#             self.obstacle_detected = False  # Reset obstacle detected flag to check again in the next callback
+
+#         self.publisher_cmd_vel.publish(twist_msg)
+
+#         # Publish odom
+#         odom_msg = Odometry()
+#         odom_msg.header.stamp = self.get_clock().now().to_msg()
+#         odom_msg.header.frame_id = 'odom'
+#         odom_msg.child_frame_id = 'base_link'
+#         odom_msg.twist.twist = twist_msg
+#         self.publisher_odom.publish(odom_msg)
+
+#         # Update path_base_link
+#         pose = PoseStamped()
+#         pose.header.stamp = odom_msg.header.stamp
+#         pose.header.frame_id = 'base_link'
+#         pose.pose.position.x = odom_msg.pose.pose.position.x
+#         pose.pose.position.y = odom_msg.pose.pose.position.y
+#         pose.pose.orientation = odom_msg.pose.pose.orientation
+#         self.path_base_link.poses.append(pose)
+#         self.publisher_path_base_link.publish(self.path_base_link)
+
+#     def lidar_callback(self, msg):
+#         # Check for obstacles within a threshold distance
+#         self.obstacle_detected = any(range < self.obstacle_distance_threshold for range in msg.ranges)
+
+# def main(args=None):
+#     rclpy.init(args=args)
+#     random_motion_node = RandomMotionNode()
+#     rclpy.spin(random_motion_node)
+#     random_motion_node.destroy_node()
+#     rclpy.shutdown()
+
+# if __name__ == '__main__':
+#     main()
+
 import rclpy
 from rclpy.node import Node
-from geometry_msgs.msg import Twist, PoseStamped
-from nav_msgs.msg import Odometry, Path
+from geometry_msgs.msg import Twist
 from sensor_msgs.msg import LaserScan
 import math
-import random 
+import random
 
-class RandomMotionNode(Node):
+class RandomMove(Node):
     def __init__(self):
-        super().__init__('random_motion_node')
-        self.publisher_cmd_vel = self.create_publisher(Twist, 'diff_cont/cmd_vel_unstamped', 10)
-        self.publisher_odom = self.create_publisher(Odometry, 'odom', 10)
-        self.publisher_path_base_link = self.create_publisher(Path, 'path_base_footprint', 10)
-        self.subscription = self.create_subscription(
-            LaserScan,
-            '/laser_controller/out',  # Replace 'scan' with the actual topic of your lidar data
-            self.lidar_callback,
-            10)
-        self.timer = self.create_timer(0.1, self.timer_callback)
-        self.linear_velocity = 0.2
-        self.angular_velocity = 0.6
-        self.robot_width = 0.4  # Width of the robot
-        self.obstacle_distance_threshold = 0.6  # Adjust based on the range of your lidar
-        self.path_base_link = Path()
-        self.path_base_link.header.frame_id = 'base_link'
-        self.obstacle_detected = True
+        super().__init__('random_move')
+        self.cmd_vel_pub = self.create_publisher(Twist, 'diff_cont/cmd_vel_unstamped', 10)
+        self.laser_sub = self.create_subscription(LaserScan, '/laser_controller/out', self.laser_callback, 10)
+        self.timer = self.create_timer(0.1, self.control_loop)
+        self.twist_msg = Twist()
+        self.state = 'MOVING'
+        self.rotation_start_time = None
+        self.rotation_duration = 0
 
-    def timer_callback(self):
-        twist_msg = Twist()
-        if not self.obstacle_detected:
-            twist_msg.linear.x = self.linear_velocity
-            twist_msg.angular.z = random.uniform(-self.angular_velocity, self.angular_velocity)
-        else:
-            # Calculate the required rotation angle to cover the new path width
-            rotation_angle = math.atan2(self.robot_width / 2, self.obstacle_distance_threshold)
-            twist_msg.angular.z = math.copysign(self.angular_velocity, rotation_angle)
-            self.obstacle_detected = False
-        self.publisher_cmd_vel.publish(twist_msg)
+        # Initial velocities
+        self.twist_msg.linear.x = random.uniform(0.1, 0.2)
+        self.twist_msg.angular.z = 0.0
 
-        # Publish odom
-        odom_msg = Odometry()
-        odom_msg.header.stamp = self.get_clock().now().to_msg()
-        odom_msg.header.frame_id = 'odom'
-        odom_msg.child_frame_id = 'base_link'
-        odom_msg.twist.twist = twist_msg
-        self.publisher_odom.publish(odom_msg)
+    def control_loop(self):
+        if self.state == 'MOVING':
+            self.cmd_vel_pub.publish(self.twist_msg)
+        elif self.state == 'ROTATING':
+            current_time = self.get_clock().now()
+            if (current_time - self.rotation_start_time).nanoseconds / 1e9 >= self.rotation_duration:
+                self.state = 'MOVING'
+                self.twist_msg.angular.z = 0.0
+                self.twist_msg.linear.x = random.uniform(0.2, 0.5)
+            self.cmd_vel_pub.publish(self.twist_msg)
 
-        # Update path_base_link
-        pose = PoseStamped()
-        pose.header.stamp = odom_msg.header.stamp
-        pose.header.frame_id = 'base_link'
-        pose.pose.position.x = odom_msg.pose.pose.position.x
-        pose.pose.position.y = odom_msg.pose.pose.position.y
-        pose.pose.orientation = odom_msg.pose.pose.orientation
-        self.path_base_link.poses.append(pose)
-        self.publisher_path_base_link.publish(self.path_base_link)
+    def laser_callback(self, msg):
+        front_angle_range = 15  # Degrees to consider as "front"
+        front_index_range = int(front_angle_range / math.degrees(msg.angle_increment))
+        mid_index = len(msg.ranges) // 2
 
-    def lidar_callback(self, msg):
-        # Check for obstacles within a threshold distance
-        for i, range in enumerate(msg.ranges):
-            if range < self.obstacle_distance_threshold:
-                self.obstacle_detected = True
-                break
+        # Check front ranges for obstacles
+        front_ranges = msg.ranges[mid_index - front_index_range : mid_index + front_index_range + 1]
+        obstacle_detected = any(r < 0.7 for r in front_ranges if not math.isnan(r))
+
+        if obstacle_detected and self.state == 'MOVING':
+            self.state = 'ROTATING'
+            self.twist_msg.linear.x = 0.0
+            self.twist_msg.angular.z = math.radians(90)  # Rotate 60 degrees
+            self.rotation_start_time = self.get_clock().now()
+            self.rotation_duration = 1.0  # Duration to rotate 60 degrees
 
 def main(args=None):
     rclpy.init(args=args)
-    random_motion_node = RandomMotionNode()
-    rclpy.spin(random_motion_node)
-    random_motion_node.destroy_node()
+    random_move_node = RandomMove()
+    try:
+        rclpy.spin(random_move_node)
+    except KeyboardInterrupt:
+        pass
+    random_move_node.destroy_node()
     rclpy.shutdown()
 
 if __name__ == '__main__':
     main()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

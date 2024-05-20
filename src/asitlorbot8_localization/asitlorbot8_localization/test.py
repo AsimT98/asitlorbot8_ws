@@ -1,67 +1,109 @@
 #!/usr/bin/env python3
 
+import yaml
 import pandas as pd
-import numpy as np
-from skopt import gp_minimize
 
-# Load data from Excel sheet
-data = pd.read_excel("/home/asimkumar/asitlor_ws/data4.xlsx")
-
-def objective_function(process_noise_covariance_matrix):
-    objective_value_nees = 0
-    objective_value_rmse = 0
-    process_noise_covariance_1d = data.iloc[0, 40:].values
-
-    # Reshape process_noise_covariance_matrix to a 15x15 matrix
-    process_noise_covariance_matrix = np.array(process_noise_covariance_1d).reshape((15, 15))
+def read_process_noise_covariance(file_path):
+    with open(file_path, 'r') as file:
+        config = yaml.safe_load(file)
     
-    # Loop over data in batches of 50
-    num_batches = len(data) // 50
+    try:
+        covariance = config['ekf_filter_node']['ros__parameters']['process_noise_covariance']
+        return covariance
+    except KeyError as e:
+        print(f"KeyError: {e} not found in the configuration file.")
+        return None
 
-    for i in range(num_batches):
-        start_idx = i * 50
-        end_idx = (i + 1) * 50
+def store_covariance_in_excel(covariance, excel_file):
+    # Generate column names from 0 to 224
+    column_names = list(range(225))
+    
+    # Convert the covariance list to a DataFrame with one row and specified column names
+    df = pd.DataFrame([covariance], columns=column_names)
+    
+    # Create an Excel writer object and save the DataFrame to Excel
+    with pd.ExcelWriter(excel_file, engine='openpyxl') as writer:
+        df.to_excel(writer, index=False)
 
-        # Extract ground truth state variables for the current batch
-        x_gt_batch = data[['GT_Pos_X', 'GT_Pos_Y', 'GT_Pos_Z','GT_Roll','GT_Pitch','GT_Yaw','GT_Vel_X','GT_Vel_Y','GT_Vel_Z','GT_Vel_Roll','GT_Vel_Pitch','GT_Angular_Vel_Yaw','GT_Accel_X','GT_Accel_Y','GT_Accel_Z']][start_idx:end_idx].values
+if __name__ == "__main__":
+    yaml_file = '/home/asimkumar/asitlorbot8_ws/src/asitlorbot8_localization/config/ekf.yaml'
+    excel_file = 'process_noise_covariance.xlsx'
+    
+    covariance = read_process_noise_covariance(yaml_file)
+    
+    if covariance is not None:
+        print("Process Noise Covariance:")
+        print(covariance)
+        store_covariance_in_excel(covariance, excel_file)
+        print(f"Covariance stored in {excel_file}")
+    else:
+        print("Process noise covariance could not be read.")
 
-        # Extract estimated state variables for the current batch
-        x_est_batch = data[['ET_Pos_X', 'ET_Pos_Y', 'ET_Pos_Z','ET_Roll','ET_Pitch','ET_Yaw','ET_Vel_X','ET_Vel_Y','ET_Vel_Z','ET_Vel_Roll','ET_Vel_Pitch','ET_Angular_Vel_Yaw','ET_Accel_X','ET_Accel_Y','ET_Accel_Z']][start_idx:end_idx].values
 
-        # Compute NEES for all variables
-        e_x_batch = x_gt_batch - x_est_batch
-        NEES_batch = np.sum(e_x_batch @ np.linalg.inv(process_noise_covariance_matrix) * e_x_batch, axis=1)
-        avg_NEES_batch = np.mean(NEES_batch)
-        objective_value_nees += np.abs(avg_NEES_batch - 9.488)  # Target NEES value
+
+
+# import pandas as pd
+# import numpy as np
+# from skopt import gp_minimize
+
+# # Load data from Excel sheet
+# data = pd.read_excel("/home/asimkumar/asitlor_ws/data4.xlsx")
+
+# def objective_function(process_noise_covariance_matrix):
+#     objective_value_nees = 0
+#     objective_value_rmse = 0
+#     process_noise_covariance_1d = data.iloc[0, 40:].values
+
+#     # Reshape process_noise_covariance_matrix to a 15x15 matrix
+#     process_noise_covariance_matrix = np.array(process_noise_covariance_1d).reshape((15, 15))
+    
+#     # Loop over data in batches of 50
+#     num_batches = len(data) // 50
+
+#     for i in range(num_batches):
+#         start_idx = i * 50
+#         end_idx = (i + 1) * 50
+
+#         # Extract ground truth state variables for the current batch
+#         x_gt_batch = data[['GT_Pos_X', 'GT_Pos_Y', 'GT_Pos_Z','GT_Roll','GT_Pitch','GT_Yaw','GT_Vel_X','GT_Vel_Y','GT_Vel_Z','GT_Vel_Roll','GT_Vel_Pitch','GT_Angular_Vel_Yaw','GT_Accel_X','GT_Accel_Y','GT_Accel_Z']][start_idx:end_idx].values
+
+#         # Extract estimated state variables for the current batch
+#         x_est_batch = data[['ET_Pos_X', 'ET_Pos_Y', 'ET_Pos_Z','ET_Roll','ET_Pitch','ET_Yaw','ET_Vel_X','ET_Vel_Y','ET_Vel_Z','ET_Vel_Roll','ET_Vel_Pitch','ET_Angular_Vel_Yaw','ET_Accel_X','ET_Accel_Y','ET_Accel_Z']][start_idx:end_idx].values
+
+#         # Compute NEES for all variables
+#         e_x_batch = x_gt_batch - x_est_batch
+#         NEES_batch = np.sum(e_x_batch @ np.linalg.inv(process_noise_covariance_matrix) * e_x_batch, axis=1)
+#         avg_NEES_batch = np.mean(NEES_batch)
+#         objective_value_nees += np.abs(avg_NEES_batch - 9.488)  # Target NEES value
         
-        # Compute RMSE for GT_Angular_Vel_Z and GT_Yaw
-        rmse_batch = np.sqrt(np.mean((x_gt_batch[:, [3, 0]] - x_est_batch[:, [3, 0]]) ** 2))  # GT_Angular_Vel_Z and GT_Yaw
-        objective_value_rmse += rmse_batch
+#         # Compute RMSE for GT_Angular_Vel_Z and GT_Yaw
+#         rmse_batch = np.sqrt(np.mean((x_gt_batch[:, [3, 0]] - x_est_batch[:, [3, 0]]) ** 2))  # GT_Angular_Vel_Z and GT_Yaw
+#         objective_value_rmse += rmse_batch
 
-    # Average objective value over all batches
-    objective_value_nees /= num_batches
-    objective_value_rmse /= num_batches
+#     # Average objective value over all batches
+#     objective_value_nees /= num_batches
+#     objective_value_rmse /= num_batches
     
-    # Combine NEES and RMSE with weights
-    objective_value = 0.7 * objective_value_rmse + 0.3 * objective_value_nees
+#     # Combine NEES and RMSE with weights
+#     objective_value = 0.7 * objective_value_rmse + 0.3 * objective_value_nees
     
-    print("Objective Value RMSE: ", objective_value_rmse)
-    print("Objective Value NEES: ", objective_value_nees)
-    print("Combined Objective Value: ", objective_value)
+#     print("Objective Value RMSE: ", objective_value_rmse)
+#     print("Objective Value NEES: ", objective_value_nees)
+#     print("Combined Objective Value: ", objective_value)
     
-    return objective_value
+#     return objective_value
 
-# Define the bounds for the process noise covariance matrix
-bounds = [(-0.01, 1)] * 225  # Assuming a 15x15 matrix
+# # Define the bounds for the process noise covariance matrix
+# bounds = [(-0.01, 1)] * 225  # Assuming a 15x15 matrix
 
-# Perform Bayesian optimization
-res = gp_minimize(objective_function, bounds, acq_func="EI", n_calls=20, random_state=42)
+# # Perform Bayesian optimization
+# res = gp_minimize(objective_function, bounds, acq_func="EI", n_calls=20, random_state=42)
 
-# Extract the optimized process noise covariance matrix
-optimized_process_noise_covariance_matrix = np.array(res.x).reshape((15, 15))
+# # Extract the optimized process noise covariance matrix
+# optimized_process_noise_covariance_matrix = np.array(res.x).reshape((15, 15))
 
-print("Optimized Process Noise Covariance Matrix:")
-print(optimized_process_noise_covariance_matrix)
+# print("Optimized Process Noise Covariance Matrix:")
+# print(optimized_process_noise_covariance_matrix)
 
 
 
