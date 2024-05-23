@@ -66,7 +66,7 @@ class Subscriber(Node):
             self.estimated_data.append(est_pose_data)
 
             self.timer_count += 1
-            if self.timer_count == 10:  # Assuming you want data after every 2 sec for 20 seconds
+            if self.timer_count == 25:  # Assuming you want data after every 2 sec for 20 seconds
                 self.timer_count = 0
                 # Save data to Excel
                 self.save_to_excel()
@@ -212,11 +212,29 @@ class Subscriber(Node):
             self.get_logger().error('Error reading EKF configuration: {}'.format(str(e)))
             return
 
-        # Create DataFrame for the EKF process noise covariance matrix
-        ekf_df = pd.DataFrame([ekf_process_noise_covariance], columns=[i for i in range(225)])
+        # Repeat the process of creating and concatenating EKF DataFrame 10 times
+        ekf_dfs = []
+        for _ in range(25):
+            ekf_df = pd.DataFrame([ekf_process_noise_covariance], columns=[i for i in range(225)])
+            ekf_dfs.append(ekf_df)
 
-        # Combine ground truth, estimated DataFrames and EKF DataFrame
-        with pd.ExcelWriter(excel_filename, engine='openpyxl') as writer:
+        try:
+            # Read existing data from Excel file if it exists
+            with pd.ExcelFile(excel_filename) as xls:
+                ground_truth_df_existing = pd.read_excel(xls, 'Ground_Truth')
+                estimated_df_existing = pd.read_excel(xls, 'Estimated')
+                ekf_df_existing = pd.read_excel(xls, 'Process_Noise_Covariance')
+
+                # Concatenate new data with existing DataFrames
+                ground_truth_df = pd.concat([ground_truth_df_existing, ground_truth_df], ignore_index=True)
+                estimated_df = pd.concat([estimated_df_existing, estimated_df], ignore_index=True)
+                ekf_df = pd.concat([ekf_df_existing] + ekf_dfs, ignore_index=True)
+        except FileNotFoundError:
+            # File doesn't exist, create new DataFrames
+            ekf_df = pd.concat(ekf_dfs, ignore_index=True)
+
+        # Write DataFrames to Excel file
+        with pd.ExcelWriter(excel_filename, engine='openpyxl', mode='w') as writer:
             ground_truth_df.to_excel(writer, sheet_name='Ground_Truth', index=False)
             estimated_df.to_excel(writer, sheet_name='Estimated', index=False)
             ekf_df.to_excel(writer, sheet_name='Process_Noise_Covariance', index=False)

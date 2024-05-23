@@ -34,7 +34,7 @@
         <gravity>true</gravity>
         <sensor name="imu" type="imu">
             <always_on>true</always_on>
-            <update_rate>1.0</update_rate>
+            <update_rate>0.1</update_rate>
             <visualize>true</visualize>
             <imu>
                 <angular_velocity>
@@ -81,7 +81,7 @@
             <plugin name="imu" filename="libgazebo_ros_imu_sensor.so">
                 <xyzOffset>0 0 0</xyzOffset>
                 <rpyOffset>0 0 0</rpyOffset>
-                <!-- <updateRateHZ>30.0</updateRateHZ> -->
+                <!-- <updateRateHZ>100</updateRateHZ> -->
             </plugin>
         </sensor>
     </gazebo>

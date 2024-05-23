@@ -388,8 +388,8 @@ class RandomMove(Node):
             current_time = self.get_clock().now()
             if (current_time - self.rotation_start_time).nanoseconds / 1e9 >= self.rotation_duration:
                 self.state = 'MOVING'
-                self.twist_msg.angular.z = 0.0
-                self.twist_msg.linear.x = random.uniform(0.2, 0.5)
+                self.twist_msg.angular.z = 0.5
+                self.twist_msg.linear.x = random.uniform(0.2, 0.3)
             self.cmd_vel_pub.publish(self.twist_msg)
 
     def laser_callback(self, msg):

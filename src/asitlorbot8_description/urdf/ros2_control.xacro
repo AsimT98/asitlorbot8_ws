@@ -12,8 +12,7 @@
         <xacro:unless value="$(arg is_sim)">
             <hardware>
                 <plugin>asitlorbot8_firmware/asitlorbotInterface</plugin>
-                <param name="port">/dev/ttyAMA0</param>
-                <!-- <param name="port">/dev/ttyUSB1</param> -->
+                <param name="port">/dev/ttyUSB0</param>
             </hardware>
         </xacro:unless>
         

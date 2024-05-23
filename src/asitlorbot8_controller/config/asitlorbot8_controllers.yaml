@@ -1,6 +1,6 @@
 controller_manager:
   ros__parameters:
-    update_rate: 100
+    update_rate: 20.0
     use_sim_time: true
 
     # RESPONSIBLE FOR PUBLISHING THE CURRENT STATE OF EACH JOINT INTO A TOPIC
@@ -21,7 +21,7 @@ diff_cont:
     right_wheel_names: ["right_front_wheel_hinge","right_back_wheel_hinge"] #
     
     wheel_separation: 0.2
-    # wheels_per_side: 2
+    wheels_per_side: 2
     wheel_radius: 0.055
 
     # Wheel separation and radius multipliers
@@ -64,7 +64,7 @@ diff_cont:
         max_acceleration: 1.5   # rad/s^2
         min_acceleration: -1.5
         has_jerk_limits: false
-      
+
 velocity_controller:
   ros__parameters:
     joints:

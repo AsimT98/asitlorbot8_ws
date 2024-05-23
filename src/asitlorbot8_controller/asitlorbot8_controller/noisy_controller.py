@@ -52,7 +52,6 @@ class NoisyController(Node):
         self.transform_stamped_.child_frame_id = "base_footprint_noisy"  
         self.prev_time_ = self.get_clock().now()
 
-
     def jointCallback(self, msg):
         
         wheelencoder_left_front = msg.position[1] + np.random.normal(0,0.005)

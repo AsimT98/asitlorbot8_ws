@@ -11,7 +11,6 @@ def generate_launch_description():
             "hardware_interface.launch.py"
         ),
     )
-    
     controller = IncludeLaunchDescription(
         os.path.join(
             get_package_share_directory("asitlorbot8_controller"),
@@ -23,7 +22,6 @@ def generate_launch_description():
             "use_python": "False"
         }.items(),
     )
-    
     joystick = IncludeLaunchDescription(
         os.path.join(
             get_package_share_directory("asitlorbot8_controller"),
@@ -31,7 +29,6 @@ def generate_launch_description():
             "joystick_teleop.launch.py"
         ),
     )
-    
     return LaunchDescription([
         hardware_interface,
         controller,

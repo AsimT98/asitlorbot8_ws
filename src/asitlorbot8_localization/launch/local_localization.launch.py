@@ -21,6 +21,7 @@ def generate_launch_description():
         name="ekf_filter_node",
         output="screen",
         parameters=[os.path.join(get_package_share_directory("asitlorbot8_localization"), "config", "ekf.yaml")],
+        # remappings=[("odometry/filtered", "odoms")]
     )
     imu_republisher_py = Node(
         package="asitlorbot8_localization",
@@ -34,5 +35,5 @@ def generate_launch_description():
         static_transform_publisher,
         robot_localization,
         imu_republisher_py,
-        rmse
+        # rmse
     ])
