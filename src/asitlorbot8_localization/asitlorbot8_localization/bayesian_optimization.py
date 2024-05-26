@@ -1,125 +1,189 @@
 #!/usr/bin/env python3
 import pandas as pd
 import numpy as np
-from skopt import gp_minimize
-from tf2_geometry_msgs import PointStamped
-from rclpy.time import Time
 from tf_transformations import euler_from_quaternion
 
 # Load data from Excel sheet
-data = pd.read_excel("/home/asimkumar/asitlor_ws/data4.xlsx")
+data = pd.read_excel("/home/asimkumar/asitlorbot8_ws/data5.xlsx", sheet_name="Sheet1")
 
-def objective_function(process_noise_covariance_matrix):
-    objective_value_nees = 0
-    objective_value_rpe_translation = 0
-    objective_value_rpe_rotation = 0
-    objective_value_trace = 0  # Initialize trace term
+def calculate_metrics(data):
+    # Extract ground truth state variables
+    gt_positions = data[['GT_Pos_X', 'GT_Pos_Y', 'GT_Pos_Z']].values
+    # gt_orientations = data[['GT_Roll', 'GT_Pitch', 'GT_Yaw']].values
+    gt_quaternions = data[['GT_Orient_X', 'GT_Orient_Y', 'GT_Orient_Z', 'GT_Orient_W']].values
+    # Extract estimated state variables
+    est_positions = data[['Est_Pos_X', 'Est_Pos_Y', 'Est_Pos_Z']].values
+    # est_orientations = data[['ET_Roll', 'ET_Pitch', 'ET_Yaw']].values
+    est_quaternions = data[['Est_Orient_X', 'Est_Orient_Y', 'Est_Orient_Z', 'Est_Orient_W']].values
+
+    # RPE (Relative Pose Error) for translation
+    translation_errors = np.linalg.norm(gt_positions - est_positions, axis=1) / np.linalg.norm(gt_positions, axis=1)
+    avg_rpe_translation = np.mean(translation_errors)
+
+    # RPE for rotation using quaternions
+    rotation_errors = []
+    for i in range(len(gt_quaternions)):
+        gt_quat = gt_quaternions[i]
+        est_quat = est_quaternions[i]
+        # Convert quaternions to euler angles
+        gt_euler = euler_from_quaternion(gt_quat)
+        est_euler = euler_from_quaternion(est_quat)
+        # Compute angle difference between the rotations
+        angle_diff = np.linalg.norm(np.array(gt_euler) - np.array(est_euler))
+        rotation_errors.append(angle_diff)
+    avg_rpe_rotation = np.mean(rotation_errors)
+
+    # NEES (Normalized Estimation Error Squared)
+    e_x = gt_positions - est_positions
+    NEES = np.mean(np.sum((e_x / np.sqrt(0.001))**2, axis=1))  # Assuming process noise covariance matrix
+
+    # Absolute Trajectory Error (ATE)
+    ate = np.linalg.norm(gt_positions - est_positions, axis=1)
+    avg_ate = np.mean(ate)
+
+    return avg_rpe_translation, avg_rpe_rotation, NEES, avg_ate
+
+# Calculate metrics for the first 50 data points (without covariance tuning)
+rpe_translation_before, rpe_rotation_before, nees_before, ate_before = calculate_metrics(data.iloc[:50])
+
+# Calculate metrics for the next 50 data points (with covariance tuning)
+rpe_translation_after, rpe_rotation_after, nees_after, ate_after = calculate_metrics(data.iloc[50:100])
+
+# Print the results
+print("Metrics without covariance tuning:")
+print("RPE Translation:", rpe_translation_before)
+print("RPE Rotation:", rpe_rotation_before)
+print("NEES:", nees_before)
+print("ATE:", ate_before)
+
+print("\nMetrics with covariance tuning:")
+print("RPE Translation:", rpe_translation_after)
+print("RPE Rotation:", rpe_rotation_after)
+print("NEES:", nees_after)
+print("ATE:", ate_after)
+
+
+# import pandas as pd
+# import numpy as np
+# from skopt import gp_minimize
+# from tf2_geometry_msgs import PointStamped
+# from rclpy.time import Time
+# from tf_transformations import euler_from_quaternion
+
+# # Load data from Excel sheet
+# data = pd.read_excel("/home/asimkumar/asitlor_ws/data4.xlsx")
+
+# def objective_function(process_noise_covariance_matrix):
+#     objective_value_nees = 0
+#     objective_value_rpe_translation = 0
+#     objective_value_rpe_rotation = 0
+#     objective_value_trace = 0  # Initialize trace term
     
-    process_noise_covariance_1d = data.iloc[0, 40:].values
+#     process_noise_covariance_1d = data.iloc[0, 40:].values
 
-    # Reshape process_noise_covariance_matrix to a 15x15 matrix
-    process_noise_covariance_matrix = np.array(process_noise_covariance_1d).reshape((15, 15))
+#     # Reshape process_noise_covariance_matrix to a 15x15 matrix
+#     process_noise_covariance_matrix = np.array(process_noise_covariance_1d).reshape((15, 15))
     
-    # Calculate trace of the process noise covariance matrix
-    trace = np.trace(process_noise_covariance_matrix)
+#     # Calculate trace of the process noise covariance matrix
+#     trace = np.trace(process_noise_covariance_matrix)
     
-    # Loop over data in batches of 50
-    num_batches = len(data) // 50
+#     # Loop over data in batches of 50
+#     num_batches = len(data) // 50
 
-    for i in range(num_batches):
-        start_idx = i * 50
-        end_idx = (i + 1) * 50
+#     for i in range(num_batches):
+#         start_idx = i * 50
+#         end_idx = (i + 1) * 50
 
-        # Extract ground truth state variables for the current batch
-        x_gt_batch = data[['GT_Pos_X', 'GT_Pos_Y', 'GT_Pos_Z', 'GT_Roll', 'GT_Pitch', 'GT_Yaw', 
-                           'GT_Vel_X', 'GT_Vel_Y', 'GT_Vel_Z', 'GT_Vel_Roll', 'GT_Vel_Pitch', 
-                           'GT_Angular_Vel_Yaw', 'GT_Accel_X', 'GT_Accel_Y', 'GT_Accel_Z']][start_idx:end_idx].values
+#         # Extract ground truth state variables for the current batch
+#         x_gt_batch = data[['GT_Pos_X', 'GT_Pos_Y', 'GT_Pos_Z', 'GT_Roll', 'GT_Pitch', 'GT_Yaw', 
+#                            'GT_Vel_X', 'GT_Vel_Y', 'GT_Vel_Z', 'GT_Vel_Roll', 'GT_Vel_Pitch', 
+#                            'GT_Angular_Vel_Yaw', 'GT_Accel_X', 'GT_Accel_Y', 'GT_Accel_Z']][start_idx:end_idx].values
 
-        # Extract estimated state variables for the current batch
-        x_est_batch = data[['ET_Pos_X', 'ET_Pos_Y', 'ET_Pos_Z', 'ET_Roll', 'ET_Pitch', 'ET_Yaw', 
-                            'ET_Vel_X', 'ET_Vel_Y', 'ET_Vel_Z', 'ET_Vel_Roll', 'ET_Vel_Pitch', 
-                            'ET_Angular_Vel_Yaw', 'ET_Accel_X', 'ET_Accel_Y', 'ET_Accel_Z']][start_idx:end_idx].values
+#         # Extract estimated state variables for the current batch
+#         x_est_batch = data[['ET_Pos_X', 'ET_Pos_Y', 'ET_Pos_Z', 'ET_Roll', 'ET_Pitch', 'ET_Yaw', 
+#                             'ET_Vel_X', 'ET_Vel_Y', 'ET_Vel_Z', 'ET_Vel_Roll', 'ET_Vel_Pitch', 
+#                             'ET_Angular_Vel_Yaw', 'ET_Accel_X', 'ET_Accel_Y', 'ET_Accel_Z']][start_idx:end_idx].values
 
-        # Compute NEES for all variables
-        e_x_batch = x_gt_batch - x_est_batch
-        NEES_batch = np.sum(e_x_batch @ np.linalg.inv(process_noise_covariance_matrix) * e_x_batch, axis=1)
-        avg_NEES_batch = np.mean(NEES_batch)
-        objective_value_nees += np.abs(avg_NEES_batch - 9.488)  # Target NEES value
+#         # Compute NEES for all variables
+#         e_x_batch = x_gt_batch - x_est_batch
+#         NEES_batch = np.sum(e_x_batch @ np.linalg.inv(process_noise_covariance_matrix) * e_x_batch, axis=1)
+#         avg_NEES_batch = np.mean(NEES_batch)
+#         objective_value_nees += np.abs(avg_NEES_batch - 9.488)  # Target NEES value
         
-        # Compute RPE for translation
-        translation_errors = np.linalg.norm(x_gt_batch[:, :3] - x_est_batch[:, :3], axis=1) / np.linalg.norm(x_gt_batch[:, :3], axis=1)
-        avg_rpe_translation = np.mean(translation_errors)
-        objective_value_rpe_translation += avg_rpe_translation
+#         # Compute RPE for translation
+#         translation_errors = np.linalg.norm(x_gt_batch[:, :3] - x_est_batch[:, :3], axis=1) / np.linalg.norm(x_gt_batch[:, :3], axis=1)
+#         avg_rpe_translation = np.mean(translation_errors)
+#         objective_value_rpe_translation += avg_rpe_translation
 
-        # Compute RPE for rotation using quaternions
-        for j in range(50):
-            gt_quat = np.array([x_gt_batch[j, 3], x_gt_batch[j, 4], x_gt_batch[j, 5], x_gt_batch[j, 6]])  # [qw, qx, qy, qz]
-            est_quat = np.array([x_est_batch[j, 3], x_est_batch[j, 4], x_est_batch[j, 5], x_est_batch[j, 6]])
+#         # Compute RPE for rotation using quaternions
+#         for j in range(50):
+#             gt_quat = np.array([x_gt_batch[j, 3], x_gt_batch[j, 4], x_gt_batch[j, 5], x_gt_batch[j, 6]])  # [qw, qx, qy, qz]
+#             est_quat = np.array([x_est_batch[j, 3], x_est_batch[j, 4], x_est_batch[j, 5], x_est_batch[j, 6]])
             
-            # Convert quaternions to euler angles
-            gt_euler = euler_from_quaternion(gt_quat)
-            est_euler = euler_from_quaternion(est_quat)
+#             # Convert quaternions to euler angles
+#             gt_euler = euler_from_quaternion(gt_quat)
+#             est_euler = euler_from_quaternion(est_quat)
             
-            # Compute angle difference between the rotations
-            angle_diff = np.linalg.norm(np.array(gt_euler) - np.array(est_euler))
-            objective_value_rpe_rotation += angle_diff
+#             # Compute angle difference between the rotations
+#             angle_diff = np.linalg.norm(np.array(gt_euler) - np.array(est_euler))
+#             objective_value_rpe_rotation += angle_diff
         
-    avg_rpe_translation = objective_value_rpe_translation / num_batches
-    avg_rpe_rotation = objective_value_rpe_rotation / (num_batches * 50)
-    objective_value_nees /= num_batches
+#     avg_rpe_translation = objective_value_rpe_translation / num_batches
+#     avg_rpe_rotation = objective_value_rpe_rotation / (num_batches * 50)
+#     objective_value_nees /= num_batches
     
-    # Weightage for trace term and NEES
-    weight_trace = 0.1
-    weight_nees = 0.1
+#     # Weightage for trace term and NEES
+#     weight_trace = 0.1
+#     weight_nees = 0.1
     
-    # Calculate objective value for trace term
-    objective_value_trace = weight_trace * trace
+#     # Calculate objective value for trace term
+#     objective_value_trace = weight_trace * trace
     
-    # Combine NEES, trace, and RPE with weights
-    objective_value = (0.4 * avg_rpe_translation + 
-                       0.4 * avg_rpe_rotation + 
-                       0.1 * objective_value_nees +
-                       0.1 * objective_value_trace)  # Add trace term
+#     # Combine NEES, trace, and RPE with weights
+#     objective_value = (0.4 * avg_rpe_translation + 
+#                        0.4 * avg_rpe_rotation + 
+#                        0.1 * objective_value_nees +
+#                        0.1 * objective_value_trace)  # Add trace term
     
-    print("Objective Value RPE Translation: ", avg_rpe_translation)
-    print("Objective Value RPE Rotation: ", avg_rpe_rotation)
-    print("Objective Value NEES: ", objective_value_nees)
-    print("Objective Value Trace: ", objective_value_trace)  # Print trace term
-    print("Combined Objective Value: ", objective_value)
+#     print("Objective Value RPE Translation: ", avg_rpe_translation)
+#     print("Objective Value RPE Rotation: ", avg_rpe_rotation)
+#     print("Objective Value NEES: ", objective_value_nees)
+#     print("Objective Value Trace: ", objective_value_trace)  # Print trace term
+#     print("Combined Objective Value: ", objective_value)
     
-    return objective_value
+#     return objective_value
 
-# Define the bounds for the process noise covariance matrix
-bounds = [(-0.01, 1)] * 225  # Assuming a 15x15 matrix
-bounds[80] = (0.00002, 0.9)
-bounds[96] = (0.00002, 0.9)  # Adjusting for zero-based index
-bounds[112] = (0.00002, 0.9)  # Adjusting for zero-based index
-bounds[176] = (0.0000000002, 0.02)  # Adjusting for zero-based index
-bounds[192] = (0.00001, 0.1)
+# # Define the bounds for the process noise covariance matrix
+# bounds = [(-0.01, 1)] * 225  # Assuming a 15x15 matrix
+# bounds[80] = (0.00002, 0.9)
+# bounds[96] = (0.00002, 0.9)  # Adjusting for zero-based index
+# bounds[112] = (0.00002, 0.9)  # Adjusting for zero-based index
+# bounds[176] = (0.0000000002, 0.02)  # Adjusting for zero-based index
+# bounds[192] = (0.00001, 0.1)
 
-# Perform Bayesian optimization
-res = gp_minimize(objective_function, bounds, acq_func="EI", n_calls=30, random_state=42)
+# # Perform Bayesian optimization
+# res = gp_minimize(objective_function, bounds, acq_func="EI", n_calls=30, random_state=42)
 
-# Extract the optimized process noise covariance matrix
-optimized_process_noise_covariance_matrix = np.array(res.x).reshape((15, 15))
+# # Extract the optimized process noise covariance matrix
+# optimized_process_noise_covariance_matrix = np.array(res.x).reshape((15, 15))
 
-print("Optimized Process Noise Covariance Matrix:")
-print(optimized_process_noise_covariance_matrix)
+# print("Optimized Process Noise Covariance Matrix:")
+# print(optimized_process_noise_covariance_matrix)
 
-import matplotlib.pyplot as plt
+# import matplotlib.pyplot as plt
 
-# Extract the values of the objective function at each iteration
-objective_values = res.func_vals
+# # Extract the values of the objective function at each iteration
+# objective_values = res.func_vals
 
-# Plot the convergence of the objective function
-plt.figure(figsize=(10, 6))
-plt.plot(range(1, len(objective_values) + 1), objective_values, marker='o', linestyle='-')
-plt.title('Convergence of Objective Function')
-plt.xlabel('Iteration')
-plt.ylabel('Objective Function Value')
-plt.grid(True)
-plt.ylim(20, 20.25)
-plt.show()
+# # Plot the convergence of the objective function
+# plt.figure(figsize=(10, 6))
+# plt.plot(range(1, len(objective_values) + 1), objective_values, marker='o', linestyle='-')
+# plt.title('Convergence of Objective Function')
+# plt.xlabel('Iteration')
+# plt.ylabel('Objective Function Value')
+# plt.grid(True)
+# plt.ylim(20, 20.25)
+# plt.show()
 
 # import pandas as pd
 # import numpy as np

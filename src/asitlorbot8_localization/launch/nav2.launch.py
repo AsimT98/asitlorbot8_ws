@@ -15,50 +15,75 @@
 # limitations under the License.
 #
 # Authors: Joep Tool
-
 import os
-from time import sleep
-from ament_index_python.packages import get_package_share_directory
 from launch import LaunchDescription
-from launch.actions import IncludeLaunchDescription, ExecuteProcess, DeclareLaunchArgument
-from launch.launch_description_sources import PythonLaunchDescriptionSource
-from launch.substitutions import LaunchConfiguration
+from ament_index_python.packages import get_package_share_directory
+from launch_ros.actions import Node
+from launch.actions import DeclareLaunchArgument
 from launch.substitutions import LaunchConfiguration, PathJoinSubstitution
 from launch_ros.substitutions import FindPackageShare
-from launch_ros.actions import Node
-from launch.conditions import IfCondition
 
 def generate_launch_description():
-  
-  MAP_NAME='my_map_save_7_may'
-  pkg_nav2_dir = get_package_share_directory('nav2_bringup')
-  pkg_tb3_sim = get_package_share_directory('asitlorbot8_localization')
 
-  use_sim_time = LaunchConfiguration('use_sim_time', default='True')
-  autostart = LaunchConfiguration('autostart', default='True')
-  
-  default_map_path = PathJoinSubstitution(
+    use_sim_time = LaunchConfiguration("use_sim_time")
+    amcl_config = LaunchConfiguration("amcl_config")
+    lifecycle_nodes = ["map_server", "amcl"]
+
+    MAP_NAME='my_map_save_7_may'
+    use_sim_time_arg = DeclareLaunchArgument(
+        "use_sim_time",
+        default_value="true"
+    )
+
+    amcl_config_arg = DeclareLaunchArgument(
+        "amcl_config",
+        default_value=os.path.join(
+            get_package_share_directory("asitlorbot8_localization"),
+            "config",
+            "navigation_sim.yaml"
+        ),
+        description="Full path to amcl yaml file to load"
+    )
+
+    map_path = PathJoinSubstitution(
         [FindPackageShare('asitlorbot8_localization'), 'maps', f'{MAP_NAME}.yaml']
     )
-  
-  nav2_sim_config_path = PathJoinSubstitution(
-        [FindPackageShare('asitlorbot8_localization'), 'config', 'navigation_sim.yaml']
-  )
-  
-  nav2_launch_cmd = IncludeLaunchDescription(
-      PythonLaunchDescriptionSource(
-          os.path.join(pkg_nav2_dir, 'launch', 'bringup_launch.py')
-      ),
-      launch_arguments={
-          'map': default_map_path,
-          'use_sim_time': use_sim_time,
-          'autostart': autostart,
-          'params_file': nav2_sim_config_path,
-          
-      }.items()
-  )
+    
+    nav2_map_server = Node(
+        package="nav2_map_server",
+        executable="map_server",
+        name="map_server",
+        output="screen",
+        parameters=[
+            {"yaml_filename": map_path},
+            {"use_sim_time": use_sim_time}
+        ],
+    )
 
-  rviz_launch_cmd = Node(
+    nav2_amcl = Node(
+        package="nav2_amcl",
+        executable="amcl",
+        name="amcl",
+        output="screen",
+        emulate_tty=True,
+        parameters=[
+            amcl_config,
+            {"use_sim_time": use_sim_time},
+        ],
+    )
+
+    nav2_lifecycle_manager = Node(
+        package="nav2_lifecycle_manager",
+        executable="lifecycle_manager",
+        name="lifecycle_manager_localization",
+        output="screen",
+        parameters=[
+            {"node_names": lifecycle_nodes},
+            {"use_sim_time": use_sim_time},
+            {"autostart": True}
+        ],
+    )
+    rviz_launch_cmd = Node(
     package="rviz2",
     executable="rviz2",
     name="rviz2",
@@ -74,31 +99,98 @@ def generate_launch_description():
         '__params:=use_sim_time:=true'  # Set use_sim_time to true
     ]
   )
- 
-  static_transform_publisher = Node(
-        package="tf2_ros",
-        executable="static_transform_publisher",
-        arguments=["--x", "0", "--y", "0","--z", "0.15",
-                   "--qx", "0", "--qy", "0", "--qz", "0", "--qw", "1",
-                   "--frame-id", "base_footprint_ekf",
-                   "--child-frame-id", "imu_link_ekf"],
-    )
+    return LaunchDescription([
+        
+        use_sim_time_arg,
+        amcl_config_arg,
+        nav2_map_server,
+        nav2_amcl,
+        nav2_lifecycle_manager,
+        rviz_launch_cmd
+    ])
+# import os
+# from time import sleep
+# from ament_index_python.packages import get_package_share_directory
+# from launch import LaunchDescription
+# from launch.actions import IncludeLaunchDescription, ExecuteProcess, DeclareLaunchArgument
+# from launch.launch_description_sources import PythonLaunchDescriptionSource
+# from launch.substitutions import LaunchConfiguration
+# from launch.substitutions import LaunchConfiguration, PathJoinSubstitution
+# from launch_ros.substitutions import FindPackageShare
+# from launch_ros.actions import Node
+# from launch.conditions import IfCondition
+
+# def generate_launch_description():
   
-  set_init_amcl_pose_cmd = Node(
-      package="asitlorbot8_localization",
-      executable="set_init_amcl_pose.py",
-      parameters=[{
-          "x": 0.0,
-          "y": 0.0,
-      }]
-  )
+#   MAP_NAME='my_map_save_7_may'
+#   pkg_nav2_dir = get_package_share_directory('nav2_bringup')
+#   pkg_tb3_sim = get_package_share_directory('asitlorbot8_localization')
 
-  ld = LaunchDescription()
+#   use_sim_time = LaunchConfiguration('use_sim_time', default='True')
+#   autostart = LaunchConfiguration('autostart', default='True')
+  
+#   default_map_path = PathJoinSubstitution(
+#         [FindPackageShare('asitlorbot8_localization'), 'maps', f'{MAP_NAME}.yaml']
+#     )
+  
+#   nav2_sim_config_path = PathJoinSubstitution(
+#         [FindPackageShare('asitlorbot8_localization'), 'config', 'navigation_sim.yaml']
+#    )
+  
+#   nav2_launch_cmd = IncludeLaunchDescription(
+#       PythonLaunchDescriptionSource(
+#           os.path.join(pkg_nav2_dir, 'launch', 'bringup_launch.py')
+#       ),
+#       launch_arguments={
+#           'map': default_map_path,
+#           'use_sim_time': use_sim_time,
+#           'autostart': autostart,
+#           'params_file': nav2_sim_config_path,
+          
+#       }.items()
+#   )
 
-  # Add the commands to the launch description
-  ld.add_action(nav2_launch_cmd)
-  ld.add_action(rviz_launch_cmd)
-  ld.add_action(set_init_amcl_pose_cmd)
-  ld.add_action(static_transform_publisher)
+#   rviz_launch_cmd = Node(
+#     package="rviz2",
+#     executable="rviz2",
+#     name="rviz2",
+#     arguments=[
+#         '-d' + os.path.join(
+#             get_package_share_directory('nav2_bringup'),
+#             'rviz',
+#             'nav2_default_view.rviz'
+#         ),
+#         '--',
+#         '-r',  # Separate argument for ros args
+#         '__node:=/rviz2',
+#         '__params:=use_sim_time:=true'  # Set use_sim_time to true
+#     ]
+#   )
+ 
+#   static_transform_publisher = Node(
+#         package="tf2_ros",
+#         executable="static_transform_publisher",
+#         arguments=["--x", "0", "--y", "0","--z", "0.15",
+#                    "--qx", "0", "--qy", "0", "--qz", "0", "--qw", "1",
+#                    "--frame-id", "base_footprint_ekf",
+#                    "--child-frame-id", "imu_link_ekf"],
+#     )
+  
+#   set_init_amcl_pose_cmd = Node(
+#       package="asitlorbot8_localization",
+#       executable="set_init_amcl_pose.py",
+#       parameters=[{
+#           "x": 0.0,
+#           "y": 0.0,
+#       }]
+#   )
 
-  return ld
+#   ld = LaunchDescription()
+
+#   # Add the commands to the launch description
+#   ld.add_action(nav2_launch_cmd)
+#   ld.add_action(rviz_launch_cmd)
+# #   ld.add_action(set_init_amcl_pose_cmd)
+# #   ld.add_action(static_transform_publisher)
+
+#   return ld
