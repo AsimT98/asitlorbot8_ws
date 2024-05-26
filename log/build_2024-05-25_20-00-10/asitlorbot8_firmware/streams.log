@@ -1,0 +1,57 @@
+[0.078s] Invoking command in '/home/asimkumar/asitlorbot8_ws/build/asitlorbot8_firmware': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/asimkumar/asitlorbot12_ws/install/asitlorbot12_py_examples:/home/asimkumar/asitlor_ws/install/serial_motor_demo:/home/asimkumar/asitlorbotsix_ws/install/asitlorbot_six:/opt/ros/humble /usr/bin/cmake --build /home/asimkumar/asitlorbot8_ws/build/asitlorbot8_firmware -- -j8 -l8
+[0.240s] [ 33%] Built target simple_serial_transmitter
+[0.254s] [ 66%] Built target simple_serial_receiver
+[0.262s] [100%] Built target asitlorbot8_firmware
+[0.265s] [100%] Built target ament_cmake_python_symlink_asitlorbot8_firmware
+[0.824s] running egg_info
+[0.825s] writing asitlorbot8_firmware.egg-info/PKG-INFO
+[0.825s] writing dependency_links to asitlorbot8_firmware.egg-info/dependency_links.txt
+[0.825s] writing top-level names to asitlorbot8_firmware.egg-info/top_level.txt
+[0.830s] reading manifest file 'asitlorbot8_firmware.egg-info/SOURCES.txt'
+[0.831s] writing manifest file 'asitlorbot8_firmware.egg-info/SOURCES.txt'
+[0.914s] [100%] Built target ament_cmake_python_build_asitlorbot8_firmware_egg
+[0.938s] Invoked command in '/home/asimkumar/asitlorbot8_ws/build/asitlorbot8_firmware' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/asimkumar/asitlorbot12_ws/install/asitlorbot12_py_examples:/home/asimkumar/asitlor_ws/install/serial_motor_demo:/home/asimkumar/asitlorbotsix_ws/install/asitlorbot_six:/opt/ros/humble /usr/bin/cmake --build /home/asimkumar/asitlorbot8_ws/build/asitlorbot8_firmware -- -j8 -l8
+[1.023s] Invoking command in '/home/asimkumar/asitlorbot8_ws/build/asitlorbot8_firmware': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/asimkumar/asitlorbot12_ws/install/asitlorbot12_py_examples:/home/asimkumar/asitlor_ws/install/serial_motor_demo:/home/asimkumar/asitlorbotsix_ws/install/asitlorbot_six:/opt/ros/humble /usr/bin/cmake --install /home/asimkumar/asitlorbot8_ws/build/asitlorbot8_firmware
+[1.038s] -- Install configuration: ""
+[1.039s] -- Execute custom install script
+[1.039s] -- Up-to-date symlink: /home/asimkumar/asitlorbot8_ws/install/asitlorbot8_firmware/share/asitlorbot8_firmware/environment/pythonpath.sh
+[1.039s] -- Up-to-date symlink: /home/asimkumar/asitlorbot8_ws/install/asitlorbot8_firmware/share/asitlorbot8_firmware/environment/pythonpath.dsv
+[1.040s] -- Up-to-date symlink: /home/asimkumar/asitlorbot8_ws/install/asitlorbot8_firmware/local/lib/python3.10/dist-packages/asitlorbot8_firmware-0.0.0-py3.10.egg-info/PKG-INFO
+[1.040s] -- Up-to-date symlink: /home/asimkumar/asitlorbot8_ws/install/asitlorbot8_firmware/local/lib/python3.10/dist-packages/asitlorbot8_firmware-0.0.0-py3.10.egg-info/SOURCES.txt
+[1.040s] -- Up-to-date symlink: /home/asimkumar/asitlorbot8_ws/install/asitlorbot8_firmware/local/lib/python3.10/dist-packages/asitlorbot8_firmware-0.0.0-py3.10.egg-info/dependency_links.txt
+[1.040s] -- Up-to-date symlink: /home/asimkumar/asitlorbot8_ws/install/asitlorbot8_firmware/local/lib/python3.10/dist-packages/asitlorbot8_firmware-0.0.0-py3.10.egg-info/top_level.txt
+[1.041s] -- Up-to-date symlink: /home/asimkumar/asitlorbot8_ws/install/asitlorbot8_firmware/local/lib/python3.10/dist-packages/asitlorbot8_firmware/__init__.py
+[1.041s] -- Up-to-date symlink: /home/asimkumar/asitlorbot8_ws/install/asitlorbot8_firmware/local/lib/python3.10/dist-packages/asitlorbot8_firmware/simple_serial_receiver.py
+[1.041s] -- Up-to-date symlink: /home/asimkumar/asitlorbot8_ws/install/asitlorbot8_firmware/local/lib/python3.10/dist-packages/asitlorbot8_firmware/simple_serial_transmitter.py
+[1.042s] -- Up-to-date symlink: /home/asimkumar/asitlorbot8_ws/install/asitlorbot8_firmware/share/asitlorbot8_firmware//asitlorbot8_interface.xml
+[1.042s] -- Up-to-date symlink: /home/asimkumar/asitlorbot8_ws/install/asitlorbot8_firmware/lib/libasitlorbot8_firmware.so
+[1.044s] -- Up-to-date symlink: /home/asimkumar/asitlorbot8_ws/install/asitlorbot8_firmware/include/include/asitlorbot8_firmware/asitlorbot8_interface.hpp
+[1.044s] -- Up-to-date symlink: /home/asimkumar/asitlorbot8_ws/install/asitlorbot8_firmware/share/asitlorbot8_firmware/launch/hardware_interface.launch.py
+[1.044s] -- Up-to-date symlink: /home/asimkumar/asitlorbot8_ws/install/asitlorbot8_firmware/share/asitlorbot8_firmware/launch/imu_sense.py
+[1.045s] -- Up-to-date symlink: /home/asimkumar/asitlorbot8_ws/install/asitlorbot8_firmware/lib/asitlorbot8_firmware/simple_serial_transmitter.py
+[1.045s] -- Up-to-date symlink: /home/asimkumar/asitlorbot8_ws/install/asitlorbot8_firmware/lib/asitlorbot8_firmware/simple_serial_receiver.py
+[1.046s] -- Up-to-date symlink: /home/asimkumar/asitlorbot8_ws/install/asitlorbot8_firmware/bin/simple_serial_receiver
+[1.046s] -- Up-to-date symlink: /home/asimkumar/asitlorbot8_ws/install/asitlorbot8_firmware/bin/simple_serial_transmitter
+[1.046s] -- Up-to-date symlink: /home/asimkumar/asitlorbot8_ws/install/asitlorbot8_firmware/share/asitlorbot8_firmware/environment/library_path.sh
+[1.048s] -- Up-to-date symlink: /home/asimkumar/asitlorbot8_ws/install/asitlorbot8_firmware/share/asitlorbot8_firmware/environment/library_path.dsv
+[1.048s] -- Up-to-date symlink: /home/asimkumar/asitlorbot8_ws/install/asitlorbot8_firmware/share/ament_index/resource_index/package_run_dependencies/asitlorbot8_firmware
+[1.048s] -- Up-to-date symlink: /home/asimkumar/asitlorbot8_ws/install/asitlorbot8_firmware/share/ament_index/resource_index/parent_prefix_path/asitlorbot8_firmware
+[1.048s] -- Up-to-date symlink: /home/asimkumar/asitlorbot8_ws/install/asitlorbot8_firmware/share/asitlorbot8_firmware/environment/ament_prefix_path.sh
+[1.050s] -- Up-to-date symlink: /home/asimkumar/asitlorbot8_ws/install/asitlorbot8_firmware/share/asitlorbot8_firmware/environment/ament_prefix_path.dsv
+[1.051s] -- Up-to-date symlink: /home/asimkumar/asitlorbot8_ws/install/asitlorbot8_firmware/share/asitlorbot8_firmware/environment/path.sh
+[1.051s] -- Up-to-date symlink: /home/asimkumar/asitlorbot8_ws/install/asitlorbot8_firmware/share/asitlorbot8_firmware/environment/path.dsv
+[1.051s] -- Up-to-date symlink: /home/asimkumar/asitlorbot8_ws/install/asitlorbot8_firmware/share/asitlorbot8_firmware/local_setup.bash
+[1.051s] -- Up-to-date symlink: /home/asimkumar/asitlorbot8_ws/install/asitlorbot8_firmware/share/asitlorbot8_firmware/local_setup.sh
+[1.051s] -- Up-to-date symlink: /home/asimkumar/asitlorbot8_ws/install/asitlorbot8_firmware/share/asitlorbot8_firmware/local_setup.zsh
+[1.052s] -- Up-to-date symlink: /home/asimkumar/asitlorbot8_ws/install/asitlorbot8_firmware/share/asitlorbot8_firmware/local_setup.dsv
+[1.052s] -- Symlinking: /home/asimkumar/asitlorbot8_ws/install/asitlorbot8_firmware/share/asitlorbot8_firmware/package.dsv
+[1.070s] -- Up-to-date symlink: /home/asimkumar/asitlorbot8_ws/install/asitlorbot8_firmware/share/ament_index/resource_index/packages/asitlorbot8_firmware
+[1.070s] -- Up-to-date symlink: /home/asimkumar/asitlorbot8_ws/install/asitlorbot8_firmware/share/ament_index/resource_index/hardware_interface__pluginlib__plugin/asitlorbot8_firmware
+[1.070s] -- Up-to-date symlink: /home/asimkumar/asitlorbot8_ws/install/asitlorbot8_firmware/share/asitlorbot8_firmware/cmake/ament_cmake_export_include_directories-extras.cmake
+[1.071s] -- Up-to-date symlink: /home/asimkumar/asitlorbot8_ws/install/asitlorbot8_firmware/share/asitlorbot8_firmware/cmake/ament_cmake_export_libraries-extras.cmake
+[1.071s] -- Up-to-date symlink: /home/asimkumar/asitlorbot8_ws/install/asitlorbot8_firmware/share/asitlorbot8_firmware/cmake/ament_cmake_export_dependencies-extras.cmake
+[1.071s] -- Up-to-date symlink: /home/asimkumar/asitlorbot8_ws/install/asitlorbot8_firmware/share/asitlorbot8_firmware/cmake/asitlorbot8_firmwareConfig.cmake
+[1.071s] -- Up-to-date symlink: /home/asimkumar/asitlorbot8_ws/install/asitlorbot8_firmware/share/asitlorbot8_firmware/cmake/asitlorbot8_firmwareConfig-version.cmake
+[1.071s] -- Up-to-date symlink: /home/asimkumar/asitlorbot8_ws/install/asitlorbot8_firmware/share/asitlorbot8_firmware/package.xml
+[1.138s] Listing '/home/asimkumar/asitlorbot8_ws/install/asitlorbot8_firmware/local/lib/python3.10/dist-packages/asitlorbot8_firmware'...
+[1.162s] Invoked command in '/home/asimkumar/asitlorbot8_ws/build/asitlorbot8_firmware' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/asimkumar/asitlorbot12_ws/install/asitlorbot12_py_examples:/home/asimkumar/asitlor_ws/install/serial_motor_demo:/home/asimkumar/asitlorbotsix_ws/install/asitlorbot_six:/opt/ros/humble /usr/bin/cmake --install /home/asimkumar/asitlorbot8_ws/build/asitlorbot8_firmware

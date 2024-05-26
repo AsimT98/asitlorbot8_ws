@@ -25,7 +25,7 @@ if(CMAKE_COMPILER_IS_GNUCXX OR CMAKE_CXX_COMPILER_ID MATCHES "Clang")
 endif()
 
 # find dependencies
-find_package(ament_cmake REQUIRED)
+
 # uncomment the following section in order to fill in
 # further dependencies manually.
 # find_package(<dependency> REQUIRED)
@@ -41,6 +41,7 @@ install(
 install(PROGRAMS
   asitlorbot8_controller/noisy_controller.py
   asitlorbot8_controller/circular_motion.py
+  asitlorbot8_controller/simple_controller.py
   DESTINATION lib/${PROJECT_NAME}
 )
 

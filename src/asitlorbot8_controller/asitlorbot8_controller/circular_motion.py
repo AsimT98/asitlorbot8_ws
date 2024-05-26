@@ -388,8 +388,8 @@ class RandomMove(Node):
             current_time = self.get_clock().now()
             if (current_time - self.rotation_start_time).nanoseconds / 1e9 >= self.rotation_duration:
                 self.state = 'MOVING'
-                self.twist_msg.angular.z = 0.5
-                self.twist_msg.linear.x = random.uniform(0.2, 0.3)
+                self.twist_msg.angular.z = 0.3
+                self.twist_msg.linear.x = random.uniform(0.1, 0.2)
             self.cmd_vel_pub.publish(self.twist_msg)
 
     def laser_callback(self, msg):
@@ -429,24 +429,6 @@ if __name__ == '__main__':
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 # # CIRCULAR MOTION ONLY
 # import rclpy
 # from rclpy.node import Node
@@ -466,9 +448,9 @@ if __name__ == '__main__':
 #         self.publisher_path_base_footprint_noisy = self.create_publisher(Path, 'path_base_footprint_noisy', 10)
 
 #         self.timer = self.create_timer(0.1, self.timer_callback)
-#         self.linear_velocity = 0.2
-#         self.angular_velocity = 0.65
-#         self.target_angle = math.radians(45)  # Target angle in radians
+#         self.linear_velocity = 0.1
+#         self.angular_velocity = 0.45
+#         self.target_angle = math.radians(85)  # Target angle in radians
 #         self.current_angle = 0
 #         self.turning_phase = False  # True: Turning, False: Moving in a circular path
 
@@ -540,3 +522,49 @@ if __name__ == '__main__':
 
 # if __name__ == '__main__':
 #     main()
+
+
+
+# import rclpy
+# from rclpy.node import Node
+# from geometry_msgs.msg import Twist
+# import math
+
+# class CircularMotionNode(Node):
+#     def __init__(self):
+#         super().__init__('circular_motion_node')
+#         self.publisher_cmd_vel = self.create_publisher(Twist, 'diff_cont/cmd_vel_unstamped', 10)
+#         self.timer = self.create_timer(0.1, self.timer_callback)  # Timer with 0.1 second interval
+
+#         self.linear_velocity = 0.2  # Linear velocity (m/s)
+#         self.angular_velocity = 0.5 # Angular velocity (rad/s), adjust as needed
+#         self.radius = 0.08  # Radius of the circular path (meters)
+        
+#         self.time_elapsed = 0.0
+
+#     def timer_callback(self):
+#         twist_msg = Twist()
+        
+#         # Calculate linear and angular velocities to achieve circular motion
+#         twist_msg.linear.x = self.linear_velocity
+#         twist_msg.angular.z = self.linear_velocity / self.radius
+        
+#         self.time_elapsed += 0.1  # Update time elapsed (0.1 is the timer period)
+        
+#         # Publish the twist message
+#         self.publisher_cmd_vel.publish(twist_msg)
+
+# def main(args=None):
+#     rclpy.init(args=args)
+#     node = CircularMotionNode()
+#     rclpy.spin(node)
+#     node.destroy_node()
+#     rclpy.shutdown()
+
+# if __name__ == '__main__':
+#     main()
+
+
+
+
+

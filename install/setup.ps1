@@ -28,7 +28,8 @@ _colcon_prefix_chain_powershell_source_script "/home/asimkumar/turtlebot3_1/inst
 _colcon_prefix_chain_powershell_source_script "/home/asimkumar/asitlor_ws/install\local_setup.ps1"
 _colcon_prefix_chain_powershell_source_script "/home/asimkumar/asitlorbotsix_ws/install\local_setup.ps1"
 _colcon_prefix_chain_powershell_source_script "/home/asimkumar/asitlorbot7_ws/install\local_setup.ps1"
-_colcon_prefix_chain_powershell_source_script "/home/asimkumar/asitlor11_ws/install\local_setup.ps1"
+_colcon_prefix_chain_powershell_source_script "/home/asimkumar/asitlorbot11_ws/install\local_setup.ps1"
+_colcon_prefix_chain_powershell_source_script "/home/asimkumar/asitlorbot12_ws/install\local_setup.ps1"
 
 # source this prefix
 $env:COLCON_CURRENT_PREFIX=(Split-Path $PSCommandPath -Parent)

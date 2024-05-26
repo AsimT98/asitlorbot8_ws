@@ -35,5 +35,5 @@ def generate_launch_description():
         static_transform_publisher,
         robot_localization,
         imu_republisher_py,
-        # rmse
+        rmse
     ])

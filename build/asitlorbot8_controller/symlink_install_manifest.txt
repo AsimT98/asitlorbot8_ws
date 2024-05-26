@@ -7,10 +7,12 @@
 /home/asimkumar/asitlorbot8_ws/install/asitlorbot8_controller/local/lib/python3.10/dist-packages/asitlorbot8_controller/__init__.py
 /home/asimkumar/asitlorbot8_ws/install/asitlorbot8_controller/local/lib/python3.10/dist-packages/asitlorbot8_controller/circular_motion.py
 /home/asimkumar/asitlorbot8_ws/install/asitlorbot8_controller/local/lib/python3.10/dist-packages/asitlorbot8_controller/noisy_controller.py
+/home/asimkumar/asitlorbot8_ws/install/asitlorbot8_controller/local/lib/python3.10/dist-packages/asitlorbot8_controller/simple_controller.py
 /home/asimkumar/asitlorbot8_ws/install/asitlorbot8_controller/share/asitlorbot8_controller/config/asitlorbot8_controllers.yaml
 /home/asimkumar/asitlorbot8_ws/install/asitlorbot8_controller/share/asitlorbot8_controller/launch/controller.launch.py
 /home/asimkumar/asitlorbot8_ws/install/asitlorbot8_controller/lib/asitlorbot8_controller/noisy_controller.py
 /home/asimkumar/asitlorbot8_ws/install/asitlorbot8_controller/lib/asitlorbot8_controller/circular_motion.py
+/home/asimkumar/asitlorbot8_ws/install/asitlorbot8_controller/lib/asitlorbot8_controller/simple_controller.py
 /home/asimkumar/asitlorbot8_ws/install/asitlorbot8_controller/share/ament_index/resource_index/package_run_dependencies/asitlorbot8_controller
 /home/asimkumar/asitlorbot8_ws/install/asitlorbot8_controller/share/ament_index/resource_index/parent_prefix_path/asitlorbot8_controller
 /home/asimkumar/asitlorbot8_ws/install/asitlorbot8_controller/share/asitlorbot8_controller/environment/ament_prefix_path.sh

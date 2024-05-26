@@ -10,7 +10,7 @@
         <actuator name="joint_front_left_actr">
             <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
             <!-- 1 DEGREE OF ROTATION OF MOTOR CORRESPONDS TO 1 DEGREE OF ROTATION OF WHEEL -->
-            <mechanicalReduction>1.0</mechanicalReduction>
+            <mechanicalReduction>1</mechanicalReduction>
         </actuator>
     </transmission>
 
@@ -21,7 +21,7 @@
         </joint>
         <actuator name="joint_front_right_actr">
             <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
-            <mechanicalReduction>1.0</mechanicalReduction>
+            <mechanicalReduction>1</mechanicalReduction>
         </actuator>
     </transmission>
 
