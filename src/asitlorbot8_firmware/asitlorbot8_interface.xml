@@ -1,5 +1,5 @@
 <library path="asitlorbot8_firmware">
-    <class name="asitlorbot8_firmware/asitlorbotInterface" type="asitlorbot_firmware::asitlorbotInterface" base_class_type="hardware_interface::SystemInterface">
+    <class name="asitlorbot8_firmware/asitlorbotInterface" type="asitlorbot8_firmware::asitlorbotInterface" base_class_type="hardware_interface::SystemInterface">
       <description>
         asitlorbot8 Hardware Interface
       </description>

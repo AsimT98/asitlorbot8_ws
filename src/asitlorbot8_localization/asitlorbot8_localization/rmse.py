@@ -66,7 +66,7 @@ class Subscriber(Node):
             self.estimated_data.append(est_pose_data)
 
             self.timer_count += 1
-            if self.timer_count == 50:  # Assuming you want data after every 2 sec for 20 seconds
+            if self.timer_count == 1000:  # Assuming you want data after every 2 sec for 20 seconds
                 self.timer_count = 0
                 # Save data to Excel
                 self.save_to_excel()
@@ -154,7 +154,7 @@ class Subscriber(Node):
         # Create MarkerArray for estimated trajectory
         est_marker_array = MarkerArray()
         est_marker = Marker()
-        est_marker.header.frame_id = 'odom'
+        est_marker.header.frame_id = 'base_footprint_ekf'
         est_marker.type = Marker.LINE_STRIP
         est_marker.action = Marker.ADD
         est_marker.pose.orientation.w = 1.0
@@ -214,7 +214,7 @@ class Subscriber(Node):
 
         # Repeat the process of creating and concatenating EKF DataFrame 10 times
         ekf_dfs = []
-        for _ in range(50):
+        for _ in range(1000):
             ekf_df = pd.DataFrame([ekf_process_noise_covariance], columns=[i for i in range(225)])
             ekf_dfs.append(ekf_df)
 

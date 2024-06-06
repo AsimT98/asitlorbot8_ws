@@ -18,8 +18,8 @@ def generate_launch_description():
             "controller.launch.py"
         ),
         launch_arguments={
-            "use_simple_controller": "False",
-            "use_python": "False"
+            "use_simple_controller": "false",
+            "use_python": "false"
         }.items(),
     )
     joystick = IncludeLaunchDescription(

@@ -1,0 +1,115 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"hasInstallRule" : true,
+					"jsonFile" : "directory-.-Debug-27b64f13882053b4ad68.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.8"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						4,
+						5,
+						6
+					]
+				}
+			],
+			"name" : "Debug",
+			"projects" : 
+			[
+				{
+					"directoryIndexes" : 
+					[
+						0
+					],
+					"name" : "asitlorbot8_firmware",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						4,
+						5,
+						6
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "ament_cmake_python_build_asitlorbot8_firmware_egg::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-ament_cmake_python_build_asitlorbot8_firmware_egg-Debug-d226e89ab743ae92b456.json",
+					"name" : "ament_cmake_python_build_asitlorbot8_firmware_egg",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "ament_cmake_python_copy_asitlorbot8_firmware::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-ament_cmake_python_copy_asitlorbot8_firmware-Debug-89c0e5b957c406c45332.json",
+					"name" : "ament_cmake_python_copy_asitlorbot8_firmware",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "asitlorbot8_firmware::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-asitlorbot8_firmware-Debug-f7eed26d0fd220f11efd.json",
+					"name" : "asitlorbot8_firmware",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "asitlorbot8_firmware_uninstall::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-asitlorbot8_firmware_uninstall-Debug-b99a5213fc32b942873c.json",
+					"name" : "asitlorbot8_firmware_uninstall",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "simple_serial_receiver::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-simple_serial_receiver-Debug-fea7c49b62e20703a203.json",
+					"name" : "simple_serial_receiver",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "simple_serial_transmitter::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-simple_serial_transmitter-Debug-199f51f70c1630c815da.json",
+					"name" : "simple_serial_transmitter",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "uninstall::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-uninstall-Debug-4821e110147f61d863e5.json",
+					"name" : "uninstall",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "/home/asimkumar/asitlorbot8_ws/src/build",
+		"source" : "/home/asimkumar/asitlorbot8_ws/src/asitlorbot8_firmware"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 3
+	}
+}

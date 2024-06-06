@@ -28,7 +28,6 @@ def generate_launch_description():
     use_sim_time = LaunchConfiguration("use_sim_time")
     amcl_config = LaunchConfiguration("amcl_config")
     lifecycle_nodes = ["map_server", "amcl"]
-
     MAP_NAME='my_map_save_7_may'
     use_sim_time_arg = DeclareLaunchArgument(
         "use_sim_time",
@@ -71,7 +70,6 @@ def generate_launch_description():
             {"use_sim_time": use_sim_time},
         ],
     )
-
     nav2_lifecycle_manager = Node(
         package="nav2_lifecycle_manager",
         executable="lifecycle_manager",

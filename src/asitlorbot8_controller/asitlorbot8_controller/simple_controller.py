@@ -33,7 +33,7 @@ class SimpleController(Node):
         self.theta_ = 0.0
 
         self.wheel_cmd_pub_ = self.create_publisher(Float64MultiArray, "simple_velocity_controller/commands", 10)
-        self.vel_sub_ = self.create_subscription(TwistStamped, "diff_cont/cmd_vel_unstamped", self.velCallback, 10)
+        self.vel_sub_ = self.create_subscription(TwistStamped, "asitlorbot_controller/cmd_vel", self.velCallback, 10)
         self.joint_sub_ = self.create_subscription(JointState,"joint_states", self.jointCallback, 10)        
         self.odom_pub_ = self.create_publisher(Odometry, "asitlorbot_controller/odom", 10)
 
@@ -44,7 +44,7 @@ class SimpleController(Node):
         # Fill the Odometry message with invariant parameters
         self.odom_msg_ = Odometry()
         self.odom_msg_.header.frame_id = "odom"
-        self.odom_msg_.child_frame_id = "base_footprint"
+        self.odom_msg_.child_frame_id = "base_link"
         self.odom_msg_.pose.pose.orientation.x = 0.0
         self.odom_msg_.pose.pose.orientation.y = 0.0
         self.odom_msg_.pose.pose.orientation.z = 0.0
@@ -54,7 +54,7 @@ class SimpleController(Node):
         self.br_ = TransformBroadcaster(self)
         self.transform_stamped_ = TransformStamped()
         self.transform_stamped_.header.frame_id = "odom"
-        self.transform_stamped_.child_frame_id = "base_footprint"
+        self.transform_stamped_.child_frame_id = "base_link"
 
         self.prev_time_ = self.get_clock().now()
 

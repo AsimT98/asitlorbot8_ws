@@ -2,27 +2,39 @@
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro" >
 
     <!-- TRANSMISSION TAG INDICATES THE PRESENCE OF A MECHANCIAL TRANSMISSION THAT CONNECTS EACH MOTOR OF THE ROBOT TO EACH LINK OF THE LINK -->
-    <transmission name="joint_front_left_tran">
+    <transmission name="wheel_left_tran">
         <plugin>transmission_interface/SimpleTransmission</plugin>
-        <joint name="left_front_wheel_hinge">
-            <hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
-        </joint>
-        <actuator name="joint_front_left_actr">
+        <actuator name="joint_front_left_actr" role="actuator_left">
             <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
             <!-- 1 DEGREE OF ROTATION OF MOTOR CORRESPONDS TO 1 DEGREE OF ROTATION OF WHEEL -->
-            <mechanicalReduction>1</mechanicalReduction>
+            <mechanicalReduction>1.0</mechanicalReduction>
         </actuator>
+        <joint name="left_front_wheel_hinge" role="joint_left">
+            <hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
+            <!-- <mechanical_reduction>1.0</mechanical_reduction> -->
+        </joint>
+        <joint name="left_back_wheel_hinge" role="joint_left">
+            <hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
+            <!-- <mechanical_reduction>1.0</mechanical_reduction> -->
+        </joint>
+        
     </transmission>
 
-    <transmission name="joint_front_right_tran">
+    <transmission name="wheel_right_tran">
         <plugin>transmission_interface/SimpleTransmission</plugin>
-        <joint name="right_front_wheel_hinge">
-            <hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
-        </joint>
-        <actuator name="joint_front_right_actr">
+        <actuator name="joint_front_right_actr" role="actuator_right">
             <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
-            <mechanicalReduction>1</mechanicalReduction>
+            <mechanicalReduction>1.0</mechanicalReduction>
         </actuator>
+        <joint name="right_front_wheel_hinge" role="joint_right">
+            <hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
+            <!-- <mechanical_reduction>1.0</mechanical_reduction> -->
+        </joint>
+        <joint name="right_back_wheel_hinge" role="joint_right">
+            <hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
+            <!-- <mechanical_reduction>1.0</mechanical_reduction> -->
+        </joint>
+        
     </transmission>
 
     <!-- <transmission name="joint_rear_left_tran">

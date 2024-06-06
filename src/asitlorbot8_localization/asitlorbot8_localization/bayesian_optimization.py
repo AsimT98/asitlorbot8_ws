@@ -2,6 +2,7 @@
 import pandas as pd
 import numpy as np
 from tf_transformations import euler_from_quaternion
+import matplotlib.pyplot as plt
 
 # Load data from Excel sheet
 data = pd.read_excel("/home/asimkumar/asitlorbot8_ws/data5.xlsx", sheet_name="Sheet1")
@@ -9,11 +10,9 @@ data = pd.read_excel("/home/asimkumar/asitlorbot8_ws/data5.xlsx", sheet_name="Sh
 def calculate_metrics(data):
     # Extract ground truth state variables
     gt_positions = data[['GT_Pos_X', 'GT_Pos_Y', 'GT_Pos_Z']].values
-    # gt_orientations = data[['GT_Roll', 'GT_Pitch', 'GT_Yaw']].values
     gt_quaternions = data[['GT_Orient_X', 'GT_Orient_Y', 'GT_Orient_Z', 'GT_Orient_W']].values
     # Extract estimated state variables
     est_positions = data[['Est_Pos_X', 'Est_Pos_Y', 'Est_Pos_Z']].values
-    # est_orientations = data[['ET_Roll', 'ET_Pitch', 'ET_Yaw']].values
     est_quaternions = data[['Est_Orient_X', 'Est_Orient_Y', 'Est_Orient_Z', 'Est_Orient_W']].values
 
     # RPE (Relative Pose Error) for translation
@@ -33,34 +32,70 @@ def calculate_metrics(data):
         rotation_errors.append(angle_diff)
     avg_rpe_rotation = np.mean(rotation_errors)
 
-    # NEES (Normalized Estimation Error Squared)
-    e_x = gt_positions - est_positions
-    NEES = np.mean(np.sum((e_x / np.sqrt(0.001))**2, axis=1))  # Assuming process noise covariance matrix
-
     # Absolute Trajectory Error (ATE)
     ate = np.linalg.norm(gt_positions - est_positions, axis=1)
     avg_ate = np.mean(ate)
 
-    return avg_rpe_translation, avg_rpe_rotation, NEES, avg_ate
+    return avg_rpe_translation, avg_rpe_rotation, avg_ate
 
 # Calculate metrics for the first 50 data points (without covariance tuning)
-rpe_translation_before, rpe_rotation_before, nees_before, ate_before = calculate_metrics(data.iloc[:50])
+rpe_translation_before, rpe_rotation_before, ate_before = calculate_metrics(data.iloc[:50])
 
 # Calculate metrics for the next 50 data points (with covariance tuning)
-rpe_translation_after, rpe_rotation_after, nees_after, ate_after = calculate_metrics(data.iloc[50:100])
+rpe_translation_after, rpe_rotation_after, ate_after = calculate_metrics(data.iloc[50:100])
 
-# Print the results
-print("Metrics without covariance tuning:")
-print("RPE Translation:", rpe_translation_before)
-print("RPE Rotation:", rpe_rotation_before)
-print("NEES:", nees_before)
-print("ATE:", ate_before)
+# Create DataFrame for metrics
+metrics_data = {
+    "Metric": ["RPE Translation", "RPE Rotation", "ATE"],
+    "Without Covariance Tuning": [rpe_translation_before, rpe_rotation_before, ate_before],
+    "With Covariance Tuning": [rpe_translation_after, rpe_rotation_after, ate_after]
+}
+metrics_df = pd.DataFrame(metrics_data)
 
-print("\nMetrics with covariance tuning:")
-print("RPE Translation:", rpe_translation_after)
-print("RPE Rotation:", rpe_rotation_after)
-print("NEES:", nees_after)
-print("ATE:", ate_after)
+# Plotting table
+plt.figure(figsize=(12, 4))
+ax1 = plt.subplot(131)
+metrics_df.plot(kind='bar', x='Metric', y=["Without Covariance Tuning", "With Covariance Tuning"], ax=ax1)
+plt.title('Comparison of Metrics')
+plt.ylabel('Value')
+
+# Plotting RPE Translation
+ax2 = plt.subplot(132)
+plt.plot(np.arange(0, 50), np.linalg.norm(data[['GT_Pos_X', 'GT_Pos_Y', 'GT_Pos_Z']].iloc[:50].values - data[['Est_Pos_X', 'Est_Pos_Y', 'Est_Pos_Z']].iloc[:50].values, axis=1), label='Without Covariance Tuning')
+plt.plot(np.arange(0, 50), np.linalg.norm(data[['GT_Pos_X', 'GT_Pos_Y', 'GT_Pos_Z']].iloc[50:100].values - data[['Est_Pos_X', 'Est_Pos_Y', 'Est_Pos_Z']].iloc[50:100].values, axis=1), label='With Covariance Tuning')
+plt.xlabel('Time Step')
+plt.ylabel('RPE Translation')
+plt.title('RPE Translation over Time')
+plt.legend()
+
+# Plotting RPE Rotation
+ax3 = plt.subplot(133)
+rotation_errors_before = []
+rotation_errors_after = []
+for i in range(50):
+    gt_quat = data.iloc[i][['GT_Orient_X', 'GT_Orient_Y', 'GT_Orient_Z', 'GT_Orient_W']]
+    est_quat = data.iloc[i][['Est_Orient_X', 'Est_Orient_Y', 'Est_Orient_Z', 'Est_Orient_W']]
+    gt_euler = euler_from_quaternion(gt_quat)
+    est_euler = euler_from_quaternion(est_quat)
+    rotation_errors_before.append(np.linalg.norm(np.array(gt_euler) - np.array(est_euler)))
+for i in range(50):
+    gt_quat = data.iloc[50 + i][['GT_Orient_X', 'GT_Orient_Y', 'GT_Orient_Z', 'GT_Orient_W']]
+    est_quat = data.iloc[50 + i][['Est_Orient_X', 'Est_Orient_Y', 'Est_Orient_Z', 'Est_Orient_W']]
+    gt_euler = euler_from_quaternion(gt_quat)
+    est_euler = euler_from_quaternion(est_quat)
+    rotation_errors_after.append(np.linalg.norm(np.array(gt_euler) - np.array(est_euler)))
+plt.plot(np.arange(0, 50), rotation_errors_before, label='Without Covariance Tuning')
+plt.plot(np.arange(0, 50), rotation_errors_after, label='With Covariance Tuning')
+plt.xlabel('Time Step')
+plt.ylabel('RPE Rotation')
+plt.title('RPE Rotation over Time')
+plt.legend()
+
+plt.tight_layout()
+plt.savefig('metrics_and_graphs.png', bbox_inches='tight', pad_inches=0.1)
+plt.show()
+
+
 
 
 # import pandas as pd

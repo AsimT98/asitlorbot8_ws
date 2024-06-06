@@ -358,68 +358,69 @@
 
 # if __name__ == '__main__':
 #     main()
+#########################################################################3
+#RANDOM MOTION
+# import rclpy
+# from rclpy.node import Node
+# from geometry_msgs.msg import Twist
+# from sensor_msgs.msg import LaserScan
+# import math
+# import random
 
-import rclpy
-from rclpy.node import Node
-from geometry_msgs.msg import Twist
-from sensor_msgs.msg import LaserScan
-import math
-import random
+# class RandomMove(Node):
+#     def __init__(self):
+#         super().__init__('random_move')
+#         self.cmd_vel_pub = self.create_publisher(Twist, 'diff_cont/cmd_vel_unstamped', 10)
+#         self.laser_sub = self.create_subscription(LaserScan, '/laser_controller/out', self.laser_callback, 10)
+#         self.timer = self.create_timer(0.1, self.control_loop)
+#         self.twist_msg = Twist()
+#         self.state = 'MOVING'
+#         self.rotation_start_time = None
+#         self.rotation_duration = 0
 
-class RandomMove(Node):
-    def __init__(self):
-        super().__init__('random_move')
-        self.cmd_vel_pub = self.create_publisher(Twist, 'diff_cont/cmd_vel_unstamped', 10)
-        self.laser_sub = self.create_subscription(LaserScan, '/laser_controller/out', self.laser_callback, 10)
-        self.timer = self.create_timer(0.1, self.control_loop)
-        self.twist_msg = Twist()
-        self.state = 'MOVING'
-        self.rotation_start_time = None
-        self.rotation_duration = 0
+#         # Initial velocities
+#         self.twist_msg.linear.x = random.uniform(0.1, 0.2)
+#         self.twist_msg.angular.z = 0.0
 
-        # Initial velocities
-        self.twist_msg.linear.x = random.uniform(0.1, 0.2)
-        self.twist_msg.angular.z = 0.0
+#     def control_loop(self):
+#         if self.state == 'MOVING':
+#             self.cmd_vel_pub.publish(self.twist_msg)
+#         elif self.state == 'ROTATING':
+#             current_time = self.get_clock().now()
+#             if (current_time - self.rotation_start_time).nanoseconds / 1e9 >= self.rotation_duration:
+#                 self.state = 'MOVING'
+#                 self.twist_msg.angular.z = 0.3
+#                 self.twist_msg.linear.x = random.uniform(0.1, 0.2)
+#             self.cmd_vel_pub.publish(self.twist_msg)
 
-    def control_loop(self):
-        if self.state == 'MOVING':
-            self.cmd_vel_pub.publish(self.twist_msg)
-        elif self.state == 'ROTATING':
-            current_time = self.get_clock().now()
-            if (current_time - self.rotation_start_time).nanoseconds / 1e9 >= self.rotation_duration:
-                self.state = 'MOVING'
-                self.twist_msg.angular.z = 0.3
-                self.twist_msg.linear.x = random.uniform(0.1, 0.2)
-            self.cmd_vel_pub.publish(self.twist_msg)
+#     def laser_callback(self, msg):
+#         front_angle_range = 45  # Degrees to consider as "front"
+#         front_index_range = int(front_angle_range / math.degrees(msg.angle_increment))
+#         mid_index = len(msg.ranges) // 2
 
-    def laser_callback(self, msg):
-        front_angle_range = 15  # Degrees to consider as "front"
-        front_index_range = int(front_angle_range / math.degrees(msg.angle_increment))
-        mid_index = len(msg.ranges) // 2
+#         # Check front ranges for obstacles
+#         front_ranges = msg.ranges[mid_index - front_index_range : mid_index + front_index_range + 1]
+#         obstacle_detected = any(r < 0.7 for r in front_ranges if not math.isnan(r))
 
-        # Check front ranges for obstacles
-        front_ranges = msg.ranges[mid_index - front_index_range : mid_index + front_index_range + 1]
-        obstacle_detected = any(r < 0.7 for r in front_ranges if not math.isnan(r))
+#         if obstacle_detected and self.state == 'MOVING':
+#             self.state = 'ROTATING'
+#             self.twist_msg.linear.x = 0.0
+#             self.twist_msg.angular.z = math.radians(90)  # Rotate 60 degrees
+#             self.rotation_start_time = self.get_clock().now()
+#             self.rotation_duration = 1.0  # Duration to rotate 60 degrees
 
-        if obstacle_detected and self.state == 'MOVING':
-            self.state = 'ROTATING'
-            self.twist_msg.linear.x = 0.0
-            self.twist_msg.angular.z = math.radians(90)  # Rotate 60 degrees
-            self.rotation_start_time = self.get_clock().now()
-            self.rotation_duration = 1.0  # Duration to rotate 60 degrees
+# def main(args=None):
+#     rclpy.init(args=args)
+#     random_move_node = RandomMove()
+#     try:
+#         rclpy.spin(random_move_node)
+#     except KeyboardInterrupt:
+#         pass
+#     random_move_node.destroy_node()
+#     rclpy.shutdown()
 
-def main(args=None):
-    rclpy.init(args=args)
-    random_move_node = RandomMove()
-    try:
-        rclpy.spin(random_move_node)
-    except KeyboardInterrupt:
-        pass
-    random_move_node.destroy_node()
-    rclpy.shutdown()
-
-if __name__ == '__main__':
-    main()
+# if __name__ == '__main__':
+#     main()
 
 
 
@@ -430,98 +431,98 @@ if __name__ == '__main__':
 
 
 # # CIRCULAR MOTION ONLY
-# import rclpy
-# from rclpy.node import Node
-# from geometry_msgs.msg import Twist, PoseStamped
-# from nav_msgs.msg import Odometry, Path
-# import math
+import rclpy
+from rclpy.node import Node
+from geometry_msgs.msg import Twist, PoseStamped
+from nav_msgs.msg import Odometry, Path
+import math
 
-# class CircularMotionNode(Node):
-#     def __init__(self):
-#         super().__init__('circular_motion_node')
-#         self.publisher_cmd_vel = self.create_publisher(Twist, 'diff_cont/cmd_vel_unstamped', 10)
-#         self.publisher_odom = self.create_publisher(Odometry, 'odom', 10)
+class CircularMotionNode(Node):
+    def __init__(self):
+        super().__init__('circular_motion_node')
+        self.publisher_cmd_vel = self.create_publisher(Twist, 'diff_cont/cmd_vel_unstamped', 10)
+        self.publisher_odom = self.create_publisher(Odometry, 'odom', 10)
 
-#         # Publishers for paths in different frames
-#         self.publisher_path_base_link = self.create_publisher(Path, 'path_base_footprint', 10)
-#         self.publisher_path_base_footprint_ekf = self.create_publisher(Path, 'path_base_footprint_ekf', 10)
-#         self.publisher_path_base_footprint_noisy = self.create_publisher(Path, 'path_base_footprint_noisy', 10)
+        # Publishers for paths in different frames
+        self.publisher_path_base_link = self.create_publisher(Path, 'path_base_footprint', 10)
+        self.publisher_path_base_footprint_ekf = self.create_publisher(Path, 'path_base_footprint_ekf', 10)
+        self.publisher_path_base_footprint_noisy = self.create_publisher(Path, 'path_base_footprint_noisy', 10)
 
-#         self.timer = self.create_timer(0.1, self.timer_callback)
-#         self.linear_velocity = 0.1
-#         self.angular_velocity = 0.45
-#         self.target_angle = math.radians(85)  # Target angle in radians
-#         self.current_angle = 0
-#         self.turning_phase = False  # True: Turning, False: Moving in a circular path
+        self.timer = self.create_timer(0.1, self.timer_callback)
+        self.linear_velocity = 0.1
+        self.angular_velocity = 0.35
+        self.target_angle = math.radians(110)  # Target angle in radians
+        self.current_angle = 0
+        self.turning_phase = False  # True: Turning, False: Moving in a circular path
 
-#         # Paths for different frames
-#         self.path_base_link = Path()
-#         self.path_base_link.header.frame_id = 'base_link'
+        # Paths for different frames
+        self.path_base_link = Path()
+        self.path_base_link.header.frame_id = 'base_link'
 
-#         self.path_base_footprint_ekf = Path()
-#         self.path_base_footprint_ekf.header.frame_id = 'base_footprint_ekf'
+        self.path_base_footprint_ekf = Path()
+        self.path_base_footprint_ekf.header.frame_id = 'base_footprint_ekf'
 
-#         self.path_base_footprint_noisy = Path()
-#         self.path_base_footprint_noisy.header.frame_id = 'base_footprint_noisy'
+        self.path_base_footprint_noisy = Path()
+        self.path_base_footprint_noisy.header.frame_id = 'base_footprint_noisy'
 
-#     def timer_callback(self):
-#         twist_msg = Twist()
+    def timer_callback(self):
+        twist_msg = Twist()
 
-#         if self.turning_phase:
-#             twist_msg.angular.z = self.angular_velocity
-#             self.current_angle += abs(self.angular_velocity) * 0.1  # 0.1 is the timer period
-#             if self.current_angle >= self.target_angle:
-#                 # Switch to circular motion phase
-#                 self.turning_phase = False
-#                 self.current_angle = 0
-#         else:
-#             twist_msg.linear.x = self.linear_velocity
-#             twist_msg.angular.z = self.angular_velocity
+        if self.turning_phase:
+            twist_msg.angular.z = self.angular_velocity
+            self.current_angle += abs(self.angular_velocity) * 0.1  # 0.1 is the timer period
+            if self.current_angle >= self.target_angle:
+                # Switch to circular motion phase
+                self.turning_phase = False
+                self.current_angle = 0
+        else:
+            twist_msg.linear.x = self.linear_velocity
+            twist_msg.angular.z = self.angular_velocity
 
-#         # Publish cmd_vel
-#         self.publisher_cmd_vel.publish(twist_msg)
+        # Publish cmd_vel
+        self.publisher_cmd_vel.publish(twist_msg)
 
-#         # Publish odom
-#         odom_msg = Odometry()
-#         odom_msg.header.stamp = self.get_clock().now().to_msg()
-#         odom_msg.header.frame_id = 'odom'
-#         odom_msg.child_frame_id = 'base_link'
-#         odom_msg.twist.twist = twist_msg
-#         self.publisher_odom.publish(odom_msg)
+        # Publish odom
+        odom_msg = Odometry()
+        odom_msg.header.stamp = self.get_clock().now().to_msg()
+        odom_msg.header.frame_id = 'odom'
+        odom_msg.child_frame_id = 'base_link'
+        odom_msg.twist.twist = twist_msg
+        self.publisher_odom.publish(odom_msg)
 
-#         # Update the paths
-#         pose = PoseStamped()
-#         pose.header.stamp = odom_msg.header.stamp
-#         pose.header.frame_id = 'base_link'  # Use 'base_link' frame for PoseStamped
+        # Update the paths
+        pose = PoseStamped()
+        pose.header.stamp = odom_msg.header.stamp
+        pose.header.frame_id = 'base_link'  # Use 'base_link' frame for PoseStamped
 
-#         # Update path_base_link
-#         pose.pose.position.x = odom_msg.pose.pose.position.x
-#         pose.pose.position.y = odom_msg.pose.pose.position.y
-#         pose.pose.orientation = odom_msg.pose.pose.orientation
-#         self.path_base_link.poses.append(pose)
-#         self.publisher_path_base_link.publish(self.path_base_link)
+        # Update path_base_link
+        pose.pose.position.x = odom_msg.pose.pose.position.x
+        pose.pose.position.y = odom_msg.pose.pose.position.y
+        pose.pose.orientation = odom_msg.pose.pose.orientation
+        self.path_base_link.poses.append(pose)
+        self.publisher_path_base_link.publish(self.path_base_link)
 
-#         # Update path_base_footprint_ekf
-#         # Modify this part based on the transformation between base_footprint_ekf and odom
-#         pose.header.frame_id = 'base_footprint_ekf'
-#         self.path_base_footprint_ekf.poses.append(pose)
-#         self.publisher_path_base_footprint_ekf.publish(self.path_base_footprint_ekf)
+        # Update path_base_footprint_ekf
+        # Modify this part based on the transformation between base_footprint_ekf and odom
+        pose.header.frame_id = 'base_footprint_ekf'
+        self.path_base_footprint_ekf.poses.append(pose)
+        self.publisher_path_base_footprint_ekf.publish(self.path_base_footprint_ekf)
 
-#         # Update path_base_footprint_noisy
-#         # Modify this part based on the transformation between base_footprint_noisy and odom
-#         pose.header.frame_id = 'base_footprint_noisy'
-#         self.path_base_footprint_noisy.poses.append(pose)
-#         self.publisher_path_base_footprint_noisy.publish(self.path_base_footprint_noisy)
+        # Update path_base_footprint_noisy
+        # Modify this part based on the transformation between base_footprint_noisy and odom
+        pose.header.frame_id = 'base_footprint_noisy'
+        self.path_base_footprint_noisy.poses.append(pose)
+        self.publisher_path_base_footprint_noisy.publish(self.path_base_footprint_noisy)
 
-# def main(args=None):
-#     rclpy.init(args=args)
-#     circular_motion_node = CircularMotionNode()
-#     rclpy.spin(circular_motion_node)
-#     circular_motion_node.destroy_node()
-#     rclpy.shutdown()
+def main(args=None):
+    rclpy.init(args=args)
+    circular_motion_node = CircularMotionNode()
+    rclpy.spin(circular_motion_node)
+    circular_motion_node.destroy_node()
+    rclpy.shutdown()
 
-# if __name__ == '__main__':
-#     main()
+if __name__ == '__main__':
+    main()
 
 
 
@@ -537,7 +538,7 @@ if __name__ == '__main__':
 #         self.timer = self.create_timer(0.1, self.timer_callback)  # Timer with 0.1 second interval
 
 #         self.linear_velocity = 0.2  # Linear velocity (m/s)
-#         self.angular_velocity = 0.5 # Angular velocity (rad/s), adjust as needed
+#         self.angular_velocity = 0.3 # Angular velocity (rad/s), adjust as needed
 #         self.radius = 0.08  # Radius of the circular path (meters)
         
 #         self.time_elapsed = 0.0

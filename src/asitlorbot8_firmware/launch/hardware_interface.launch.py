@@ -29,7 +29,7 @@ def generate_launch_description():
     robot_state_publisher_node = IncludeLaunchDescription(
                 PythonLaunchDescriptionSource([os.path.join(
                     get_package_share_directory('asitlorbot8_description'),'launch','rsp.launch.py'
-                )]), launch_arguments={'use_sim_time':'true'}.items()
+                )]), launch_arguments={'use_sim_time':'false'}.items()
     )
 
     controller_manager = Node(

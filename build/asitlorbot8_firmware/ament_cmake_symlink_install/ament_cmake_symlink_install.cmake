@@ -334,8 +334,8 @@ ament_cmake_symlink_install_directory("/home/asimkumar/asitlorbot8_ws/src/asitlo
 # install(DIRECTORY "launch" "DESTINATION" "share/asitlorbot8_firmware")
 ament_cmake_symlink_install_directory("/home/asimkumar/asitlorbot8_ws/src/asitlorbot8_firmware" DIRECTORY "launch" "DESTINATION" "share/asitlorbot8_firmware")
 
-# install(PROGRAMS "asitlorbot8_firmware/simple_serial_transmitter.py" "asitlorbot8_firmware/simple_serial_receiver.py" "DESTINATION" "lib/asitlorbot8_firmware")
-ament_cmake_symlink_install_programs("/home/asimkumar/asitlorbot8_ws/src/asitlorbot8_firmware" PROGRAMS "asitlorbot8_firmware/simple_serial_transmitter.py" "asitlorbot8_firmware/simple_serial_receiver.py" "DESTINATION" "lib/asitlorbot8_firmware")
+# install(PROGRAMS "asitlorbot8_firmware/simple_serial_transmitter.py" "asitlorbot8_firmware/simple_serial_receiver.py" "asitlorbot8_firmware/pid_tune.py" "DESTINATION" "lib/asitlorbot8_firmware")
+ament_cmake_symlink_install_programs("/home/asimkumar/asitlorbot8_ws/src/asitlorbot8_firmware" PROGRAMS "asitlorbot8_firmware/simple_serial_transmitter.py" "asitlorbot8_firmware/simple_serial_receiver.py" "asitlorbot8_firmware/pid_tune.py" "DESTINATION" "lib/asitlorbot8_firmware")
 
 # install("TARGETS" "simple_serial_receiver" "simple_serial_transmitter" "ARCHIVE_DESTINATION" "lib" "LIBRARY_DESTINATION" "lib" "RUNTIME_DESTINATION" "bin" "DESTINATION" "lib/asitlorbot8_firmware")
 include("/home/asimkumar/asitlorbot8_ws/build/asitlorbot8_firmware/ament_cmake_symlink_install_targets_1_${CMAKE_INSTALL_CONFIG_NAME}.cmake")

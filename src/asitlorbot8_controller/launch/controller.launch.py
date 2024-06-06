@@ -61,6 +61,7 @@ def generate_launch_description():
             "/controller_manager",
         ],
     )
+    
     wheel_controller_spawner = Node(
         package="controller_manager",
         executable="spawner",
@@ -106,10 +107,10 @@ def generate_launch_description():
             wheel_radius_error_arg,
             wheel_separation_error_arg,
             wheel_controller_spawner,
-            joint_state_broadcaster_spawner,
+            joint_state_broadcaster_spawner,   
             simple_controller,
             noisy_controller_launch,
-            my_custom_node
+            # my_custom_node
                 
         ]
         

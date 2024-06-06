@@ -10,37 +10,36 @@
 #include <vector>
 #include <string>
 
-
-namespace asitlorbot_firmware
+namespace asitlorbot8_firmware
 {
 
-using CallbackReturn = rclcpp_lifecycle::node_interfaces::LifecycleNodeInterface::CallbackReturn;
+  using CallbackReturn = rclcpp_lifecycle::node_interfaces::LifecycleNodeInterface::CallbackReturn;
 
-class asitlorbotInterface : public hardware_interface::SystemInterface
-{
-public:
-  asitlorbotInterface();
-  virtual ~asitlorbotInterface();
+  class asitlorbotInterface : public hardware_interface::SystemInterface
+  {
+    public:
+      asitlorbotInterface();
+      virtual ~asitlorbotInterface();
 
-  // Implementing rclcpp_lifecycle::node_interfaces::LifecycleNodeInterface
-  virtual CallbackReturn on_activate(const rclcpp_lifecycle::State &) override;
-  virtual CallbackReturn on_deactivate(const rclcpp_lifecycle::State &) override;
+      // Implementing rclcpp_lifecycle::node_interfaces::LifecycleNodeInterface
+      virtual CallbackReturn on_activate(const rclcpp_lifecycle::State &) override;
+      virtual CallbackReturn on_deactivate(const rclcpp_lifecycle::State &) override;
 
-  // Implementing hardware_interface::SystemInterface
-  virtual CallbackReturn on_init(const hardware_interface::HardwareInfo &hardware_info) override;
-  virtual std::vector<hardware_interface::StateInterface> export_state_interfaces() override;
-  virtual std::vector<hardware_interface::CommandInterface> export_command_interfaces() override;
-  virtual hardware_interface::return_type read(const rclcpp::Time &, const rclcpp::Duration &) override;
-  virtual hardware_interface::return_type write(const rclcpp::Time &, const rclcpp::Duration &) override;
+      // Implementing hardware_interface::SystemInterface
+      virtual CallbackReturn on_init(const hardware_interface::HardwareInfo &hardware_info) override;
+      virtual std::vector<hardware_interface::StateInterface> export_state_interfaces() override;
+      virtual std::vector<hardware_interface::CommandInterface> export_command_interfaces() override;
+      virtual hardware_interface::return_type read(const rclcpp::Time &, const rclcpp::Duration &) override;
+      virtual hardware_interface::return_type write(const rclcpp::Time &, const rclcpp::Duration &) override;
 
-private:
-  LibSerial::SerialPort arduino_;
-  std::string port_;
-  std::vector<double> velocity_commands_;
-  std::vector<double> position_states_;
-  std::vector<double> velocity_states_;
-};
+    private:
+      LibSerial::SerialPort arduino_;
+      std::string port_;
+      std::vector<double> velocity_commands_; // velocity command sent to motor
+      std::vector<double> position_states_;   // position value received from motor
+      std::vector<double> velocity_states_;   // velocity value received from motor
+      std::vector<double> position_offsets_;  // position offsets
+  };
 }  // namespace asitlorbot8_firmware
 
-
-#endif  // asitlorbot8_INTERFACE_HPP
+#endif  // ASITLORBOT8_INTERFACE_HPP

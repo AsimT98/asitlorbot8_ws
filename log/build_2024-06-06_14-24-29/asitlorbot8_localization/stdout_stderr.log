@@ -1,0 +1,109 @@
+-- The C compiler identification is GNU 11.4.0
+-- The CXX compiler identification is GNU 11.4.0
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Check for working C compiler: /usr/bin/cc - skipped
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Check for working CXX compiler: /usr/bin/c++ - skipped
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- Found ament_cmake: 1.3.8 (/opt/ros/humble/share/ament_cmake/cmake)
+-- Found Python3: /usr/bin/python3 (found version "3.10.12") found components: Interpreter 
+-- Override CMake install command with custom implementation using symlinks instead of copying resources
+-- Found rclcpp: 16.0.8 (/opt/ros/humble/share/rclcpp/cmake)
+-- Found rosidl_generator_c: 3.1.5 (/opt/ros/humble/share/rosidl_generator_c/cmake)
+-- Found rosidl_adapter: 3.1.5 (/opt/ros/humble/share/rosidl_adapter/cmake)
+-- Found rosidl_generator_cpp: 3.1.5 (/opt/ros/humble/share/rosidl_generator_cpp/cmake)
+-- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+-- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+-- Found rmw_implementation_cmake: 6.1.1 (/opt/ros/humble/share/rmw_implementation_cmake/cmake)
+-- Found rmw_cyclonedds_cpp: 1.3.4 (/opt/ros/humble/share/rmw_cyclonedds_cpp/cmake)
+-- Using RMW implementation 'rmw_cyclonedds_cpp' as default
+-- Looking for pthread.h
+-- Looking for pthread.h - found
+-- Performing Test CMAKE_HAVE_LIBC_PTHREAD
+-- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Success
+-- Found Threads: TRUE  
+-- Found rclpy: 3.3.12 (/opt/ros/humble/share/rclpy/cmake)
+-- Found nav_msgs: 4.2.3 (/opt/ros/humble/share/nav_msgs/cmake)
+-- Found sensor_msgs: 4.2.3 (/opt/ros/humble/share/sensor_msgs/cmake)
+-- Found nav2_bringup: 1.1.14 (/opt/ros/humble/share/nav2_bringup/cmake)
+-- Found tf2_ros: 0.25.6 (/opt/ros/humble/share/tf2_ros/cmake)
+-- Found ament_lint_auto: 0.12.10 (/opt/ros/humble/share/ament_lint_auto/cmake)
+-- Added test 'flake8' to check Python code syntax and style conventions
+-- Added test 'lint_cmake' to check CMake code style
+-- Added test 'pep257' to check Python code against some of the docstring style conventions in PEP 257
+-- Added test 'xmllint' to check XML markup files
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /home/asimkumar/asitlorbot8_ws/build/asitlorbot8_localization
+Built target ament_cmake_python_symlink_asitlorbot8_localization
+running egg_info
+creating asitlorbot8_localization.egg-info
+writing asitlorbot8_localization.egg-info/PKG-INFO
+writing dependency_links to asitlorbot8_localization.egg-info/dependency_links.txt
+writing top-level names to asitlorbot8_localization.egg-info/top_level.txt
+writing manifest file 'asitlorbot8_localization.egg-info/SOURCES.txt'
+reading manifest file 'asitlorbot8_localization.egg-info/SOURCES.txt'
+writing manifest file 'asitlorbot8_localization.egg-info/SOURCES.txt'
+Built target ament_cmake_python_build_asitlorbot8_localization_egg
+-- Install configuration: ""
+-- Execute custom install script
+-- Symlinking: /home/asimkumar/asitlorbot8_ws/install/asitlorbot8_localization/share/asitlorbot8_localization/environment/pythonpath.sh
+-- Symlinking: /home/asimkumar/asitlorbot8_ws/install/asitlorbot8_localization/share/asitlorbot8_localization/environment/pythonpath.dsv
+-- Symlinking: /home/asimkumar/asitlorbot8_ws/install/asitlorbot8_localization/local/lib/python3.10/dist-packages/asitlorbot8_localization-0.0.0-py3.10.egg-info/PKG-INFO
+-- Symlinking: /home/asimkumar/asitlorbot8_ws/install/asitlorbot8_localization/local/lib/python3.10/dist-packages/asitlorbot8_localization-0.0.0-py3.10.egg-info/SOURCES.txt
+-- Symlinking: /home/asimkumar/asitlorbot8_ws/install/asitlorbot8_localization/local/lib/python3.10/dist-packages/asitlorbot8_localization-0.0.0-py3.10.egg-info/dependency_links.txt
+-- Symlinking: /home/asimkumar/asitlorbot8_ws/install/asitlorbot8_localization/local/lib/python3.10/dist-packages/asitlorbot8_localization-0.0.0-py3.10.egg-info/top_level.txt
+-- Symlinking: /home/asimkumar/asitlorbot8_ws/install/asitlorbot8_localization/local/lib/python3.10/dist-packages/asitlorbot8_localization/__init__.py
+-- Symlinking: /home/asimkumar/asitlorbot8_ws/install/asitlorbot8_localization/local/lib/python3.10/dist-packages/asitlorbot8_localization/bayesian_optimization.py
+-- Symlinking: /home/asimkumar/asitlorbot8_ws/install/asitlorbot8_localization/local/lib/python3.10/dist-packages/asitlorbot8_localization/imu_republisher.py
+-- Symlinking: /home/asimkumar/asitlorbot8_ws/install/asitlorbot8_localization/local/lib/python3.10/dist-packages/asitlorbot8_localization/metrics_and_graphs.png
+-- Symlinking: /home/asimkumar/asitlorbot8_ws/install/asitlorbot8_localization/local/lib/python3.10/dist-packages/asitlorbot8_localization/metrics_table.png
+-- Symlinking: /home/asimkumar/asitlorbot8_ws/install/asitlorbot8_localization/local/lib/python3.10/dist-packages/asitlorbot8_localization/process_noise_covariance.xlsx
+-- Symlinking: /home/asimkumar/asitlorbot8_ws/install/asitlorbot8_localization/local/lib/python3.10/dist-packages/asitlorbot8_localization/rmse.py
+-- Symlinking: /home/asimkumar/asitlorbot8_ws/install/asitlorbot8_localization/local/lib/python3.10/dist-packages/asitlorbot8_localization/set_init_amcl_pose.py
+-- Symlinking: /home/asimkumar/asitlorbot8_ws/install/asitlorbot8_localization/local/lib/python3.10/dist-packages/asitlorbot8_localization/test.py
+-- Symlinking: /home/asimkumar/asitlorbot8_ws/install/asitlorbot8_localization/local/lib/python3.10/dist-packages/asitlorbot8_localization/test3.py
+-- Symlinking: /home/asimkumar/asitlorbot8_ws/install/asitlorbot8_localization/share/asitlorbot8_localization/launch/local_localization.launch.py
+-- Symlinking: /home/asimkumar/asitlorbot8_ws/install/asitlorbot8_localization/share/asitlorbot8_localization/launch/nav2.launch.py
+-- Symlinking: /home/asimkumar/asitlorbot8_ws/install/asitlorbot8_localization/share/asitlorbot8_localization/rviz/nav2_rviz.rviz
+-- Symlinking: /home/asimkumar/asitlorbot8_ws/install/asitlorbot8_localization/share/asitlorbot8_localization/config/ekf.yaml
+-- Symlinking: /home/asimkumar/asitlorbot8_ws/install/asitlorbot8_localization/share/asitlorbot8_localization/config/navigation_sim.yaml
+-- Symlinking: /home/asimkumar/asitlorbot8_ws/install/asitlorbot8_localization/share/asitlorbot8_localization/maps/my_map_save_3_may.pgm
+-- Symlinking: /home/asimkumar/asitlorbot8_ws/install/asitlorbot8_localization/share/asitlorbot8_localization/maps/my_map_save_3_may.yaml
+-- Symlinking: /home/asimkumar/asitlorbot8_ws/install/asitlorbot8_localization/share/asitlorbot8_localization/maps/my_map_save_7_may.pgm
+-- Symlinking: /home/asimkumar/asitlorbot8_ws/install/asitlorbot8_localization/share/asitlorbot8_localization/maps/my_map_save_7_may.yaml
+-- Symlinking: /home/asimkumar/asitlorbot8_ws/install/asitlorbot8_localization/share/asitlorbot8_localization/maps/my_map_serial_3_may.data
+-- Symlinking: /home/asimkumar/asitlorbot8_ws/install/asitlorbot8_localization/share/asitlorbot8_localization/maps/my_map_serial_3_may.posegraph
+-- Symlinking: /home/asimkumar/asitlorbot8_ws/install/asitlorbot8_localization/share/asitlorbot8_localization/maps/my_map_serial_7_may.data
+-- Symlinking: /home/asimkumar/asitlorbot8_ws/install/asitlorbot8_localization/share/asitlorbot8_localization/maps/my_map_serial_7_may.posegraph
+-- Symlinking: /home/asimkumar/asitlorbot8_ws/install/asitlorbot8_localization/lib/asitlorbot8_localization/imu_republisher.py
+-- Symlinking: /home/asimkumar/asitlorbot8_ws/install/asitlorbot8_localization/lib/asitlorbot8_localization/rmse.py
+-- Symlinking: /home/asimkumar/asitlorbot8_ws/install/asitlorbot8_localization/lib/asitlorbot8_localization/set_init_amcl_pose.py
+-- Symlinking: /home/asimkumar/asitlorbot8_ws/install/asitlorbot8_localization/share/ament_index/resource_index/package_run_dependencies/asitlorbot8_localization
+-- Symlinking: /home/asimkumar/asitlorbot8_ws/install/asitlorbot8_localization/share/ament_index/resource_index/parent_prefix_path/asitlorbot8_localization
+-- Symlinking: /home/asimkumar/asitlorbot8_ws/install/asitlorbot8_localization/share/asitlorbot8_localization/environment/ament_prefix_path.sh
+-- Symlinking: /home/asimkumar/asitlorbot8_ws/install/asitlorbot8_localization/share/asitlorbot8_localization/environment/ament_prefix_path.dsv
+-- Symlinking: /home/asimkumar/asitlorbot8_ws/install/asitlorbot8_localization/share/asitlorbot8_localization/environment/path.sh
+-- Symlinking: /home/asimkumar/asitlorbot8_ws/install/asitlorbot8_localization/share/asitlorbot8_localization/environment/path.dsv
+-- Symlinking: /home/asimkumar/asitlorbot8_ws/install/asitlorbot8_localization/share/asitlorbot8_localization/local_setup.bash
+-- Symlinking: /home/asimkumar/asitlorbot8_ws/install/asitlorbot8_localization/share/asitlorbot8_localization/local_setup.sh
+-- Symlinking: /home/asimkumar/asitlorbot8_ws/install/asitlorbot8_localization/share/asitlorbot8_localization/local_setup.zsh
+-- Symlinking: /home/asimkumar/asitlorbot8_ws/install/asitlorbot8_localization/share/asitlorbot8_localization/local_setup.dsv
+-- Symlinking: /home/asimkumar/asitlorbot8_ws/install/asitlorbot8_localization/share/asitlorbot8_localization/package.dsv
+-- Symlinking: /home/asimkumar/asitlorbot8_ws/install/asitlorbot8_localization/share/ament_index/resource_index/packages/asitlorbot8_localization
+-- Symlinking: /home/asimkumar/asitlorbot8_ws/install/asitlorbot8_localization/share/asitlorbot8_localization/cmake/asitlorbot8_localizationConfig.cmake
+-- Symlinking: /home/asimkumar/asitlorbot8_ws/install/asitlorbot8_localization/share/asitlorbot8_localization/cmake/asitlorbot8_localizationConfig-version.cmake
+-- Symlinking: /home/asimkumar/asitlorbot8_ws/install/asitlorbot8_localization/share/asitlorbot8_localization/package.xml
+Listing '/home/asimkumar/asitlorbot8_ws/install/asitlorbot8_localization/local/lib/python3.10/dist-packages/asitlorbot8_localization'...
+Compiling '/home/asimkumar/asitlorbot8_ws/install/asitlorbot8_localization/local/lib/python3.10/dist-packages/asitlorbot8_localization/__init__.py'...
+Compiling '/home/asimkumar/asitlorbot8_ws/install/asitlorbot8_localization/local/lib/python3.10/dist-packages/asitlorbot8_localization/bayesian_optimization.py'...
+Compiling '/home/asimkumar/asitlorbot8_ws/install/asitlorbot8_localization/local/lib/python3.10/dist-packages/asitlorbot8_localization/imu_republisher.py'...
+Compiling '/home/asimkumar/asitlorbot8_ws/install/asitlorbot8_localization/local/lib/python3.10/dist-packages/asitlorbot8_localization/rmse.py'...
+Compiling '/home/asimkumar/asitlorbot8_ws/install/asitlorbot8_localization/local/lib/python3.10/dist-packages/asitlorbot8_localization/set_init_amcl_pose.py'...
+Compiling '/home/asimkumar/asitlorbot8_ws/install/asitlorbot8_localization/local/lib/python3.10/dist-packages/asitlorbot8_localization/test.py'...
+Compiling '/home/asimkumar/asitlorbot8_ws/install/asitlorbot8_localization/local/lib/python3.10/dist-packages/asitlorbot8_localization/test3.py'...

@@ -1,0 +1,14 @@
+[35m[1mConsolidate compiler generated dependencies of target simple_serial_receiver[0m
+[35m[1mConsolidate compiler generated dependencies of target simple_serial_transmitter[0m
+[35m[1mConsolidate compiler generated dependencies of target asitlorbot8_firmware[0m
+[  0%] Built target ament_cmake_python_symlink_asitlorbot8_firmware
+[ 33%] Built target simple_serial_receiver
+[ 66%] Built target simple_serial_transmitter
+[ 83%] [32mBuilding CXX object CMakeFiles/asitlorbot8_firmware.dir/src/asitlorbot8_interface.cpp.o[0m
+running egg_info
+writing asitlorbot8_firmware.egg-info/PKG-INFO
+writing dependency_links to asitlorbot8_firmware.egg-info/dependency_links.txt
+writing top-level names to asitlorbot8_firmware.egg-info/top_level.txt
+reading manifest file 'asitlorbot8_firmware.egg-info/SOURCES.txt'
+writing manifest file 'asitlorbot8_firmware.egg-info/SOURCES.txt'
+[ 83%] Built target ament_cmake_python_build_asitlorbot8_firmware_egg

@@ -1,0 +1,29 @@
+[0.047s] Invoking command in '/home/asimkumar/asitlorbot8_ws/build/asitlorbot8_firmware': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/asimkumar/asitlorbot12_ws/install/asitlorbot12_py_examples:/home/asimkumar/asitlor_ws/install/serial_motor_demo:/home/asimkumar/asitlorbotsix_ws/install/asitlorbot_six:/opt/ros/humble /usr/bin/cmake --build /home/asimkumar/asitlorbot8_ws/build/asitlorbot8_firmware -- -j8 -l8
+[0.124s] [35m[1mConsolidate compiler generated dependencies of target simple_serial_receiver[0m
+[0.130s] [35m[1mConsolidate compiler generated dependencies of target simple_serial_transmitter[0m
+[0.131s] [35m[1mConsolidate compiler generated dependencies of target asitlorbot8_firmware[0m
+[0.151s] [  0%] Built target ament_cmake_python_symlink_asitlorbot8_firmware
+[0.155s] [ 33%] Built target simple_serial_receiver
+[0.167s] [ 66%] Built target simple_serial_transmitter
+[0.171s] [ 83%] [32mBuilding CXX object CMakeFiles/asitlorbot8_firmware.dir/src/asitlorbot8_interface.cpp.o[0m
+[0.567s] running egg_info
+[0.568s] writing asitlorbot8_firmware.egg-info/PKG-INFO
+[0.568s] writing dependency_links to asitlorbot8_firmware.egg-info/dependency_links.txt
+[0.568s] writing top-level names to asitlorbot8_firmware.egg-info/top_level.txt
+[0.571s] reading manifest file 'asitlorbot8_firmware.egg-info/SOURCES.txt'
+[0.572s] writing manifest file 'asitlorbot8_firmware.egg-info/SOURCES.txt'
+[0.623s] [ 83%] Built target ament_cmake_python_build_asitlorbot8_firmware_egg
+[2.470s] [01m[K/home/asimkumar/asitlorbot8_ws/src/asitlorbot8_firmware/src/asitlorbot8_interface.cpp:[m[K In member function ‘[01m[Kvirtual asitlorbot8_firmware::CallbackReturn asitlorbot8_firmware::asitlorbotInterface::on_init(const hardware_interface::HardwareInfo&)[m[K’:
+[2.470s] [01m[K/home/asimkumar/asitlorbot8_ws/src/asitlorbot8_firmware/src/asitlorbot8_interface.cpp:47:9:[m[K [01;31m[Kerror: [m[K‘[01m[Kposition_offsets_[m[K’ was not declared in this scope; did you mean ‘[01m[Kposition_states_[m[K’?
+[2.470s]    47 |         [01;31m[Kposition_offsets_[m[K.reserve(info_.joints.size());
+[2.470s]       |         [01;31m[K^~~~~~~~~~~~~~~~~[m[K
+[2.470s]       |         [32m[Kposition_states_[m[K
+[2.483s] [01m[K/home/asimkumar/asitlorbot8_ws/src/asitlorbot8_firmware/src/asitlorbot8_interface.cpp:[m[K In member function ‘[01m[Kvirtual asitlorbot8_firmware::CallbackReturn asitlorbot8_firmware::asitlorbotInterface::on_activate(const rclcpp_lifecycle::State&)[m[K’:
+[2.483s] [01m[K/home/asimkumar/asitlorbot8_ws/src/asitlorbot8_firmware/src/asitlorbot8_interface.cpp:88:9:[m[K [01;31m[Kerror: [m[K‘[01m[Kposition_offsets_[m[K’ was not declared in this scope; did you mean ‘[01m[Kposition_states_[m[K’?
+[2.483s]    88 |         [01;31m[Kposition_offsets_[m[K = {0.0, 0.0, 0.0, 0.0};
+[2.483s]       |         [01;31m[K^~~~~~~~~~~~~~~~~[m[K
+[2.484s]       |         [32m[Kposition_states_[m[K
+[2.974s] gmake[2]: *** [CMakeFiles/asitlorbot8_firmware.dir/build.make:76: CMakeFiles/asitlorbot8_firmware.dir/src/asitlorbot8_interface.cpp.o] Error 1
+[2.975s] gmake[1]: *** [CMakeFiles/Makefile2:196: CMakeFiles/asitlorbot8_firmware.dir/all] Error 2
+[2.975s] gmake: *** [Makefile:146: all] Error 2
+[2.978s] Invoked command in '/home/asimkumar/asitlorbot8_ws/build/asitlorbot8_firmware' returned '2': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/asimkumar/asitlorbot12_ws/install/asitlorbot12_py_examples:/home/asimkumar/asitlor_ws/install/serial_motor_demo:/home/asimkumar/asitlorbotsix_ws/install/asitlorbot_six:/opt/ros/humble /usr/bin/cmake --build /home/asimkumar/asitlorbot8_ws/build/asitlorbot8_firmware -- -j8 -l8
