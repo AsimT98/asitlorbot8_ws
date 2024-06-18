@@ -35,8 +35,8 @@ class Subscriber(Node):
         self.get_logger().info('Subscribing to ground truth Odometry topic: /diff_cont/odom')
         self.gt_odom_subscriber = self.create_subscription(Odometry, '/diff_cont/odom', self.gt_odom_callback, 10)
 
-        self.get_logger().info('Subscribing to estimated Odometry topic: /odometry/filtered')
-        self.est_odom_subscriber = self.create_subscription(Odometry, '/odometry/filtered', self.est_odom_callback, 10)
+        self.get_logger().info('Subscribing to estimated Odometry topic: odoms_one')
+        self.est_odom_subscriber = self.create_subscription(Odometry, 'odoms_one', self.est_odom_callback, 10)
 
         # Initialize variables to store Odometry data
         self.gt_odom_data = None
@@ -66,7 +66,7 @@ class Subscriber(Node):
             self.estimated_data.append(est_pose_data)
 
             self.timer_count += 1
-            if self.timer_count == 1000:  # Assuming you want data after every 2 sec for 20 seconds
+            if self.timer_count == 50:  # Assuming you want data after every 2 sec for 20 seconds
                 self.timer_count = 0
                 # Save data to Excel
                 self.save_to_excel()
@@ -176,7 +176,7 @@ class Subscriber(Node):
         self.publisher_est_marker.publish(est_marker_array)
 
     def save_to_excel(self):
-        excel_filename = 'pose_and_data3.xlsx'
+        excel_filename = 'pose_and_data7.xlsx'
 
         # Create DataFrame for ground truth data
         ground_truth_df = pd.DataFrame(self.ground_truth_data, columns=[
@@ -214,7 +214,7 @@ class Subscriber(Node):
 
         # Repeat the process of creating and concatenating EKF DataFrame 10 times
         ekf_dfs = []
-        for _ in range(1000):
+        for _ in range(50):
             ekf_df = pd.DataFrame([ekf_process_noise_covariance], columns=[i for i in range(225)])
             ekf_dfs.append(ekf_df)
 

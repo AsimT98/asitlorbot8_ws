@@ -328,8 +328,8 @@ ament_cmake_symlink_install_directory("/home/asimkumar/asitlorbot8_ws/src/asitlo
 # install(DIRECTORY "config" "launch" "DESTINATION" "share/asitlorbot8_controller")
 ament_cmake_symlink_install_directory("/home/asimkumar/asitlorbot8_ws/src/asitlorbot8_controller" DIRECTORY "config" "launch" "DESTINATION" "share/asitlorbot8_controller")
 
-# install(PROGRAMS "asitlorbot8_controller/noisy_controller.py" "asitlorbot8_controller/circular_motion.py" "asitlorbot8_controller/simple_controller.py" "DESTINATION" "lib/asitlorbot8_controller")
-ament_cmake_symlink_install_programs("/home/asimkumar/asitlorbot8_ws/src/asitlorbot8_controller" PROGRAMS "asitlorbot8_controller/noisy_controller.py" "asitlorbot8_controller/circular_motion.py" "asitlorbot8_controller/simple_controller.py" "DESTINATION" "lib/asitlorbot8_controller")
+# install(PROGRAMS "asitlorbot8_controller/noisy_controller.py" "asitlorbot8_controller/noisy_controller_tuned.py" "asitlorbot8_controller/circular_motion.py" "asitlorbot8_controller/simple_controller.py" "DESTINATION" "lib/asitlorbot8_controller")
+ament_cmake_symlink_install_programs("/home/asimkumar/asitlorbot8_ws/src/asitlorbot8_controller" PROGRAMS "asitlorbot8_controller/noisy_controller.py" "asitlorbot8_controller/noisy_controller_tuned.py" "asitlorbot8_controller/circular_motion.py" "asitlorbot8_controller/simple_controller.py" "DESTINATION" "lib/asitlorbot8_controller")
 
 # install(FILES "/home/asimkumar/asitlorbot8_ws/build/asitlorbot8_controller/ament_cmake_index/share/ament_index/resource_index/package_run_dependencies/asitlorbot8_controller" "DESTINATION" "share/ament_index/resource_index/package_run_dependencies")
 ament_cmake_symlink_install_files("/home/asimkumar/asitlorbot8_ws/src/asitlorbot8_controller" FILES "/home/asimkumar/asitlorbot8_ws/build/asitlorbot8_controller/ament_cmake_index/share/ament_index/resource_index/package_run_dependencies/asitlorbot8_controller" "DESTINATION" "share/ament_index/resource_index/package_run_dependencies")

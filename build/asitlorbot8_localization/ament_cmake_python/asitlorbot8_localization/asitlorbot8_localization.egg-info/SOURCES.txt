@@ -1,11 +1,16 @@
 setup.py
 asitlorbot8_localization/__init__.py
 asitlorbot8_localization/bayesian_optimization.py
+asitlorbot8_localization/circular_motion_1.py
 asitlorbot8_localization/imu_republisher.py
+asitlorbot8_localization/imu_republisher_tuned.py
+asitlorbot8_localization/path_follower_node.py
+asitlorbot8_localization/path_publisher_node.py
 asitlorbot8_localization/rmse.py
 asitlorbot8_localization/set_init_amcl_pose.py
 asitlorbot8_localization/test.py
 asitlorbot8_localization/test3.py
+asitlorbot8_localization/test4.py
 asitlorbot8_localization.egg-info/PKG-INFO
 asitlorbot8_localization.egg-info/SOURCES.txt
 asitlorbot8_localization.egg-info/dependency_links.txt

@@ -17,8 +17,16 @@ def noisy_controller(context, *args, **kwargs):
             {"wheel_radius": wheel_radius + wheel_radius_error,
              "wheel_separation": wheel_separation + wheel_separation_error}],
     )
+    noisy_controller_py_tuned = Node(
+        package="asitlorbot8_controller",
+        executable="noisy_controller_tuned.py",
+        parameters=[
+            {"wheel_radius": wheel_radius + wheel_radius_error,
+             "wheel_separation": wheel_separation + wheel_separation_error}],
+    )
     return [
-        noisy_controller_py
+        noisy_controller_py,
+        # noisy_controller_py_tuned
     ]
 
 def generate_launch_description():

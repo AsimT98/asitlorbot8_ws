@@ -1,0 +1,5 @@
+[console_scripts]
+arduino_serial_node = motor_control_pkg.arduino_serial_node:main
+encoder_subscriber_node = motor_control_pkg.encoder_subscriber_node:main
+motor_control_node = motor_control_pkg.motor_control_node:main
+

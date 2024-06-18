@@ -86,7 +86,7 @@ class NoisyController(Node):
 
         # Calculate the linear and angular velocity
         linear = (
-            # (self.wheel_radius_/4)* (fi_left_front +fi_right_front +fi_left_rear +fi_right_rear)
+            # (self.wheel_radius_/2)* (fi_left_front +fi_right_front +fi_left_rear +fi_right_rear)
             (self.wheel_radius_/2)* (fi_left_front +fi_right_front)
         )
         angular = (

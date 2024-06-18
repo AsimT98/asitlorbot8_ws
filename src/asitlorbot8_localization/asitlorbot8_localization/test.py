@@ -354,7 +354,7 @@ from tf_transformations import euler_from_quaternion
 import matplotlib.pyplot as plt
 
 # Load data from Excel sheet
-data = pd.read_excel("/home/asimkumar/asitlor_ws/data4.xlsx")
+data = pd.read_excel("/home/asimkumar/asitlorbot8_ws/data_7.xlsx")
 
 def objective_function(process_noise_covariance_matrix):
     objective_value_nees = 0
@@ -362,8 +362,8 @@ def objective_function(process_noise_covariance_matrix):
     objective_value_rpe_rotation = 0
     objective_value_trace = 0  # Initialize trace term
     process_noise_covariance_1d = data.iloc[0, 40:].values
-    # print(process_noise_covariance_matrix)
-    process_noise_covariance_matrix = np.array(process_noise_covariance_matrix).reshape((15, 15))
+    print(process_noise_covariance_1d)
+    process_noise_covariance_matrix = np.array(process_noise_covariance_1d).reshape((15, 15))
     
     # Calculate trace of the process noise covariance matrix
     trace = np.trace(process_noise_covariance_matrix)
@@ -443,11 +443,11 @@ def objective_function(process_noise_covariance_matrix):
 
 # Define the bounds for the process noise covariance matrix
 bounds = [(0.001, 1)] * 225  # Assuming a 15x15 matrix
-bounds[80] = (0.00002, 0.9)
-bounds[96] = (0.00002, 0.9)  # Adjusting for zero-based index
-bounds[112] = (0.00002, 0.9)  # Adjusting for zero-based index
-bounds[176] = (0.0000000002, 0.02)  # Adjusting for zero-based index
-bounds[192] = (0.00001, 0.1)
+bounds[80] = (0.000000001, 0.1)
+bounds[96] = (0.000000001, 0.1)  # Adjusting for zero-based index
+bounds[112] = (0.000000001, 0.1)  # Adjusting for zero-based index
+bounds[176] = (0.000000001, 0.1)  # Adjusting for zero-based index
+bounds[192] = (0.000000001, 0.1)
 
 # Store NEES values for plotting
 nees_values = []

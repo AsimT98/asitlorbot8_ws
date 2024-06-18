@@ -1,0 +1,15 @@
+package.xml
+setup.cfg
+setup.py
+motor_control_pkg/__init__.py
+motor_control_pkg/arduino_serial_node.py
+motor_control_pkg/encoder_subscriber_node.py
+motor_control_pkg/motor_control_node.py
+motor_control_pkg.egg-info/PKG-INFO
+motor_control_pkg.egg-info/SOURCES.txt
+motor_control_pkg.egg-info/dependency_links.txt
+motor_control_pkg.egg-info/entry_points.txt
+motor_control_pkg.egg-info/requires.txt
+motor_control_pkg.egg-info/top_level.txt
+motor_control_pkg.egg-info/zip-safe
+resource/motor_control_pkg

@@ -40,6 +40,7 @@ install(
 )
 install(PROGRAMS
   asitlorbot8_controller/noisy_controller.py
+  asitlorbot8_controller/noisy_controller_tuned.py
   asitlorbot8_controller/circular_motion.py
   asitlorbot8_controller/simple_controller.py
   DESTINATION lib/${PROJECT_NAME}

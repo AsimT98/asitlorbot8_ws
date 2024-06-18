@@ -46,8 +46,12 @@ endif()
 install(PROGRAMS
   
   ${PROJECT_NAME}/imu_republisher.py
+  ${PROJECT_NAME}/imu_republisher_tuned.py
   ${PROJECT_NAME}/rmse.py
+  ${PROJECT_NAME}/circular_motion_1.py
   ${PROJECT_NAME}/set_init_amcl_pose.py
+  ${PROJECT_NAME}/path_follower_node.py
+  ${PROJECT_NAME}/path_publisher_node.py
 
   # ${PROJECT_NAME}/bayesian_optimization.py
   DESTINATION lib/${PROJECT_NAME}
