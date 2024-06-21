@@ -423,7 +423,7 @@
 #     main()
 
 
-#RECTANGLE MOTION
+# RECTANGLE MOTION
 # import rclpy
 # from rclpy.node import Node
 # from geometry_msgs.msg import Twist, PoseStamped
@@ -528,7 +528,7 @@
 
 
 
-# # CIRCULAR MOTION ONLY
+# CIRCULAR MOTION ONLY
 import rclpy
 from rclpy.node import Node
 from geometry_msgs.msg import Twist, PoseStamped

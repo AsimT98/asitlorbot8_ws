@@ -2,6 +2,8 @@ import pandas as pd
 import numpy as np
 from scipy.spatial.transform import Rotation as R
 from bayes_opt import BayesianOptimization
+from scipy.stats import chi2
+import matplotlib.pyplot as plt
 
 # Load data from Excel sheet
 data = pd.read_excel("/home/asimkumar/asitlorbot8_ws/exceldata/optimization/optimization_7.xlsx")
@@ -30,11 +32,11 @@ process_noise_covariance_matrices = [
     for start_idx in range(0, total_rows, batch_size)
 ]
 
-# Define weights for each metric (you can adjust these weights based on importance)
-weight_NEES = 0.4
+# Define weights for each metric (adjust based on importance)
+weight_NEES = 0.5
 weight_RPE = 0.2
 weight_RRE = 0.2
-weight_trace = 0.2  # Lower weight as trace value can vary significantly
+weight_trace = 0.1
 
 # Define the target NEES value
 target_NEES = 24.996
@@ -44,6 +46,7 @@ def calculate_objective(**kwargs):
     diagonal_elements = np.array([kwargs[f'd{i}'] for i in range(15)])
     
     average_NEES_values = []
+    log_NEES_values = []
     average_position_errors = []
     average_orientation_errors = []
     average_trace_covariances = []
@@ -69,7 +72,7 @@ def calculate_objective(**kwargs):
             try:
                 reg_matrix = adjusted_cov_matrices[i] + np.eye(15) * 1e-6
                 inv_cov_matrix = np.linalg.inv(reg_matrix)
-                e_x_i = e_x_batch[i][:15]
+                e_x_i = e_x_batch[i][:15]  # Only use the first 15 elements
                 NEES = e_x_i @ inv_cov_matrix @ e_x_i.T
             except np.linalg.LinAlgError:
                 NEES = np.inf
@@ -97,18 +100,22 @@ def calculate_objective(**kwargs):
         avg_orientation_error = np.nanmean(orientation_errors)
         avg_trace_covariance = np.nanmean(trace_covariances)
         
+        # Calculate log_NEES
+        log_NEES = abs(np.log(avg_NEES / target_NEES))
+        
         average_NEES_values.append(avg_NEES)
+        log_NEES_values.append(log_NEES)
         average_position_errors.append(avg_position_error)
         average_orientation_errors.append(avg_orientation_error)
         average_trace_covariances.append(avg_trace_covariance)
     
-    overall_NEES = np.nanmean(average_NEES_values)
+    overall_log_NEES = np.nanmean(log_NEES_values)
     overall_position_error = np.nanmean(average_position_errors)
     overall_orientation_error = np.nanmean(average_orientation_errors)
     overall_trace_covariance = np.nanmean(average_trace_covariances)
     
     objective_score = (
-        weight_NEES * overall_NEES +
+        weight_NEES * overall_log_NEES +
         weight_RPE * overall_position_error +
         weight_RRE * overall_orientation_error +
         weight_trace * overall_trace_covariance
@@ -117,7 +124,7 @@ def calculate_objective(**kwargs):
     return -objective_score  # We minimize the negative score because BayesianOptimization maximizes the target function
 
 # Define the bounds for each diagonal element
-pbounds = {f'd{i}': (0.00000001,0.01) for i in range(15)}
+pbounds = {f'd{i}': (0.00000001, 0.1) for i in range(15)}
 
 # Initialize Bayesian optimizer
 optimizer = BayesianOptimization(
@@ -126,15 +133,208 @@ optimizer = BayesianOptimization(
     random_state=1,
 )
 
-# Perform optimization
+# Perform optimization with more iterations
 optimizer.maximize(
-    init_points=10,
-    n_iter=30,
+    init_points=20,
+    n_iter=40,
 )
 
 # Extract the optimal diagonal elements
 optimal_diagonal_elements = [optimizer.max['params'][f'd{i}'] for i in range(15)]
 print(f"Optimal diagonal elements: {optimal_diagonal_elements}")
+
+# Function to perform chi-square test for NEES
+def chi_square_test(nees_values, dof, significance_level):
+    # Calculate critical value from chi-square distribution
+    critical_value = chi2.ppf(1 - significance_level, dof)
+
+    # Check if NEES values are consistent
+    consistent = all(nees <= critical_value for nees in nees_values)
+
+    return consistent, critical_value
+
+# Calculate NEES with optimized diagonal elements
+adjusted_cov_matrices_optimized = [
+    process_noise_covariance_matrices[start_idx // batch_size][i] + np.diag(optimal_diagonal_elements)
+    for start_idx in range(0, total_rows, batch_size)
+    for i in range(min(batch_size, total_rows - start_idx))
+]
+
+nees_values = []
+for i in range(len(data)):
+    x_gt = data[gt_columns].iloc[i].values
+    x_est = data[et_columns].iloc[i].values
+    e_x = x_gt - x_est
+    e_x_i = e_x[:15]  # Only use the first 15 elements
+    inv_cov_matrix = np.linalg.inv(adjusted_cov_matrices_optimized[i] + np.eye(15) * 1e-6)
+    NEES = e_x_i @ inv_cov_matrix @ e_x_i.T
+    nees_values.append(NEES)
+
+# Perform chi-square test
+dof = 15
+significance_level = 0.05
+is_consistent, critical_value = chi_square_test(nees_values, dof, significance_level)
+print(f"Are optimized process noise covariance matrices consistent with NEES target (chi-square test)? {is_consistent}")
+print(f"Critical value (chi-square distribution with {dof} dof and {significance_level} significance): {critical_value}")
+
+# Plot NEES values
+plt.figure(figsize=(10, 6))
+plt.plot(nees_values, label='NEES Values')
+plt.axhline(y=critical_value, color='r', linestyle='--', label='Critical Value')
+plt.title('NEES Values vs Critical Value')
+plt.xlabel('Sample Index')
+plt.ylabel('NEES Value')
+plt.legend()
+plt.grid(True)
+plt.show()
+
+# Save the NEES values and results to an Excel file
+results_df = pd.DataFrame({
+    'Sample_Index': np.arange(len(nees_values)),
+    'NEES_Values': nees_values
+})
+results_df.to_excel("/home/asimkumar/asitlorbot8_ws/exceldata/optimization/results_with_nees_graph.xlsx", index=False)
+
+optimal_diagonals_df = pd.DataFrame({'Optimal_Diagonal': optimal_diagonal_elements})
+optimal_diagonals_df.to_excel("/home/asimkumar/asitlorbot8_ws/exceldata/optimization/results_with_new_objective9.xlsx", index=False)
+
+# import pandas as pd
+# import numpy as np
+# from scipy.spatial.transform import Rotation as R
+# from bayes_opt import BayesianOptimization
+
+# # Load data from Excel sheet
+# data = pd.read_excel("/home/asimkumar/asitlorbot8_ws/exceldata/optimization/optimization_7.xlsx")
+
+# # Total number of rows in the dataset
+# total_rows = len(data)
+
+# # Define the number of rows in each batch
+# batch_size = 50
+
+# # List of columns for ground truth and estimated states
+# gt_columns = ['GT_Pos_X', 'GT_Pos_Y', 'GT_Pos_Z', 'GT_Orient_X', 'GT_Orient_Y', 'GT_Orient_Z', 'GT_Orient_W', 
+#               'GT_Vel_X', 'GT_Vel_Y', 'GT_Vel_Z', 'GT_Vel_Roll', 'GT_Vel_Pitch', 
+#               'GT_Angular_Vel_Yaw', 'GT_Accel_X', 'GT_Accel_Y', 'GT_Accel_Z']
+
+# et_columns = ['ET_Pos_X', 'ET_Pos_Y', 'ET_Pos_Z', 'ET_Orient_X', 'ET_Orient_Y', 'ET_Orient_Z', 'ET_Orient_W', 
+#               'ET_Vel_X', 'ET_Vel_Y', 'ET_Vel_Z', 'ET_Vel_Roll', 'ET_Vel_Pitch', 
+#               'ET_Angular_Vel_Yaw', 'ET_Accel_X', 'ET_Accel_Y', 'ET_Accel_Z']
+
+# # Extract process noise covariance matrices for each batch
+# process_noise_covariance_matrices = [
+#     [
+#         np.array(data.iloc[start_idx + i, 40:40 + 15*15].values).reshape((15, 15))
+#         for i in range(min(batch_size, total_rows - start_idx))
+#     ]
+#     for start_idx in range(0, total_rows, batch_size)
+# ]
+
+# # Define weights for each metric (you can adjust these weights based on importance)
+# weight_NEES = 0.4
+# weight_RPE = 0.2
+# weight_RRE = 0.2
+# weight_trace = 0.2  # Lower weight as trace value can vary significantly
+
+# # Define the target NEES value
+# target_NEES = 24.996
+
+# # Function to calculate the objective score for a given set of diagonal elements
+# def calculate_objective(**kwargs):
+#     diagonal_elements = np.array([kwargs[f'd{i}'] for i in range(15)])
+    
+#     average_NEES_values = []
+#     average_position_errors = []
+#     average_orientation_errors = []
+#     average_trace_covariances = []
+    
+#     for start_idx in range(0, total_rows, batch_size):
+#         actual_batch_size = min(batch_size, total_rows - start_idx)
+#         x_gt_batch = data[gt_columns][start_idx:start_idx + actual_batch_size].reset_index(drop=True)
+#         x_est_batch = data[et_columns][start_idx:start_idx + actual_batch_size].reset_index(drop=True)
+#         e_x_batch = x_gt_batch.values - x_est_batch.values
+
+#         # Adjust the diagonal elements for the process noise covariance matrices
+#         adjusted_cov_matrices = [
+#             process_noise_covariance_matrices[start_idx // batch_size][i] + np.diag(diagonal_elements)
+#             for i in range(actual_batch_size)
+#         ]
+        
+#         NEES_values = []
+#         position_errors = []
+#         orientation_errors = []
+#         trace_covariances = []
+
+#         for i in range(actual_batch_size):
+#             try:
+#                 reg_matrix = adjusted_cov_matrices[i] + np.eye(15) * 1e-6
+#                 inv_cov_matrix = np.linalg.inv(reg_matrix)
+#                 e_x_i = e_x_batch[i][:15]
+#                 NEES = e_x_i @ inv_cov_matrix @ e_x_i.T
+#             except np.linalg.LinAlgError:
+#                 NEES = np.inf
+#             NEES_values.append(NEES)
+            
+#             g_i = x_gt_batch.iloc[i][['GT_Pos_X', 'GT_Pos_Y', 'GT_Pos_Z']].values
+#             s_i = x_est_batch.iloc[i][['ET_Pos_X', 'ET_Pos_Y', 'ET_Pos_Z']].values
+#             position_error = np.linalg.norm((g_i - s_i) / (g_i + 1e-6)) ** 2
+#             position_errors.append(position_error)
+            
+#             g_quat = x_gt_batch.iloc[i][['GT_Orient_X', 'GT_Orient_Y', 'GT_Orient_Z', 'GT_Orient_W']].values
+#             s_quat = x_est_batch.iloc[i][['ET_Orient_X', 'ET_Orient_Y', 'ET_Orient_Z', 'ET_Orient_W']].values
+            
+#             g_euler = R.from_quat(g_quat).as_euler('xyz')
+#             s_euler = R.from_quat(s_quat).as_euler('xyz')
+            
+#             orientation_error = np.sum(np.abs(np.arccos(np.clip(np.cos(g_euler - s_euler), -1.0, 1.0))))
+#             orientation_errors.append(orientation_error)
+            
+#             trace_covariance = np.trace(adjusted_cov_matrices[i])
+#             trace_covariances.append(trace_covariance)
+
+#         avg_NEES = np.nanmean(NEES_values)
+#         avg_position_error = np.sqrt(np.nanmean(position_errors))
+#         avg_orientation_error = np.nanmean(orientation_errors)
+#         avg_trace_covariance = np.nanmean(trace_covariances)
+        
+#         average_NEES_values.append(avg_NEES)
+#         average_position_errors.append(avg_position_error)
+#         average_orientation_errors.append(avg_orientation_error)
+#         average_trace_covariances.append(avg_trace_covariance)
+    
+#     overall_NEES = np.nanmean(average_NEES_values)
+#     overall_position_error = np.nanmean(average_position_errors)
+#     overall_orientation_error = np.nanmean(average_orientation_errors)
+#     overall_trace_covariance = np.nanmean(average_trace_covariances)
+    
+#     objective_score = (
+#         weight_NEES * overall_NEES +
+#         weight_RPE * overall_position_error +
+#         weight_RRE * overall_orientation_error +
+#         weight_trace * overall_trace_covariance
+#     )
+    
+#     return -objective_score  # We minimize the negative score because BayesianOptimization maximizes the target function
+
+# # Define the bounds for each diagonal element
+# pbounds = {f'd{i}': (0.00000001,0.01) for i in range(15)}
+
+# # Initialize Bayesian optimizer
+# optimizer = BayesianOptimization(
+#     f=calculate_objective,
+#     pbounds=pbounds,
+#     random_state=1,
+# )
+
+# # Perform optimization
+# optimizer.maximize(
+#     init_points=10,
+#     n_iter=30,
+# )
+
+# # Extract the optimal diagonal elements
+# optimal_diagonal_elements = [optimizer.max['params'][f'd{i}'] for i in range(15)]
+# print(f"Optimal diagonal elements: {optimal_diagonal_elements}")
 
 # [[0.08608513 0.06637575 0.01666761 0.01566985 0.00885562 0.05942725
 #   0.06879354 0.02385419 0.00188506 0.00739546 0.03179263 0.02668821
