@@ -1,196 +1,196 @@
 # #!/usr/bin/env python3
 # #CALCULATE NEES
 
-# import pandas as pd
-# import numpy as np
-# import matplotlib.pyplot as plt
-
-# # Load data from Excel sheet
-# data = pd.read_excel("/home/asimkumar/asitlorbot8_ws/data5.xlsx")
-
-# # Total number of rows in the dataset
-# total_rows = len(data)
-
-# # Define the number of rows in each batch
-# batch_size = 50
-
-# # List of columns for ground truth and estimated states
-# gt_columns = ['GT_Pos_X', 'GT_Pos_Y', 'GT_Pos_Z', 'GT_Roll', 'GT_Pitch', 'GT_Yaw', 
-#               'GT_Vel_X', 'GT_Vel_Y', 'GT_Vel_Z', 'GT_Vel_Roll', 'GT_Vel_Pitch', 
-#               'GT_Angular_Vel_Yaw', 'GT_Accel_X', 'GT_Accel_Y', 'GT_Accel_Z']
-
-# et_columns = ['ET_Pos_X', 'ET_Pos_Y', 'ET_Pos_Z', 'ET_Roll', 'ET_Pitch', 'ET_Yaw', 
-#               'ET_Vel_X', 'ET_Vel_Y', 'ET_Vel_Z', 'ET_Vel_Roll', 'ET_Vel_Pitch', 
-#               'ET_Angular_Vel_Yaw', 'ET_Accel_X', 'ET_Accel_Y', 'ET_Accel_Z']
-
-# # Initialize lists to store NEES values for each batch
-# NEES_values = []
-# batch_colors = []
-
-# # Define the target NEES value
-# target_NEES = 24.996
-
-# # Loop over the data in steps of batch_size
-# for start_idx in range(0, total_rows, batch_size):
-#     # Determine the actual batch size (may be less than batch_size for the final batch)
-#     actual_batch_size = min(batch_size, total_rows - start_idx)
-    
-#     # Extract ground truth state variables for the current batch
-#     x_gt_batch = data[gt_columns][start_idx:start_idx + actual_batch_size].reset_index(drop=True)
-
-#     # Extract estimated state variables for the current batch
-#     x_ET_batch = data[et_columns][start_idx:start_idx + actual_batch_size].reset_index(drop=True)
-
-#     # Ensure the columns are correctly aligned by renaming columns of x_ET_batch to match x_gt_batch structure
-#     x_ET_batch.columns = gt_columns
-
-#     # Calculate error between estimated state and ground truth state for the current batch
-#     e_x_batch = x_gt_batch - x_ET_batch
-
-#     # Rename columns in e_x_batch with "error_" prefix
-#     e_x_batch.columns = [f'error_{col[3:]}' for col in gt_columns]  # strip 'GT_' and add 'error_'
-
-#     # Extract the process noise covariance matrices for the current batch
-#     process_noise_covariance_matrices = [np.array(data.iloc[start_idx + i, 38:].values).reshape((15, 15)) for i in range(actual_batch_size)]
-
-#     # Initialize lists to store NEES values for each data point in the batch
-#     NEES_batch = []
-
-#     # Calculate NEES for each data point in the batch
-#     for i in range(actual_batch_size):
-#         try:
-#             inv_process_noise_covariance_matrix = np.linalg.inv(process_noise_covariance_matrices[i])
-#             NEES = e_x_batch.iloc[i].values @ inv_process_noise_covariance_matrix @ e_x_batch.iloc[i].values.T
-#             NEES_batch.append(NEES)
-#         except np.linalg.LinAlgError:
-#             print(f"Skipping singular matrix at index {start_idx + i}")
-#             NEES_batch.append(np.nan)
-
-#     # Skip batches where avg_NEES_batch is NaN
-#     if np.isnan(np.nanmean(NEES_batch)):
-#         print(f"Skipping batch {start_idx} due to NaN values in NEES")
-#         continue
-
-#     # Filter out NEES values greater than 100
-#     NEES_batch = [nees for nees in NEES_batch if nees <= 100]
-
-#     # Append NEES values to the respective list
-#     NEES_values.append(NEES_batch)
-#     batch_colors.append(np.random.rand(3,))  # Store a random color for each batch
-
-# # Plot all NEES values for all batches on a single figure with different colors for each batch
-# plt.figure(figsize=(12, 6))
-# for i in range(len(NEES_values)):
-#     start_idx = i * batch_size
-#     batch_NEES = NEES_values[i]
-#     batch_indices = [start_idx + j for j in range(len(batch_NEES))]
-#     plt.plot(batch_indices, batch_NEES, marker='o', linestyle='-', label=f'Batch {i}', color=batch_colors[i])
-# plt.axhline(y=target_NEES, color='r', linestyle='--', label='Target NEES')
-# plt.xlabel('Data Point')
-# plt.ylabel('NEES')
-# plt.title('NEES Values for All Batches')
-# plt.legend()
-# plt.grid(True)
-# plt.tight_layout()
-# plt.show()
-
-
-
 import pandas as pd
 import numpy as np
-from tf_transformations import euler_from_quaternion
 import matplotlib.pyplot as plt
 
 # Load data from Excel sheet
-data = pd.read_excel("/home/asimkumar/asitlorbot8_ws/data5.xlsx", sheet_name="Sheet1")
+data = pd.read_excel("/home/asimkumar/asitlorbot8_ws/data5.xlsx")
 
-def calculate_metrics(data):
-    # Extract ground truth state variables
-    gt_positions = data[['GT_Pos_X', 'GT_Pos_Y', 'GT_Pos_Z']].values
-    gt_quaternions = data[['GT_Orient_X', 'GT_Orient_Y', 'GT_Orient_Z', 'GT_Orient_W']].values
-    # Extract ETimated state variables
-    ET_positions = data[['ET_Pos_X', 'ET_Pos_Y', 'ET_Pos_Z']].values
-    ET_quaternions = data[['ET_Orient_X', 'ET_Orient_Y', 'ET_Orient_Z', 'ET_Orient_W']].values
+# Total number of rows in the dataset
+total_rows = len(data)
 
-    # RPE (Relative Pose Error) for translation
-    translation_errors = np.linalg.norm(gt_positions - ET_positions, axis=1) / np.linalg.norm(gt_positions, axis=1)
-    avg_rpe_translation = np.mean(translation_errors)
+# Define the number of rows in each batch
+batch_size = 50
 
-    # RPE for rotation using quaternions
-    rotation_errors = []
-    for i in range(len(gt_quaternions)):
-        gt_quat = gt_quaternions[i]
-        ET_quat = ET_quaternions[i]
-        # Convert quaternions to euler angles
-        gt_euler = euler_from_quaternion(gt_quat)
-        ET_euler = euler_from_quaternion(ET_quat)
-        # Compute angle difference between the rotations
-        angle_diff = np.linalg.norm(np.array(gt_euler) - np.array(ET_euler))
-        rotation_errors.append(angle_diff)
-    avg_rpe_rotation = np.mean(rotation_errors)
+# List of columns for ground truth and estimated states
+gt_columns = ['GT_Pos_X', 'GT_Pos_Y', 'GT_Pos_Z', 'GT_Roll', 'GT_Pitch', 'GT_Yaw', 
+              'GT_Vel_X', 'GT_Vel_Y', 'GT_Vel_Z', 'GT_Vel_Roll', 'GT_Vel_Pitch', 
+              'GT_Angular_Vel_Yaw', 'GT_Accel_X', 'GT_Accel_Y', 'GT_Accel_Z']
 
-    # Absolute Trajectory Error (ATE)
-    ate = np.linalg.norm(gt_positions - ET_positions, axis=1)
-    avg_ate = np.mean(ate)
+et_columns = ['ET_Pos_X', 'ET_Pos_Y', 'ET_Pos_Z', 'ET_Roll', 'ET_Pitch', 'ET_Yaw', 
+              'ET_Vel_X', 'ET_Vel_Y', 'ET_Vel_Z', 'ET_Vel_Roll', 'ET_Vel_Pitch', 
+              'ET_Angular_Vel_Yaw', 'ET_Accel_X', 'ET_Accel_Y', 'ET_Accel_Z']
 
-    return avg_rpe_translation, avg_rpe_rotation, avg_ate
+# Initialize lists to store NEES values for each batch
+NEES_values = []
+batch_colors = []
 
-# Calculate metrics for the first 50 data points (without covariance tuning)
-rpe_translation_before, rpe_rotation_before, ate_before = calculate_metrics(data.iloc[:50])
+# Define the target NEES value
+target_NEES = 24.996
 
-# Calculate metrics for the next 50 data points (with covariance tuning)
-rpe_translation_after, rpe_rotation_after, ate_after = calculate_metrics(data.iloc[50:100])
+# Loop over the data in steps of batch_size
+for start_idx in range(0, total_rows, batch_size):
+    # Determine the actual batch size (may be less than batch_size for the final batch)
+    actual_batch_size = min(batch_size, total_rows - start_idx)
+    
+    # Extract ground truth state variables for the current batch
+    x_gt_batch = data[gt_columns][start_idx:start_idx + actual_batch_size].reset_index(drop=True)
 
-# Create DataFrame for metrics
-metrics_data = {
-    "Metric": ["RPE Translation", "RPE Rotation", "ATE"],
-    "Without Covariance Tuning": [rpe_translation_before, rpe_rotation_before, ate_before],
-    "With Covariance Tuning": [rpe_translation_after, rpe_rotation_after, ate_after]
-}
-metrics_df = pd.DataFrame(metrics_data)
+    # Extract estimated state variables for the current batch
+    x_ET_batch = data[et_columns][start_idx:start_idx + actual_batch_size].reset_index(drop=True)
 
-# Plotting table
-plt.figure(figsize=(12, 4))
-ax1 = plt.subplot(131)
-metrics_df.plot(kind='bar', x='Metric', y=["Without Covariance Tuning", "With Covariance Tuning"], ax=ax1)
-plt.title('Comparison of Metrics')
-plt.ylabel('Value')
+    # Ensure the columns are correctly aligned by renaming columns of x_ET_batch to match x_gt_batch structure
+    x_ET_batch.columns = gt_columns
 
-# Plotting RPE Translation
-ax2 = plt.subplot(132)
-plt.plot(np.arange(0, 50), np.linalg.norm(data[['GT_Pos_X', 'GT_Pos_Y', 'GT_Pos_Z']].iloc[:50].values - data[['ET_Pos_X', 'ET_Pos_Y', 'ET_Pos_Z']].iloc[:50].values, axis=1), label='Without Covariance Tuning')
-plt.plot(np.arange(0, 50), np.linalg.norm(data[['GT_Pos_X', 'GT_Pos_Y', 'GT_Pos_Z']].iloc[50:100].values - data[['ET_Pos_X', 'ET_Pos_Y', 'ET_Pos_Z']].iloc[50:100].values, axis=1), label='With Covariance Tuning')
-plt.xlabel('Time Step')
-plt.ylabel('RPE Translation')
-plt.title('RPE Translation over Time')
+    # Calculate error between estimated state and ground truth state for the current batch
+    e_x_batch = x_gt_batch - x_ET_batch
+
+    # Rename columns in e_x_batch with "error_" prefix
+    e_x_batch.columns = [f'error_{col[3:]}' for col in gt_columns]  # strip 'GT_' and add 'error_'
+
+    # Extract the process noise covariance matrices for the current batch
+    process_noise_covariance_matrices = [np.array(data.iloc[start_idx + i, 38:].values).reshape((15, 15)) for i in range(actual_batch_size)]
+
+    # Initialize lists to store NEES values for each data point in the batch
+    NEES_batch = []
+
+    # Calculate NEES for each data point in the batch
+    for i in range(actual_batch_size):
+        try:
+            inv_process_noise_covariance_matrix = np.linalg.inv(process_noise_covariance_matrices[i])
+            NEES = e_x_batch.iloc[i].values @ inv_process_noise_covariance_matrix @ e_x_batch.iloc[i].values.T
+            NEES_batch.append(NEES)
+        except np.linalg.LinAlgError:
+            print(f"Skipping singular matrix at index {start_idx + i}")
+            NEES_batch.append(np.nan)
+
+    # Skip batches where avg_NEES_batch is NaN
+    if np.isnan(np.nanmean(NEES_batch)):
+        print(f"Skipping batch {start_idx} due to NaN values in NEES")
+        continue
+
+    # Filter out NEES values greater than 100
+    NEES_batch = [nees for nees in NEES_batch if nees <= 100]
+
+    # Append NEES values to the respective list
+    NEES_values.append(NEES_batch)
+    batch_colors.append(np.random.rand(3,))  # Store a random color for each batch
+
+# Plot all NEES values for all batches on a single figure with different colors for each batch
+plt.figure(figsize=(12, 6))
+for i in range(len(NEES_values)):
+    start_idx = i * batch_size
+    batch_NEES = NEES_values[i]
+    batch_indices = [start_idx + j for j in range(len(batch_NEES))]
+    plt.plot(batch_indices, batch_NEES, marker='o', linestyle='-', label=f'Batch {i}', color=batch_colors[i])
+plt.axhline(y=target_NEES, color='r', linestyle='--', label='Target NEES')
+plt.xlabel('Data Point')
+plt.ylabel('NEES')
+plt.title('NEES Values for All Batches')
 plt.legend()
-
-# Plotting RPE Rotation
-ax3 = plt.subplot(133)
-rotation_errors_before = []
-rotation_errors_after = []
-for i in range(50):
-    gt_quat = data.iloc[i][['GT_Orient_X', 'GT_Orient_Y', 'GT_Orient_Z', 'GT_Orient_W']]
-    ET_quat = data.iloc[i][['ET_Orient_X', 'ET_Orient_Y', 'ET_Orient_Z', 'ET_Orient_W']]
-    gt_euler = euler_from_quaternion(gt_quat)
-    ET_euler = euler_from_quaternion(ET_quat)
-    rotation_errors_before.append(np.linalg.norm(np.array(gt_euler) - np.array(ET_euler)))
-for i in range(50):
-    gt_quat = data.iloc[50 + i][['GT_Orient_X', 'GT_Orient_Y', 'GT_Orient_Z', 'GT_Orient_W']]
-    ET_quat = data.iloc[50 + i][['ET_Orient_X', 'ET_Orient_Y', 'ET_Orient_Z', 'ET_Orient_W']]
-    gt_euler = euler_from_quaternion(gt_quat)
-    ET_euler = euler_from_quaternion(ET_quat)
-    rotation_errors_after.append(np.linalg.norm(np.array(gt_euler) - np.array(ET_euler)))
-plt.plot(np.arange(0, 50), rotation_errors_before, label='Without Covariance Tuning')
-plt.plot(np.arange(0, 50), rotation_errors_after, label='With Covariance Tuning')
-plt.xlabel('Time Step')
-plt.ylabel('RPE Rotation')
-plt.title('RPE Rotation over Time')
-plt.legend()
-
+plt.grid(True)
 plt.tight_layout()
-plt.savefig('metrics_and_graphs.png', bbox_inches='tight', pad_inches=0.1)
 plt.show()
+
+
+
+# import pandas as pd
+# import numpy as np
+# from tf_transformations import euler_from_quaternion
+# import matplotlib.pyplot as plt
+
+# # Load data from Excel sheet
+# data = pd.read_excel("/home/asimkumar/asitlorbot8_ws/data5.xlsx", sheet_name="Sheet1")
+
+# def calculate_metrics(data):
+#     # Extract ground truth state variables
+#     gt_positions = data[['GT_Pos_X', 'GT_Pos_Y', 'GT_Pos_Z']].values
+#     gt_quaternions = data[['GT_Orient_X', 'GT_Orient_Y', 'GT_Orient_Z', 'GT_Orient_W']].values
+#     # Extract ETimated state variables
+#     ET_positions = data[['ET_Pos_X', 'ET_Pos_Y', 'ET_Pos_Z']].values
+#     ET_quaternions = data[['ET_Orient_X', 'ET_Orient_Y', 'ET_Orient_Z', 'ET_Orient_W']].values
+
+#     # RPE (Relative Pose Error) for translation
+#     translation_errors = np.linalg.norm(gt_positions - ET_positions, axis=1) / np.linalg.norm(gt_positions, axis=1)
+#     avg_rpe_translation = np.mean(translation_errors)
+
+#     # RPE for rotation using quaternions
+#     rotation_errors = []
+#     for i in range(len(gt_quaternions)):
+#         gt_quat = gt_quaternions[i]
+#         ET_quat = ET_quaternions[i]
+#         # Convert quaternions to euler angles
+#         gt_euler = euler_from_quaternion(gt_quat)
+#         ET_euler = euler_from_quaternion(ET_quat)
+#         # Compute angle difference between the rotations
+#         angle_diff = np.linalg.norm(np.array(gt_euler) - np.array(ET_euler))
+#         rotation_errors.append(angle_diff)
+#     avg_rpe_rotation = np.mean(rotation_errors)
+
+#     # Absolute Trajectory Error (ATE)
+#     ate = np.linalg.norm(gt_positions - ET_positions, axis=1)
+#     avg_ate = np.mean(ate)
+
+#     return avg_rpe_translation, avg_rpe_rotation, avg_ate
+
+# # Calculate metrics for the first 50 data points (without covariance tuning)
+# rpe_translation_before, rpe_rotation_before, ate_before = calculate_metrics(data.iloc[:50])
+
+# # Calculate metrics for the next 50 data points (with covariance tuning)
+# rpe_translation_after, rpe_rotation_after, ate_after = calculate_metrics(data.iloc[50:100])
+
+# # Create DataFrame for metrics
+# metrics_data = {
+#     "Metric": ["RPE Translation", "RPE Rotation", "ATE"],
+#     "Without Covariance Tuning": [rpe_translation_before, rpe_rotation_before, ate_before],
+#     "With Covariance Tuning": [rpe_translation_after, rpe_rotation_after, ate_after]
+# }
+# metrics_df = pd.DataFrame(metrics_data)
+
+# # Plotting table
+# plt.figure(figsize=(12, 4))
+# ax1 = plt.subplot(131)
+# metrics_df.plot(kind='bar', x='Metric', y=["Without Covariance Tuning", "With Covariance Tuning"], ax=ax1)
+# plt.title('Comparison of Metrics')
+# plt.ylabel('Value')
+
+# # Plotting RPE Translation
+# ax2 = plt.subplot(132)
+# plt.plot(np.arange(0, 50), np.linalg.norm(data[['GT_Pos_X', 'GT_Pos_Y', 'GT_Pos_Z']].iloc[:50].values - data[['ET_Pos_X', 'ET_Pos_Y', 'ET_Pos_Z']].iloc[:50].values, axis=1), label='Without Covariance Tuning')
+# plt.plot(np.arange(0, 50), np.linalg.norm(data[['GT_Pos_X', 'GT_Pos_Y', 'GT_Pos_Z']].iloc[50:100].values - data[['ET_Pos_X', 'ET_Pos_Y', 'ET_Pos_Z']].iloc[50:100].values, axis=1), label='With Covariance Tuning')
+# plt.xlabel('Time Step')
+# plt.ylabel('RPE Translation')
+# plt.title('RPE Translation over Time')
+# plt.legend()
+
+# # Plotting RPE Rotation
+# ax3 = plt.subplot(133)
+# rotation_errors_before = []
+# rotation_errors_after = []
+# for i in range(50):
+#     gt_quat = data.iloc[i][['GT_Orient_X', 'GT_Orient_Y', 'GT_Orient_Z', 'GT_Orient_W']]
+#     ET_quat = data.iloc[i][['ET_Orient_X', 'ET_Orient_Y', 'ET_Orient_Z', 'ET_Orient_W']]
+#     gt_euler = euler_from_quaternion(gt_quat)
+#     ET_euler = euler_from_quaternion(ET_quat)
+#     rotation_errors_before.append(np.linalg.norm(np.array(gt_euler) - np.array(ET_euler)))
+# for i in range(50):
+#     gt_quat = data.iloc[50 + i][['GT_Orient_X', 'GT_Orient_Y', 'GT_Orient_Z', 'GT_Orient_W']]
+#     ET_quat = data.iloc[50 + i][['ET_Orient_X', 'ET_Orient_Y', 'ET_Orient_Z', 'ET_Orient_W']]
+#     gt_euler = euler_from_quaternion(gt_quat)
+#     ET_euler = euler_from_quaternion(ET_quat)
+#     rotation_errors_after.append(np.linalg.norm(np.array(gt_euler) - np.array(ET_euler)))
+# plt.plot(np.arange(0, 50), rotation_errors_before, label='Without Covariance Tuning')
+# plt.plot(np.arange(0, 50), rotation_errors_after, label='With Covariance Tuning')
+# plt.xlabel('Time Step')
+# plt.ylabel('RPE Rotation')
+# plt.title('RPE Rotation over Time')
+# plt.legend()
+
+# plt.tight_layout()
+# plt.savefig('metrics_and_graphs.png', bbox_inches='tight', pad_inches=0.1)
+# plt.show()
 
 
 
