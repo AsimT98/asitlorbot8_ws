@@ -124,7 +124,24 @@ def calculate_objective(**kwargs):
     return -objective_score  # We minimize the negative score because BayesianOptimization maximizes the target function
 
 # Define the bounds for each diagonal element
-pbounds = {f'd{i}': (0.00000001, 0.1) for i in range(15)}
+# pbounds = {f'd{i}': (0.00000001, 0.9) for i in range(15)}
+pbounds = {
+    'd0': (0.001, 0.1),    # Position x  
+    'd1': (0.001, 0.1),    # Position y
+    'd2': (0.001, 0.1),    # Position z
+    'd3': (0.01, 0.09),  # Orientation roll
+    'd4': (0.01, 0.09),  # Orientation pitch
+    'd5': (0.01, 0.09),  # Orientation yaw
+    'd6': (0.02, 0.09),      # Linear velocity x
+    'd7': (0.02, 0.09),      # Linear velocity y
+    'd8': (0.02, 0.09),      # Linear velocity z
+    'd9': (0.02, 0.09),     # Angular velocity x
+    'd10': (0.02, 0.09),    # Angular velocity y
+    'd11': (0.02, 0.09),    # Angular velocity z
+    'd12': (0.02, 0.09),       # Linear acceleration x
+    'd13': (0.02, 0.09),       # Linear acceleration y
+    'd14': (0.02, 0.09),       # Linear acceleration z
+}
 
 # Initialize Bayesian optimizer
 optimizer = BayesianOptimization(
@@ -135,8 +152,8 @@ optimizer = BayesianOptimization(
 
 # Perform optimization with more iterations
 optimizer.maximize(
-    init_points=20,
-    n_iter=40,
+    init_points=5,
+    n_iter=10,
 )
 
 # Extract the optimal diagonal elements

@@ -1,0 +1,19 @@
+[2.005s] Invoking command in '/home/asimkumar/asitlorbot8_ws/build/motor_control_pkg': PYTHONPATH=/home/asimkumar/asitlorbot8_ws/build/motor_control_pkg/prefix_override:/home/asimkumar/asitlorbot8_ws/install/motor_control_pkg/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated setup.py develop --editable --build-directory /home/asimkumar/asitlorbot8_ws/build/motor_control_pkg/build --no-deps symlink_data
+[2.516s] running develop
+[2.839s] running egg_info
+[2.840s] writing motor_control_pkg.egg-info/PKG-INFO
+[2.840s] writing dependency_links to motor_control_pkg.egg-info/dependency_links.txt
+[2.840s] writing entry points to motor_control_pkg.egg-info/entry_points.txt
+[2.840s] writing requirements to motor_control_pkg.egg-info/requires.txt
+[2.840s] writing top-level names to motor_control_pkg.egg-info/top_level.txt
+[2.843s] reading manifest file 'motor_control_pkg.egg-info/SOURCES.txt'
+[2.844s] writing manifest file 'motor_control_pkg.egg-info/SOURCES.txt'
+[2.918s] running build_ext
+[2.918s] Creating /home/asimkumar/asitlorbot8_ws/install/motor_control_pkg/lib/python3.10/site-packages/motor-control-pkg.egg-link (link to .)
+[2.919s] Installing arduino_serial_node script to /home/asimkumar/asitlorbot8_ws/install/motor_control_pkg/lib/motor_control_pkg
+[2.919s] Installing encoder_subscriber_node script to /home/asimkumar/asitlorbot8_ws/install/motor_control_pkg/lib/motor_control_pkg
+[2.919s] Installing motor_control_node script to /home/asimkumar/asitlorbot8_ws/install/motor_control_pkg/lib/motor_control_pkg
+[2.920s] 
+[2.920s] Installed /home/asimkumar/asitlorbot8_ws/build/motor_control_pkg
+[2.920s] running symlink_data
+[2.991s] Invoked command in '/home/asimkumar/asitlorbot8_ws/build/motor_control_pkg' returned '0': PYTHONPATH=/home/asimkumar/asitlorbot8_ws/build/motor_control_pkg/prefix_override:/home/asimkumar/asitlorbot8_ws/install/motor_control_pkg/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated setup.py develop --editable --build-directory /home/asimkumar/asitlorbot8_ws/build/motor_control_pkg/build --no-deps symlink_data

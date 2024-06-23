@@ -1,0 +1,21 @@
+[0.123s] Invoking command in '/home/asimkumar/asitlorbot8_ws/build/asitlorbot8_cpp_examples': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/asimkumar/asitlorbot8_ws/install/motor_control_pkg:/home/asimkumar/asitlorbot12_ws/install/asitlorbot12_py_examples:/home/asimkumar/asitlorbotsix_ws/install/asitlorbot_six:/home/asimkumar/asitlor_ws/install/serial_motor_demo:/opt/ros/humble /usr/bin/cmake --build /home/asimkumar/asitlorbot8_ws/build/asitlorbot8_cpp_examples -- -j8 -l8
+[1.035s] Invoked command in '/home/asimkumar/asitlorbot8_ws/build/asitlorbot8_cpp_examples' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/asimkumar/asitlorbot8_ws/install/motor_control_pkg:/home/asimkumar/asitlorbot12_ws/install/asitlorbot12_py_examples:/home/asimkumar/asitlorbotsix_ws/install/asitlorbot_six:/home/asimkumar/asitlor_ws/install/serial_motor_demo:/opt/ros/humble /usr/bin/cmake --build /home/asimkumar/asitlorbot8_ws/build/asitlorbot8_cpp_examples -- -j8 -l8
+[1.224s] Invoking command in '/home/asimkumar/asitlorbot8_ws/build/asitlorbot8_cpp_examples': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/asimkumar/asitlorbot8_ws/install/motor_control_pkg:/home/asimkumar/asitlorbot12_ws/install/asitlorbot12_py_examples:/home/asimkumar/asitlorbotsix_ws/install/asitlorbot_six:/home/asimkumar/asitlor_ws/install/serial_motor_demo:/opt/ros/humble /usr/bin/cmake --install /home/asimkumar/asitlorbot8_ws/build/asitlorbot8_cpp_examples
+[1.255s] -- Install configuration: ""
+[1.255s] -- Execute custom install script
+[1.255s] -- Up-to-date symlink: /home/asimkumar/asitlorbot8_ws/install/asitlorbot8_cpp_examples/share/ament_index/resource_index/package_run_dependencies/asitlorbot8_cpp_examples
+[1.255s] -- Up-to-date symlink: /home/asimkumar/asitlorbot8_ws/install/asitlorbot8_cpp_examples/share/ament_index/resource_index/parent_prefix_path/asitlorbot8_cpp_examples
+[1.255s] -- Up-to-date symlink: /home/asimkumar/asitlorbot8_ws/install/asitlorbot8_cpp_examples/share/asitlorbot8_cpp_examples/environment/ament_prefix_path.sh
+[1.255s] -- Up-to-date symlink: /home/asimkumar/asitlorbot8_ws/install/asitlorbot8_cpp_examples/share/asitlorbot8_cpp_examples/environment/ament_prefix_path.dsv
+[1.255s] -- Up-to-date symlink: /home/asimkumar/asitlorbot8_ws/install/asitlorbot8_cpp_examples/share/asitlorbot8_cpp_examples/environment/path.sh
+[1.255s] -- Up-to-date symlink: /home/asimkumar/asitlorbot8_ws/install/asitlorbot8_cpp_examples/share/asitlorbot8_cpp_examples/environment/path.dsv
+[1.256s] -- Up-to-date symlink: /home/asimkumar/asitlorbot8_ws/install/asitlorbot8_cpp_examples/share/asitlorbot8_cpp_examples/local_setup.bash
+[1.256s] -- Up-to-date symlink: /home/asimkumar/asitlorbot8_ws/install/asitlorbot8_cpp_examples/share/asitlorbot8_cpp_examples/local_setup.sh
+[1.256s] -- Up-to-date symlink: /home/asimkumar/asitlorbot8_ws/install/asitlorbot8_cpp_examples/share/asitlorbot8_cpp_examples/local_setup.zsh
+[1.262s] -- Up-to-date symlink: /home/asimkumar/asitlorbot8_ws/install/asitlorbot8_cpp_examples/share/asitlorbot8_cpp_examples/local_setup.dsv
+[1.263s] -- Symlinking: /home/asimkumar/asitlorbot8_ws/install/asitlorbot8_cpp_examples/share/asitlorbot8_cpp_examples/package.dsv
+[1.302s] -- Up-to-date symlink: /home/asimkumar/asitlorbot8_ws/install/asitlorbot8_cpp_examples/share/ament_index/resource_index/packages/asitlorbot8_cpp_examples
+[1.303s] -- Up-to-date symlink: /home/asimkumar/asitlorbot8_ws/install/asitlorbot8_cpp_examples/share/asitlorbot8_cpp_examples/cmake/asitlorbot8_cpp_examplesConfig.cmake
+[1.303s] -- Up-to-date symlink: /home/asimkumar/asitlorbot8_ws/install/asitlorbot8_cpp_examples/share/asitlorbot8_cpp_examples/cmake/asitlorbot8_cpp_examplesConfig-version.cmake
+[1.303s] -- Up-to-date symlink: /home/asimkumar/asitlorbot8_ws/install/asitlorbot8_cpp_examples/share/asitlorbot8_cpp_examples/package.xml
+[1.309s] Invoked command in '/home/asimkumar/asitlorbot8_ws/build/asitlorbot8_cpp_examples' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/asimkumar/asitlorbot8_ws/install/motor_control_pkg:/home/asimkumar/asitlorbot12_ws/install/asitlorbot12_py_examples:/home/asimkumar/asitlorbotsix_ws/install/asitlorbot_six:/home/asimkumar/asitlor_ws/install/serial_motor_demo:/opt/ros/humble /usr/bin/cmake --install /home/asimkumar/asitlorbot8_ws/build/asitlorbot8_cpp_examples

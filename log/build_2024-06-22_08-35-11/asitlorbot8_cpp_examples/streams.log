@@ -1,0 +1,44 @@
+[0.088s] Invoking command in '/home/asimkumar/asitlorbot8_ws/build/asitlorbot8_cpp_examples': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake /home/asimkumar/asitlorbot8_ws/src/asitlorbot8_cpp_examples -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/home/asimkumar/asitlorbot8_ws/install/asitlorbot8_cpp_examples
+[0.381s] -- The C compiler identification is GNU 11.4.0
+[0.614s] -- The CXX compiler identification is GNU 11.4.0
+[0.652s] -- Detecting C compiler ABI info
+[0.984s] -- Detecting C compiler ABI info - done
+[1.004s] -- Check for working C compiler: /usr/bin/cc - skipped
+[1.006s] -- Detecting C compile features
+[1.007s] -- Detecting C compile features - done
+[1.017s] -- Detecting CXX compiler ABI info
+[1.464s] -- Detecting CXX compiler ABI info - done
+[1.494s] -- Check for working CXX compiler: /usr/bin/c++ - skipped
+[1.494s] -- Detecting CXX compile features
+[1.494s] -- Detecting CXX compile features - done
+[1.506s] -- Found ament_cmake: 1.3.9 (/opt/ros/humble/share/ament_cmake/cmake)
+[2.335s] -- Found Python3: /usr/bin/python3 (found version "3.10.12") found components: Interpreter 
+[2.628s] -- Override CMake install command with custom implementation using symlinks instead of copying resources
+[2.722s] -- Found ament_lint_auto: 0.12.11 (/opt/ros/humble/share/ament_lint_auto/cmake)
+[3.164s] -- Added test 'lint_cmake' to check CMake code style
+[3.165s] -- Added test 'xmllint' to check XML markup files
+[3.175s] -- Configuring done
+[3.181s] -- Generating done
+[3.185s] -- Build files have been written to: /home/asimkumar/asitlorbot8_ws/build/asitlorbot8_cpp_examples
+[3.201s] Invoked command in '/home/asimkumar/asitlorbot8_ws/build/asitlorbot8_cpp_examples' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake /home/asimkumar/asitlorbot8_ws/src/asitlorbot8_cpp_examples -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/home/asimkumar/asitlorbot8_ws/install/asitlorbot8_cpp_examples
+[3.201s] Invoking command in '/home/asimkumar/asitlorbot8_ws/build/asitlorbot8_cpp_examples': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --build /home/asimkumar/asitlorbot8_ws/build/asitlorbot8_cpp_examples -- -j8 -l8
+[3.444s] Invoked command in '/home/asimkumar/asitlorbot8_ws/build/asitlorbot8_cpp_examples' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --build /home/asimkumar/asitlorbot8_ws/build/asitlorbot8_cpp_examples -- -j8 -l8
+[3.657s] Invoking command in '/home/asimkumar/asitlorbot8_ws/build/asitlorbot8_cpp_examples': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --install /home/asimkumar/asitlorbot8_ws/build/asitlorbot8_cpp_examples
+[4.790s] -- Install configuration: ""
+[4.790s] -- Execute custom install script
+[4.790s] -- Symlinking: /home/asimkumar/asitlorbot8_ws/install/asitlorbot8_cpp_examples/share/ament_index/resource_index/package_run_dependencies/asitlorbot8_cpp_examples
+[4.790s] -- Symlinking: /home/asimkumar/asitlorbot8_ws/install/asitlorbot8_cpp_examples/share/ament_index/resource_index/parent_prefix_path/asitlorbot8_cpp_examples
+[4.790s] -- Symlinking: /home/asimkumar/asitlorbot8_ws/install/asitlorbot8_cpp_examples/share/asitlorbot8_cpp_examples/environment/ament_prefix_path.sh
+[4.790s] -- Symlinking: /home/asimkumar/asitlorbot8_ws/install/asitlorbot8_cpp_examples/share/asitlorbot8_cpp_examples/environment/ament_prefix_path.dsv
+[4.791s] -- Symlinking: /home/asimkumar/asitlorbot8_ws/install/asitlorbot8_cpp_examples/share/asitlorbot8_cpp_examples/environment/path.sh
+[4.791s] -- Symlinking: /home/asimkumar/asitlorbot8_ws/install/asitlorbot8_cpp_examples/share/asitlorbot8_cpp_examples/environment/path.dsv
+[4.791s] -- Symlinking: /home/asimkumar/asitlorbot8_ws/install/asitlorbot8_cpp_examples/share/asitlorbot8_cpp_examples/local_setup.bash
+[4.791s] -- Symlinking: /home/asimkumar/asitlorbot8_ws/install/asitlorbot8_cpp_examples/share/asitlorbot8_cpp_examples/local_setup.sh
+[4.791s] -- Symlinking: /home/asimkumar/asitlorbot8_ws/install/asitlorbot8_cpp_examples/share/asitlorbot8_cpp_examples/local_setup.zsh
+[4.791s] -- Symlinking: /home/asimkumar/asitlorbot8_ws/install/asitlorbot8_cpp_examples/share/asitlorbot8_cpp_examples/local_setup.dsv
+[4.791s] -- Symlinking: /home/asimkumar/asitlorbot8_ws/install/asitlorbot8_cpp_examples/share/asitlorbot8_cpp_examples/package.dsv
+[4.791s] -- Symlinking: /home/asimkumar/asitlorbot8_ws/install/asitlorbot8_cpp_examples/share/ament_index/resource_index/packages/asitlorbot8_cpp_examples
+[4.791s] -- Symlinking: /home/asimkumar/asitlorbot8_ws/install/asitlorbot8_cpp_examples/share/asitlorbot8_cpp_examples/cmake/asitlorbot8_cpp_examplesConfig.cmake
+[4.792s] -- Symlinking: /home/asimkumar/asitlorbot8_ws/install/asitlorbot8_cpp_examples/share/asitlorbot8_cpp_examples/cmake/asitlorbot8_cpp_examplesConfig-version.cmake
+[4.792s] -- Symlinking: /home/asimkumar/asitlorbot8_ws/install/asitlorbot8_cpp_examples/share/asitlorbot8_cpp_examples/package.xml
+[4.792s] Invoked command in '/home/asimkumar/asitlorbot8_ws/build/asitlorbot8_cpp_examples' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --install /home/asimkumar/asitlorbot8_ws/build/asitlorbot8_cpp_examples

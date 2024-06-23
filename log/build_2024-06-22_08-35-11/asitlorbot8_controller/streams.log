@@ -1,0 +1,98 @@
+[0.097s] Invoking command in '/home/asimkumar/asitlorbot8_ws/build/asitlorbot8_controller': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake /home/asimkumar/asitlorbot8_ws/src/asitlorbot8_controller -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/home/asimkumar/asitlorbot8_ws/install/asitlorbot8_controller
+[0.372s] -- The C compiler identification is GNU 11.4.0
+[0.642s] -- The CXX compiler identification is GNU 11.4.0
+[0.693s] -- Detecting C compiler ABI info
+[0.955s] -- Detecting C compiler ABI info - done
+[0.972s] -- Check for working C compiler: /usr/bin/cc - skipped
+[0.972s] -- Detecting C compile features
+[0.979s] -- Detecting C compile features - done
+[1.005s] -- Detecting CXX compiler ABI info
+[1.612s] -- Detecting CXX compiler ABI info - done
+[1.636s] -- Check for working CXX compiler: /usr/bin/c++ - skipped
+[1.637s] -- Detecting CXX compile features
+[1.644s] -- Detecting CXX compile features - done
+[1.654s] -- Found ament_cmake: 1.3.9 (/opt/ros/humble/share/ament_cmake/cmake)
+[2.565s] -- Found Python3: /usr/bin/python3 (found version "3.10.12") found components: Interpreter 
+[2.847s] -- Override CMake install command with custom implementation using symlinks instead of copying resources
+[3.039s] -- Found rclcpp: 16.0.9 (/opt/ros/humble/share/rclcpp/cmake)
+[3.139s] -- Found rosidl_generator_c: 3.1.5 (/opt/ros/humble/share/rosidl_generator_c/cmake)
+[3.149s] -- Found rosidl_adapter: 3.1.5 (/opt/ros/humble/share/rosidl_adapter/cmake)
+[3.166s] -- Found rosidl_generator_cpp: 3.1.5 (/opt/ros/humble/share/rosidl_generator_cpp/cmake)
+[3.196s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[3.234s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[3.457s] -- Found rmw_implementation_cmake: 6.1.2 (/opt/ros/humble/share/rmw_implementation_cmake/cmake)
+[3.474s] -- Found rmw_cyclonedds_cpp: 1.3.4 (/opt/ros/humble/share/rmw_cyclonedds_cpp/cmake)
+[3.569s] -- Using RMW implementation 'rmw_cyclonedds_cpp' as default
+[3.592s] -- Looking for pthread.h
+[3.914s] -- Looking for pthread.h - found
+[3.914s] -- Performing Test CMAKE_HAVE_LIBC_PTHREAD
+[4.258s] -- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Success
+[4.263s] -- Found Threads: TRUE  
+[4.833s] -- Found rclpy: 3.3.13 (/opt/ros/humble/share/rclpy/cmake)
+[4.842s] -- Found geometry_msgs: 4.2.4 (/opt/ros/humble/share/geometry_msgs/cmake)
+[4.995s] -- Found sensor_msgs: 4.2.4 (/opt/ros/humble/share/sensor_msgs/cmake)
+[5.238s] -- Found nav_msgs: 4.2.4 (/opt/ros/humble/share/nav_msgs/cmake)
+[5.398s] -- Found tf2_ros: 0.25.7 (/opt/ros/humble/share/tf2_ros/cmake)
+[6.390s] -- Found ament_lint_auto: 0.12.11 (/opt/ros/humble/share/ament_lint_auto/cmake)
+[6.592s] -- Added test 'flake8' to check Python code syntax and style conventions
+[6.594s] -- Added test 'lint_cmake' to check CMake code style
+[6.595s] -- Added test 'pep257' to check Python code against some of the docstring style conventions in PEP 257
+[6.598s] -- Added test 'xmllint' to check XML markup files
+[6.601s] -- Configuring done
+[6.613s] -- Generating done
+[6.616s] -- Build files have been written to: /home/asimkumar/asitlorbot8_ws/build/asitlorbot8_controller
+[6.634s] Invoked command in '/home/asimkumar/asitlorbot8_ws/build/asitlorbot8_controller' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake /home/asimkumar/asitlorbot8_ws/src/asitlorbot8_controller -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/home/asimkumar/asitlorbot8_ws/install/asitlorbot8_controller
+[6.635s] Invoking command in '/home/asimkumar/asitlorbot8_ws/build/asitlorbot8_controller': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --build /home/asimkumar/asitlorbot8_ws/build/asitlorbot8_controller -- -j8 -l8
+[6.863s] Built target ament_cmake_python_symlink_asitlorbot8_controller
+[7.500s] running egg_info
+[7.500s] creating asitlorbot8_controller.egg-info
+[7.500s] writing asitlorbot8_controller.egg-info/PKG-INFO
+[7.500s] writing dependency_links to asitlorbot8_controller.egg-info/dependency_links.txt
+[7.500s] writing top-level names to asitlorbot8_controller.egg-info/top_level.txt
+[7.501s] writing manifest file 'asitlorbot8_controller.egg-info/SOURCES.txt'
+[7.504s] reading manifest file 'asitlorbot8_controller.egg-info/SOURCES.txt'
+[7.508s] writing manifest file 'asitlorbot8_controller.egg-info/SOURCES.txt'
+[7.559s] Built target ament_cmake_python_build_asitlorbot8_controller_egg
+[7.586s] Invoked command in '/home/asimkumar/asitlorbot8_ws/build/asitlorbot8_controller' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --build /home/asimkumar/asitlorbot8_ws/build/asitlorbot8_controller -- -j8 -l8
+[7.648s] Invoking command in '/home/asimkumar/asitlorbot8_ws/build/asitlorbot8_controller': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --install /home/asimkumar/asitlorbot8_ws/build/asitlorbot8_controller
+[7.666s] -- Install configuration: ""
+[7.667s] -- Execute custom install script
+[7.667s] -- Symlinking: /home/asimkumar/asitlorbot8_ws/install/asitlorbot8_controller/share/asitlorbot8_controller/environment/pythonpath.sh
+[7.687s] -- Symlinking: /home/asimkumar/asitlorbot8_ws/install/asitlorbot8_controller/share/asitlorbot8_controller/environment/pythonpath.dsv
+[7.711s] -- Symlinking: /home/asimkumar/asitlorbot8_ws/install/asitlorbot8_controller/local/lib/python3.10/dist-packages/asitlorbot8_controller-0.0.0-py3.10.egg-info/PKG-INFO
+[7.736s] -- Symlinking: /home/asimkumar/asitlorbot8_ws/install/asitlorbot8_controller/local/lib/python3.10/dist-packages/asitlorbot8_controller-0.0.0-py3.10.egg-info/SOURCES.txt
+[7.765s] -- Symlinking: /home/asimkumar/asitlorbot8_ws/install/asitlorbot8_controller/local/lib/python3.10/dist-packages/asitlorbot8_controller-0.0.0-py3.10.egg-info/dependency_links.txt
+[7.786s] -- Symlinking: /home/asimkumar/asitlorbot8_ws/install/asitlorbot8_controller/local/lib/python3.10/dist-packages/asitlorbot8_controller-0.0.0-py3.10.egg-info/top_level.txt
+[7.813s] -- Symlinking: /home/asimkumar/asitlorbot8_ws/install/asitlorbot8_controller/local/lib/python3.10/dist-packages/asitlorbot8_controller/__init__.py
+[7.837s] -- Symlinking: /home/asimkumar/asitlorbot8_ws/install/asitlorbot8_controller/local/lib/python3.10/dist-packages/asitlorbot8_controller/circular_motion.py
+[7.857s] -- Symlinking: /home/asimkumar/asitlorbot8_ws/install/asitlorbot8_controller/local/lib/python3.10/dist-packages/asitlorbot8_controller/noisy_controller.py
+[7.879s] -- Symlinking: /home/asimkumar/asitlorbot8_ws/install/asitlorbot8_controller/local/lib/python3.10/dist-packages/asitlorbot8_controller/noisy_controller_tuned.py
+[7.899s] -- Symlinking: /home/asimkumar/asitlorbot8_ws/install/asitlorbot8_controller/local/lib/python3.10/dist-packages/asitlorbot8_controller/simple_controller.py
+[7.921s] -- Symlinking: /home/asimkumar/asitlorbot8_ws/install/asitlorbot8_controller/share/asitlorbot8_controller/config/asitlorbot8_controllers.yaml
+[7.941s] -- Symlinking: /home/asimkumar/asitlorbot8_ws/install/asitlorbot8_controller/share/asitlorbot8_controller/launch/controller.launch.py
+[7.961s] -- Symlinking: /home/asimkumar/asitlorbot8_ws/install/asitlorbot8_controller/lib/asitlorbot8_controller/noisy_controller.py
+[7.981s] -- Symlinking: /home/asimkumar/asitlorbot8_ws/install/asitlorbot8_controller/lib/asitlorbot8_controller/noisy_controller_tuned.py
+[8.012s] -- Symlinking: /home/asimkumar/asitlorbot8_ws/install/asitlorbot8_controller/lib/asitlorbot8_controller/circular_motion.py
+[8.039s] -- Symlinking: /home/asimkumar/asitlorbot8_ws/install/asitlorbot8_controller/lib/asitlorbot8_controller/simple_controller.py
+[8.061s] -- Symlinking: /home/asimkumar/asitlorbot8_ws/install/asitlorbot8_controller/share/ament_index/resource_index/package_run_dependencies/asitlorbot8_controller
+[8.083s] -- Symlinking: /home/asimkumar/asitlorbot8_ws/install/asitlorbot8_controller/share/ament_index/resource_index/parent_prefix_path/asitlorbot8_controller
+[8.115s] -- Symlinking: /home/asimkumar/asitlorbot8_ws/install/asitlorbot8_controller/share/asitlorbot8_controller/environment/ament_prefix_path.sh
+[8.144s] -- Symlinking: /home/asimkumar/asitlorbot8_ws/install/asitlorbot8_controller/share/asitlorbot8_controller/environment/ament_prefix_path.dsv
+[8.171s] -- Symlinking: /home/asimkumar/asitlorbot8_ws/install/asitlorbot8_controller/share/asitlorbot8_controller/environment/path.sh
+[8.204s] -- Symlinking: /home/asimkumar/asitlorbot8_ws/install/asitlorbot8_controller/share/asitlorbot8_controller/environment/path.dsv
+[8.226s] -- Symlinking: /home/asimkumar/asitlorbot8_ws/install/asitlorbot8_controller/share/asitlorbot8_controller/local_setup.bash
+[8.258s] -- Symlinking: /home/asimkumar/asitlorbot8_ws/install/asitlorbot8_controller/share/asitlorbot8_controller/local_setup.sh
+[8.305s] -- Symlinking: /home/asimkumar/asitlorbot8_ws/install/asitlorbot8_controller/share/asitlorbot8_controller/local_setup.zsh
+[8.336s] -- Symlinking: /home/asimkumar/asitlorbot8_ws/install/asitlorbot8_controller/share/asitlorbot8_controller/local_setup.dsv
+[8.378s] -- Symlinking: /home/asimkumar/asitlorbot8_ws/install/asitlorbot8_controller/share/asitlorbot8_controller/package.dsv
+[8.416s] -- Symlinking: /home/asimkumar/asitlorbot8_ws/install/asitlorbot8_controller/share/ament_index/resource_index/packages/asitlorbot8_controller
+[8.447s] -- Symlinking: /home/asimkumar/asitlorbot8_ws/install/asitlorbot8_controller/share/asitlorbot8_controller/cmake/asitlorbot8_controllerConfig.cmake
+[8.469s] -- Symlinking: /home/asimkumar/asitlorbot8_ws/install/asitlorbot8_controller/share/asitlorbot8_controller/cmake/asitlorbot8_controllerConfig-version.cmake
+[8.510s] -- Symlinking: /home/asimkumar/asitlorbot8_ws/install/asitlorbot8_controller/share/asitlorbot8_controller/package.xml
+[8.675s] Listing '/home/asimkumar/asitlorbot8_ws/install/asitlorbot8_controller/local/lib/python3.10/dist-packages/asitlorbot8_controller'...
+[8.676s] Compiling '/home/asimkumar/asitlorbot8_ws/install/asitlorbot8_controller/local/lib/python3.10/dist-packages/asitlorbot8_controller/__init__.py'...
+[8.676s] Compiling '/home/asimkumar/asitlorbot8_ws/install/asitlorbot8_controller/local/lib/python3.10/dist-packages/asitlorbot8_controller/circular_motion.py'...
+[8.676s] Compiling '/home/asimkumar/asitlorbot8_ws/install/asitlorbot8_controller/local/lib/python3.10/dist-packages/asitlorbot8_controller/noisy_controller.py'...
+[8.676s] Compiling '/home/asimkumar/asitlorbot8_ws/install/asitlorbot8_controller/local/lib/python3.10/dist-packages/asitlorbot8_controller/noisy_controller_tuned.py'...
+[8.676s] Compiling '/home/asimkumar/asitlorbot8_ws/install/asitlorbot8_controller/local/lib/python3.10/dist-packages/asitlorbot8_controller/simple_controller.py'...
+[8.700s] Invoked command in '/home/asimkumar/asitlorbot8_ws/build/asitlorbot8_controller' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --install /home/asimkumar/asitlorbot8_ws/build/asitlorbot8_controller

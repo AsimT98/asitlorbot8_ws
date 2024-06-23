@@ -1,0 +1,26 @@
+[3.534s] Invoking command in '/home/asimkumar/asitlorbot8_ws/build/motor_control_pkg': PYTHONPATH=/home/asimkumar/asitlorbot8_ws/build/motor_control_pkg/prefix_override:/home/asimkumar/asitlorbot8_ws/install/motor_control_pkg/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated setup.py develop --editable --build-directory /home/asimkumar/asitlorbot8_ws/build/motor_control_pkg/build --no-deps symlink_data
+[4.494s] running develop
+[5.070s] running egg_info
+[5.070s] creating motor_control_pkg.egg-info
+[5.070s] writing motor_control_pkg.egg-info/PKG-INFO
+[5.070s] writing dependency_links to motor_control_pkg.egg-info/dependency_links.txt
+[5.070s] writing entry points to motor_control_pkg.egg-info/entry_points.txt
+[5.071s] writing requirements to motor_control_pkg.egg-info/requires.txt
+[5.071s] writing top-level names to motor_control_pkg.egg-info/top_level.txt
+[5.071s] writing manifest file 'motor_control_pkg.egg-info/SOURCES.txt'
+[5.075s] reading manifest file 'motor_control_pkg.egg-info/SOURCES.txt'
+[5.075s] writing manifest file 'motor_control_pkg.egg-info/SOURCES.txt'
+[5.154s] running build_ext
+[5.154s] Creating /home/asimkumar/asitlorbot8_ws/install/motor_control_pkg/lib/python3.10/site-packages/motor-control-pkg.egg-link (link to .)
+[5.156s] Installing arduino_serial_node script to /home/asimkumar/asitlorbot8_ws/install/motor_control_pkg/lib/motor_control_pkg
+[5.156s] Installing encoder_subscriber_node script to /home/asimkumar/asitlorbot8_ws/install/motor_control_pkg/lib/motor_control_pkg
+[5.157s] Installing motor_control_node script to /home/asimkumar/asitlorbot8_ws/install/motor_control_pkg/lib/motor_control_pkg
+[5.157s] 
+[5.157s] Installed /home/asimkumar/asitlorbot8_ws/build/motor_control_pkg
+[5.157s] running symlink_data
+[5.157s] creating /home/asimkumar/asitlorbot8_ws/install/motor_control_pkg/share/ament_index
+[5.157s] creating /home/asimkumar/asitlorbot8_ws/install/motor_control_pkg/share/ament_index/resource_index
+[5.158s] creating /home/asimkumar/asitlorbot8_ws/install/motor_control_pkg/share/ament_index/resource_index/packages
+[5.158s] symbolically linking /home/asimkumar/asitlorbot8_ws/build/motor_control_pkg/resource/motor_control_pkg -> /home/asimkumar/asitlorbot8_ws/install/motor_control_pkg/share/ament_index/resource_index/packages
+[5.158s] symbolically linking /home/asimkumar/asitlorbot8_ws/build/motor_control_pkg/package.xml -> /home/asimkumar/asitlorbot8_ws/install/motor_control_pkg/share/motor_control_pkg
+[5.242s] Invoked command in '/home/asimkumar/asitlorbot8_ws/build/motor_control_pkg' returned '0': PYTHONPATH=/home/asimkumar/asitlorbot8_ws/build/motor_control_pkg/prefix_override:/home/asimkumar/asitlorbot8_ws/install/motor_control_pkg/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated setup.py develop --editable --build-directory /home/asimkumar/asitlorbot8_ws/build/motor_control_pkg/build --no-deps symlink_data

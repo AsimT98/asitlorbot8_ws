@@ -310,8 +310,8 @@ message(STATUS "Execute custom install script")
 
 # begin of custom install code
 
-# install(DIRECTORY "urdf" "launch" "rviz" "DESTINATION" "share/asitlorbot8_description")
-ament_cmake_symlink_install_directory("/home/asimkumar/asitlorbot8_ws/src/asitlorbot8_description" DIRECTORY "urdf" "launch" "rviz" "DESTINATION" "share/asitlorbot8_description")
+# install(DIRECTORY "urdf" "launch" "rviz" "config" "DESTINATION" "share/asitlorbot8_description")
+ament_cmake_symlink_install_directory("/home/asimkumar/asitlorbot8_ws/src/asitlorbot8_description" DIRECTORY "urdf" "launch" "rviz" "config" "DESTINATION" "share/asitlorbot8_description")
 
 # install(FILES "/home/asimkumar/asitlorbot8_ws/build/asitlorbot8_description/ament_cmake_index/share/ament_index/resource_index/package_run_dependencies/asitlorbot8_description" "DESTINATION" "share/ament_index/resource_index/package_run_dependencies")
 ament_cmake_symlink_install_files("/home/asimkumar/asitlorbot8_ws/src/asitlorbot8_description" FILES "/home/asimkumar/asitlorbot8_ws/build/asitlorbot8_description/ament_cmake_index/share/ament_index/resource_index/package_run_dependencies/asitlorbot8_description" "DESTINATION" "share/ament_index/resource_index/package_run_dependencies")

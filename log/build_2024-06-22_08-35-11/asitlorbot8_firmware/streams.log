@@ -1,0 +1,111 @@
+[0.071s] Invoking command in '/home/asimkumar/asitlorbot8_ws/build/asitlorbot8_firmware': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake /home/asimkumar/asitlorbot8_ws/src/asitlorbot8_firmware -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/home/asimkumar/asitlorbot8_ws/install/asitlorbot8_firmware
+[0.345s] -- The C compiler identification is GNU 11.4.0
+[0.589s] -- The CXX compiler identification is GNU 11.4.0
+[0.610s] -- Detecting C compiler ABI info
+[0.948s] -- Detecting C compiler ABI info - done
+[0.965s] -- Check for working C compiler: /usr/bin/cc - skipped
+[0.969s] -- Detecting C compile features
+[0.970s] -- Detecting C compile features - done
+[0.975s] -- Detecting CXX compiler ABI info
+[1.273s] -- Detecting CXX compiler ABI info - done
+[1.306s] -- Check for working CXX compiler: /usr/bin/c++ - skipped
+[1.309s] -- Detecting CXX compile features
+[1.321s] -- Detecting CXX compile features - done
+[1.338s] -- Found ament_cmake: 1.3.9 (/opt/ros/humble/share/ament_cmake/cmake)
+[2.221s] -- Found Python3: /usr/bin/python3 (found version "3.10.12") found components: Interpreter 
+[2.530s] -- Override CMake install command with custom implementation using symlinks instead of copying resources
+[2.671s] -- Found rclcpp: 16.0.9 (/opt/ros/humble/share/rclcpp/cmake)
+[2.928s] -- Found rosidl_generator_c: 3.1.5 (/opt/ros/humble/share/rosidl_generator_c/cmake)
+[2.960s] -- Found rosidl_adapter: 3.1.5 (/opt/ros/humble/share/rosidl_adapter/cmake)
+[3.035s] -- Found rosidl_generator_cpp: 3.1.5 (/opt/ros/humble/share/rosidl_generator_cpp/cmake)
+[3.078s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[3.117s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[3.372s] -- Found rmw_implementation_cmake: 6.1.2 (/opt/ros/humble/share/rmw_implementation_cmake/cmake)
+[3.390s] -- Found rmw_cyclonedds_cpp: 1.3.4 (/opt/ros/humble/share/rmw_cyclonedds_cpp/cmake)
+[3.527s] -- Using RMW implementation 'rmw_cyclonedds_cpp' as default
+[3.553s] -- Looking for pthread.h
+[3.924s] -- Looking for pthread.h - found
+[3.925s] -- Performing Test CMAKE_HAVE_LIBC_PTHREAD
+[4.243s] -- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Success
+[4.246s] -- Found Threads: TRUE  
+[4.731s] -- Found rclpy: 3.3.13 (/opt/ros/humble/share/rclpy/cmake)
+[4.735s] -- Found hardware_interface: 2.41.0 (/opt/ros/humble/share/hardware_interface/cmake)
+[5.993s] -- Found PkgConfig: /usr/bin/pkg-config (found version "0.29.2") 
+[5.993s] -- Checking for module 'libserial'
+[6.022s] --   Found libserial, version 1.0.0
+[6.783s] -- Configuring done
+[6.888s] -- Generating done
+[6.895s] -- Build files have been written to: /home/asimkumar/asitlorbot8_ws/build/asitlorbot8_firmware
+[6.939s] Invoked command in '/home/asimkumar/asitlorbot8_ws/build/asitlorbot8_firmware' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake /home/asimkumar/asitlorbot8_ws/src/asitlorbot8_firmware -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/home/asimkumar/asitlorbot8_ws/install/asitlorbot8_firmware
+[6.940s] Invoking command in '/home/asimkumar/asitlorbot8_ws/build/asitlorbot8_firmware': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --build /home/asimkumar/asitlorbot8_ws/build/asitlorbot8_firmware -- -j8 -l8
+[7.184s] [  0%] Built target ament_cmake_python_symlink_asitlorbot8_firmware
+[7.268s] [ 16%] [32mBuilding CXX object CMakeFiles/simple_serial_transmitter.dir/src/simple_serial_transmitter.cpp.o[0m
+[19.600s] [ 33%] [32m[1mLinking CXX executable simple_serial_transmitter[0m
+[20.366s] [ 33%] Built target simple_serial_transmitter
+[20.850s] running egg_info
+[20.851s] creating asitlorbot8_firmware.egg-info
+[20.851s] writing asitlorbot8_firmware.egg-info/PKG-INFO
+[20.852s] writing dependency_links to asitlorbot8_firmware.egg-info/dependency_links.txt
+[20.852s] writing top-level names to asitlorbot8_firmware.egg-info/top_level.txt
+[20.852s] writing manifest file 'asitlorbot8_firmware.egg-info/SOURCES.txt'
+[20.856s] reading manifest file 'asitlorbot8_firmware.egg-info/SOURCES.txt'
+[20.857s] writing manifest file 'asitlorbot8_firmware.egg-info/SOURCES.txt'
+[20.915s] [ 33%] Built target ament_cmake_python_build_asitlorbot8_firmware_egg
+[20.958s] [ 50%] [32mBuilding CXX object CMakeFiles/simple_serial_receiver.dir/src/simple_serial_receiver.cpp.o[0m
+[27.436s] [ 66%] [32m[1mLinking CXX executable simple_serial_receiver[0m
+[27.822s] [ 66%] Built target simple_serial_receiver
+[27.867s] [ 83%] [32mBuilding CXX object CMakeFiles/asitlorbot8_firmware.dir/src/asitlorbot8_interface.cpp.o[0m
+[33.239s] [100%] [32m[1mLinking CXX shared library libasitlorbot8_firmware.so[0m
+[33.575s] [100%] Built target asitlorbot8_firmware
+[33.598s] Invoked command in '/home/asimkumar/asitlorbot8_ws/build/asitlorbot8_firmware' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --build /home/asimkumar/asitlorbot8_ws/build/asitlorbot8_firmware -- -j8 -l8
+[33.680s] Invoking command in '/home/asimkumar/asitlorbot8_ws/build/asitlorbot8_firmware': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --install /home/asimkumar/asitlorbot8_ws/build/asitlorbot8_firmware
+[33.693s] -- Install configuration: ""
+[33.694s] -- Execute custom install script
+[33.694s] -- Symlinking: /home/asimkumar/asitlorbot8_ws/install/asitlorbot8_firmware/share/asitlorbot8_firmware/environment/pythonpath.sh
+[33.713s] -- Symlinking: /home/asimkumar/asitlorbot8_ws/install/asitlorbot8_firmware/share/asitlorbot8_firmware/environment/pythonpath.dsv
+[33.731s] -- Symlinking: /home/asimkumar/asitlorbot8_ws/install/asitlorbot8_firmware/local/lib/python3.10/dist-packages/asitlorbot8_firmware-0.0.0-py3.10.egg-info/PKG-INFO
+[33.750s] -- Symlinking: /home/asimkumar/asitlorbot8_ws/install/asitlorbot8_firmware/local/lib/python3.10/dist-packages/asitlorbot8_firmware-0.0.0-py3.10.egg-info/SOURCES.txt
+[33.768s] -- Symlinking: /home/asimkumar/asitlorbot8_ws/install/asitlorbot8_firmware/local/lib/python3.10/dist-packages/asitlorbot8_firmware-0.0.0-py3.10.egg-info/dependency_links.txt
+[33.786s] -- Symlinking: /home/asimkumar/asitlorbot8_ws/install/asitlorbot8_firmware/local/lib/python3.10/dist-packages/asitlorbot8_firmware-0.0.0-py3.10.egg-info/top_level.txt
+[33.806s] -- Symlinking: /home/asimkumar/asitlorbot8_ws/install/asitlorbot8_firmware/local/lib/python3.10/dist-packages/asitlorbot8_firmware/__init__.py
+[33.824s] -- Symlinking: /home/asimkumar/asitlorbot8_ws/install/asitlorbot8_firmware/local/lib/python3.10/dist-packages/asitlorbot8_firmware/pid_tune.py
+[33.843s] -- Symlinking: /home/asimkumar/asitlorbot8_ws/install/asitlorbot8_firmware/local/lib/python3.10/dist-packages/asitlorbot8_firmware/simple_serial_receiver.py
+[33.863s] -- Symlinking: /home/asimkumar/asitlorbot8_ws/install/asitlorbot8_firmware/local/lib/python3.10/dist-packages/asitlorbot8_firmware/simple_serial_transmitter.py
+[33.881s] -- Symlinking: /home/asimkumar/asitlorbot8_ws/install/asitlorbot8_firmware/share/asitlorbot8_firmware//asitlorbot8_interface.xml
+[33.900s] -- Symlinking: /home/asimkumar/asitlorbot8_ws/install/asitlorbot8_firmware/lib/libasitlorbot8_firmware.so
+[33.920s] -- Symlinking: /home/asimkumar/asitlorbot8_ws/install/asitlorbot8_firmware/include/include/asitlorbot8_firmware/asitlorbot8_interface.hpp
+[33.940s] -- Symlinking: /home/asimkumar/asitlorbot8_ws/install/asitlorbot8_firmware/share/asitlorbot8_firmware/launch/hardware_interface.launch.py
+[33.958s] -- Symlinking: /home/asimkumar/asitlorbot8_ws/install/asitlorbot8_firmware/share/asitlorbot8_firmware/launch/imu_sense.py
+[33.977s] -- Symlinking: /home/asimkumar/asitlorbot8_ws/install/asitlorbot8_firmware/share/asitlorbot8_firmware/launch/pid.py
+[33.996s] -- Symlinking: /home/asimkumar/asitlorbot8_ws/install/asitlorbot8_firmware/lib/asitlorbot8_firmware/simple_serial_transmitter.py
+[34.015s] -- Symlinking: /home/asimkumar/asitlorbot8_ws/install/asitlorbot8_firmware/lib/asitlorbot8_firmware/simple_serial_receiver.py
+[34.034s] -- Symlinking: /home/asimkumar/asitlorbot8_ws/install/asitlorbot8_firmware/lib/asitlorbot8_firmware/pid_tune.py
+[34.054s] -- Symlinking: /home/asimkumar/asitlorbot8_ws/install/asitlorbot8_firmware/bin/simple_serial_receiver
+[34.073s] -- Symlinking: /home/asimkumar/asitlorbot8_ws/install/asitlorbot8_firmware/bin/simple_serial_transmitter
+[34.091s] -- Symlinking: /home/asimkumar/asitlorbot8_ws/install/asitlorbot8_firmware/share/asitlorbot8_firmware/environment/library_path.sh
+[34.110s] -- Symlinking: /home/asimkumar/asitlorbot8_ws/install/asitlorbot8_firmware/share/asitlorbot8_firmware/environment/library_path.dsv
+[34.129s] -- Symlinking: /home/asimkumar/asitlorbot8_ws/install/asitlorbot8_firmware/share/ament_index/resource_index/package_run_dependencies/asitlorbot8_firmware
+[34.147s] -- Symlinking: /home/asimkumar/asitlorbot8_ws/install/asitlorbot8_firmware/share/ament_index/resource_index/parent_prefix_path/asitlorbot8_firmware
+[34.166s] -- Symlinking: /home/asimkumar/asitlorbot8_ws/install/asitlorbot8_firmware/share/asitlorbot8_firmware/environment/ament_prefix_path.sh
+[34.185s] -- Symlinking: /home/asimkumar/asitlorbot8_ws/install/asitlorbot8_firmware/share/asitlorbot8_firmware/environment/ament_prefix_path.dsv
+[34.203s] -- Symlinking: /home/asimkumar/asitlorbot8_ws/install/asitlorbot8_firmware/share/asitlorbot8_firmware/environment/path.sh
+[34.221s] -- Symlinking: /home/asimkumar/asitlorbot8_ws/install/asitlorbot8_firmware/share/asitlorbot8_firmware/environment/path.dsv
+[34.241s] -- Symlinking: /home/asimkumar/asitlorbot8_ws/install/asitlorbot8_firmware/share/asitlorbot8_firmware/local_setup.bash
+[34.259s] -- Symlinking: /home/asimkumar/asitlorbot8_ws/install/asitlorbot8_firmware/share/asitlorbot8_firmware/local_setup.sh
+[34.278s] -- Symlinking: /home/asimkumar/asitlorbot8_ws/install/asitlorbot8_firmware/share/asitlorbot8_firmware/local_setup.zsh
+[34.295s] -- Symlinking: /home/asimkumar/asitlorbot8_ws/install/asitlorbot8_firmware/share/asitlorbot8_firmware/local_setup.dsv
+[34.312s] -- Symlinking: /home/asimkumar/asitlorbot8_ws/install/asitlorbot8_firmware/share/asitlorbot8_firmware/package.dsv
+[34.331s] -- Symlinking: /home/asimkumar/asitlorbot8_ws/install/asitlorbot8_firmware/share/ament_index/resource_index/packages/asitlorbot8_firmware
+[34.349s] -- Symlinking: /home/asimkumar/asitlorbot8_ws/install/asitlorbot8_firmware/share/ament_index/resource_index/hardware_interface__pluginlib__plugin/asitlorbot8_firmware
+[34.369s] -- Symlinking: /home/asimkumar/asitlorbot8_ws/install/asitlorbot8_firmware/share/asitlorbot8_firmware/cmake/ament_cmake_export_include_directories-extras.cmake
+[34.388s] -- Symlinking: /home/asimkumar/asitlorbot8_ws/install/asitlorbot8_firmware/share/asitlorbot8_firmware/cmake/ament_cmake_export_libraries-extras.cmake
+[34.406s] -- Symlinking: /home/asimkumar/asitlorbot8_ws/install/asitlorbot8_firmware/share/asitlorbot8_firmware/cmake/ament_cmake_export_dependencies-extras.cmake
+[34.431s] -- Symlinking: /home/asimkumar/asitlorbot8_ws/install/asitlorbot8_firmware/share/asitlorbot8_firmware/cmake/asitlorbot8_firmwareConfig.cmake
+[34.448s] -- Symlinking: /home/asimkumar/asitlorbot8_ws/install/asitlorbot8_firmware/share/asitlorbot8_firmware/cmake/asitlorbot8_firmwareConfig-version.cmake
+[34.467s] -- Symlinking: /home/asimkumar/asitlorbot8_ws/install/asitlorbot8_firmware/share/asitlorbot8_firmware/package.xml
+[34.574s] Listing '/home/asimkumar/asitlorbot8_ws/install/asitlorbot8_firmware/local/lib/python3.10/dist-packages/asitlorbot8_firmware'...
+[34.575s] Compiling '/home/asimkumar/asitlorbot8_ws/install/asitlorbot8_firmware/local/lib/python3.10/dist-packages/asitlorbot8_firmware/__init__.py'...
+[34.575s] Compiling '/home/asimkumar/asitlorbot8_ws/install/asitlorbot8_firmware/local/lib/python3.10/dist-packages/asitlorbot8_firmware/pid_tune.py'...
+[34.575s] Compiling '/home/asimkumar/asitlorbot8_ws/install/asitlorbot8_firmware/local/lib/python3.10/dist-packages/asitlorbot8_firmware/simple_serial_receiver.py'...
+[34.575s] Compiling '/home/asimkumar/asitlorbot8_ws/install/asitlorbot8_firmware/local/lib/python3.10/dist-packages/asitlorbot8_firmware/simple_serial_transmitter.py'...
+[34.597s] Invoked command in '/home/asimkumar/asitlorbot8_ws/build/asitlorbot8_firmware' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --install /home/asimkumar/asitlorbot8_ws/build/asitlorbot8_firmware

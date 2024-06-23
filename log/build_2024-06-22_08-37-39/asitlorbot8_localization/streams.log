@@ -1,0 +1,81 @@
+[0.108s] Invoking command in '/home/asimkumar/asitlorbot8_ws/build/asitlorbot8_localization': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/asimkumar/asitlorbot8_ws/install/motor_control_pkg:/home/asimkumar/asitlorbot12_ws/install/asitlorbot12_py_examples:/home/asimkumar/asitlorbotsix_ws/install/asitlorbot_six:/home/asimkumar/asitlor_ws/install/serial_motor_demo:/opt/ros/humble /usr/bin/cmake --build /home/asimkumar/asitlorbot8_ws/build/asitlorbot8_localization -- -j8 -l8
+[0.904s] Built target ament_cmake_python_symlink_asitlorbot8_localization
+[1.073s] running egg_info
+[1.074s] writing asitlorbot8_localization.egg-info/PKG-INFO
+[1.075s] writing dependency_links to asitlorbot8_localization.egg-info/dependency_links.txt
+[1.078s] writing top-level names to asitlorbot8_localization.egg-info/top_level.txt
+[1.082s] reading manifest file 'asitlorbot8_localization.egg-info/SOURCES.txt'
+[1.084s] writing manifest file 'asitlorbot8_localization.egg-info/SOURCES.txt'
+[1.242s] Built target ament_cmake_python_build_asitlorbot8_localization_egg
+[1.343s] Invoked command in '/home/asimkumar/asitlorbot8_ws/build/asitlorbot8_localization' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/asimkumar/asitlorbot8_ws/install/motor_control_pkg:/home/asimkumar/asitlorbot12_ws/install/asitlorbot12_py_examples:/home/asimkumar/asitlorbotsix_ws/install/asitlorbot_six:/home/asimkumar/asitlor_ws/install/serial_motor_demo:/opt/ros/humble /usr/bin/cmake --build /home/asimkumar/asitlorbot8_ws/build/asitlorbot8_localization -- -j8 -l8
+[1.474s] Invoking command in '/home/asimkumar/asitlorbot8_ws/build/asitlorbot8_localization': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/asimkumar/asitlorbot8_ws/install/motor_control_pkg:/home/asimkumar/asitlorbot12_ws/install/asitlorbot12_py_examples:/home/asimkumar/asitlorbotsix_ws/install/asitlorbot_six:/home/asimkumar/asitlor_ws/install/serial_motor_demo:/opt/ros/humble /usr/bin/cmake --install /home/asimkumar/asitlorbot8_ws/build/asitlorbot8_localization
+[1.505s] -- Install configuration: ""
+[1.506s] -- Execute custom install script
+[1.506s] -- Up-to-date symlink: /home/asimkumar/asitlorbot8_ws/install/asitlorbot8_localization/share/asitlorbot8_localization/environment/pythonpath.sh
+[1.507s] -- Up-to-date symlink: /home/asimkumar/asitlorbot8_ws/install/asitlorbot8_localization/share/asitlorbot8_localization/environment/pythonpath.dsv
+[1.507s] -- Up-to-date symlink: /home/asimkumar/asitlorbot8_ws/install/asitlorbot8_localization/local/lib/python3.10/dist-packages/asitlorbot8_localization-0.0.0-py3.10.egg-info/PKG-INFO
+[1.507s] -- Up-to-date symlink: /home/asimkumar/asitlorbot8_ws/install/asitlorbot8_localization/local/lib/python3.10/dist-packages/asitlorbot8_localization-0.0.0-py3.10.egg-info/SOURCES.txt
+[1.507s] -- Up-to-date symlink: /home/asimkumar/asitlorbot8_ws/install/asitlorbot8_localization/local/lib/python3.10/dist-packages/asitlorbot8_localization-0.0.0-py3.10.egg-info/dependency_links.txt
+[1.507s] -- Up-to-date symlink: /home/asimkumar/asitlorbot8_ws/install/asitlorbot8_localization/local/lib/python3.10/dist-packages/asitlorbot8_localization-0.0.0-py3.10.egg-info/top_level.txt
+[1.507s] -- Up-to-date symlink: /home/asimkumar/asitlorbot8_ws/install/asitlorbot8_localization/local/lib/python3.10/dist-packages/asitlorbot8_localization/__init__.py
+[1.508s] -- Up-to-date symlink: /home/asimkumar/asitlorbot8_ws/install/asitlorbot8_localization/local/lib/python3.10/dist-packages/asitlorbot8_localization/average_NEES_plots.pdf
+[1.508s] -- Up-to-date symlink: /home/asimkumar/asitlorbot8_ws/install/asitlorbot8_localization/local/lib/python3.10/dist-packages/asitlorbot8_localization/average_NEES_plots_optimized.pdf
+[1.508s] -- Up-to-date symlink: /home/asimkumar/asitlorbot8_ws/install/asitlorbot8_localization/local/lib/python3.10/dist-packages/asitlorbot8_localization/bayesian_optimization.py
+[1.508s] -- Up-to-date symlink: /home/asimkumar/asitlorbot8_ws/install/asitlorbot8_localization/local/lib/python3.10/dist-packages/asitlorbot8_localization/circular_motion_1.py
+[1.508s] -- Up-to-date symlink: /home/asimkumar/asitlorbot8_ws/install/asitlorbot8_localization/local/lib/python3.10/dist-packages/asitlorbot8_localization/imu_republisher.py
+[1.508s] -- Up-to-date symlink: /home/asimkumar/asitlorbot8_ws/install/asitlorbot8_localization/local/lib/python3.10/dist-packages/asitlorbot8_localization/imu_republisher_tuned.py
+[1.508s] -- Up-to-date symlink: /home/asimkumar/asitlorbot8_ws/install/asitlorbot8_localization/local/lib/python3.10/dist-packages/asitlorbot8_localization/metrics_and_graphs.png
+[1.508s] -- Up-to-date symlink: /home/asimkumar/asitlorbot8_ws/install/asitlorbot8_localization/local/lib/python3.10/dist-packages/asitlorbot8_localization/metrics_table.png
+[1.508s] -- Up-to-date symlink: /home/asimkumar/asitlorbot8_ws/install/asitlorbot8_localization/local/lib/python3.10/dist-packages/asitlorbot8_localization/path_follower_node.py
+[1.508s] -- Up-to-date symlink: /home/asimkumar/asitlorbot8_ws/install/asitlorbot8_localization/local/lib/python3.10/dist-packages/asitlorbot8_localization/path_publisher_node.py
+[1.509s] -- Up-to-date symlink: /home/asimkumar/asitlorbot8_ws/install/asitlorbot8_localization/local/lib/python3.10/dist-packages/asitlorbot8_localization/plot_just.py
+[1.509s] -- Up-to-date symlink: /home/asimkumar/asitlorbot8_ws/install/asitlorbot8_localization/local/lib/python3.10/dist-packages/asitlorbot8_localization/process_noise_covariance.xlsx
+[1.509s] -- Up-to-date symlink: /home/asimkumar/asitlorbot8_ws/install/asitlorbot8_localization/local/lib/python3.10/dist-packages/asitlorbot8_localization/rmse.py
+[1.509s] -- Up-to-date symlink: /home/asimkumar/asitlorbot8_ws/install/asitlorbot8_localization/local/lib/python3.10/dist-packages/asitlorbot8_localization/set_init_amcl_pose.py
+[1.509s] -- Up-to-date symlink: /home/asimkumar/asitlorbot8_ws/install/asitlorbot8_localization/local/lib/python3.10/dist-packages/asitlorbot8_localization/test.py
+[1.509s] -- Up-to-date symlink: /home/asimkumar/asitlorbot8_ws/install/asitlorbot8_localization/local/lib/python3.10/dist-packages/asitlorbot8_localization/test10.py
+[1.509s] -- Up-to-date symlink: /home/asimkumar/asitlorbot8_ws/install/asitlorbot8_localization/local/lib/python3.10/dist-packages/asitlorbot8_localization/test11.py
+[1.509s] -- Up-to-date symlink: /home/asimkumar/asitlorbot8_ws/install/asitlorbot8_localization/local/lib/python3.10/dist-packages/asitlorbot8_localization/test3.py
+[1.509s] -- Up-to-date symlink: /home/asimkumar/asitlorbot8_ws/install/asitlorbot8_localization/local/lib/python3.10/dist-packages/asitlorbot8_localization/test4.py
+[1.510s] -- Up-to-date symlink: /home/asimkumar/asitlorbot8_ws/install/asitlorbot8_localization/local/lib/python3.10/dist-packages/asitlorbot8_localization/test5.py
+[1.510s] -- Up-to-date symlink: /home/asimkumar/asitlorbot8_ws/install/asitlorbot8_localization/local/lib/python3.10/dist-packages/asitlorbot8_localization/test7.py
+[1.510s] -- Up-to-date symlink: /home/asimkumar/asitlorbot8_ws/install/asitlorbot8_localization/local/lib/python3.10/dist-packages/asitlorbot8_localization/test8.py
+[1.510s] -- Up-to-date symlink: /home/asimkumar/asitlorbot8_ws/install/asitlorbot8_localization/local/lib/python3.10/dist-packages/asitlorbot8_localization/test9.py
+[1.510s] -- Up-to-date symlink: /home/asimkumar/asitlorbot8_ws/install/asitlorbot8_localization/share/asitlorbot8_localization/launch/local_localization.launch.py
+[1.510s] -- Up-to-date symlink: /home/asimkumar/asitlorbot8_ws/install/asitlorbot8_localization/share/asitlorbot8_localization/launch/nav2.launch.py
+[1.520s] -- Up-to-date symlink: /home/asimkumar/asitlorbot8_ws/install/asitlorbot8_localization/share/asitlorbot8_localization/rviz/nav2_rviz.rviz
+[1.520s] -- Up-to-date symlink: /home/asimkumar/asitlorbot8_ws/install/asitlorbot8_localization/share/asitlorbot8_localization/config/ekf.yaml
+[1.520s] -- Up-to-date symlink: /home/asimkumar/asitlorbot8_ws/install/asitlorbot8_localization/share/asitlorbot8_localization/config/ekf_tuned.yaml
+[1.520s] -- Up-to-date symlink: /home/asimkumar/asitlorbot8_ws/install/asitlorbot8_localization/share/asitlorbot8_localization/config/navigation_sim.yaml
+[1.520s] -- Up-to-date symlink: /home/asimkumar/asitlorbot8_ws/install/asitlorbot8_localization/share/asitlorbot8_localization/maps/my_map_save_3_may.pgm
+[1.520s] -- Up-to-date symlink: /home/asimkumar/asitlorbot8_ws/install/asitlorbot8_localization/share/asitlorbot8_localization/maps/my_map_save_3_may.yaml
+[1.521s] -- Up-to-date symlink: /home/asimkumar/asitlorbot8_ws/install/asitlorbot8_localization/share/asitlorbot8_localization/maps/my_map_save_7_may.pgm
+[1.521s] -- Up-to-date symlink: /home/asimkumar/asitlorbot8_ws/install/asitlorbot8_localization/share/asitlorbot8_localization/maps/my_map_save_7_may.yaml
+[1.521s] -- Up-to-date symlink: /home/asimkumar/asitlorbot8_ws/install/asitlorbot8_localization/share/asitlorbot8_localization/maps/my_map_serial_3_may.data
+[1.521s] -- Up-to-date symlink: /home/asimkumar/asitlorbot8_ws/install/asitlorbot8_localization/share/asitlorbot8_localization/maps/my_map_serial_3_may.posegraph
+[1.521s] -- Up-to-date symlink: /home/asimkumar/asitlorbot8_ws/install/asitlorbot8_localization/share/asitlorbot8_localization/maps/my_map_serial_7_may.data
+[1.521s] -- Up-to-date symlink: /home/asimkumar/asitlorbot8_ws/install/asitlorbot8_localization/share/asitlorbot8_localization/maps/my_map_serial_7_may.posegraph
+[1.521s] -- Up-to-date symlink: /home/asimkumar/asitlorbot8_ws/install/asitlorbot8_localization/lib/asitlorbot8_localization/imu_republisher.py
+[1.521s] -- Up-to-date symlink: /home/asimkumar/asitlorbot8_ws/install/asitlorbot8_localization/lib/asitlorbot8_localization/imu_republisher_tuned.py
+[1.521s] -- Up-to-date symlink: /home/asimkumar/asitlorbot8_ws/install/asitlorbot8_localization/lib/asitlorbot8_localization/rmse.py
+[1.521s] -- Up-to-date symlink: /home/asimkumar/asitlorbot8_ws/install/asitlorbot8_localization/lib/asitlorbot8_localization/circular_motion_1.py
+[1.522s] -- Up-to-date symlink: /home/asimkumar/asitlorbot8_ws/install/asitlorbot8_localization/lib/asitlorbot8_localization/set_init_amcl_pose.py
+[1.522s] -- Up-to-date symlink: /home/asimkumar/asitlorbot8_ws/install/asitlorbot8_localization/lib/asitlorbot8_localization/path_follower_node.py
+[1.522s] -- Up-to-date symlink: /home/asimkumar/asitlorbot8_ws/install/asitlorbot8_localization/lib/asitlorbot8_localization/path_publisher_node.py
+[1.522s] -- Up-to-date symlink: /home/asimkumar/asitlorbot8_ws/install/asitlorbot8_localization/share/ament_index/resource_index/package_run_dependencies/asitlorbot8_localization
+[1.522s] -- Up-to-date symlink: /home/asimkumar/asitlorbot8_ws/install/asitlorbot8_localization/share/ament_index/resource_index/parent_prefix_path/asitlorbot8_localization
+[1.522s] -- Up-to-date symlink: /home/asimkumar/asitlorbot8_ws/install/asitlorbot8_localization/share/asitlorbot8_localization/environment/ament_prefix_path.sh
+[1.522s] -- Up-to-date symlink: /home/asimkumar/asitlorbot8_ws/install/asitlorbot8_localization/share/asitlorbot8_localization/environment/ament_prefix_path.dsv
+[1.522s] -- Up-to-date symlink: /home/asimkumar/asitlorbot8_ws/install/asitlorbot8_localization/share/asitlorbot8_localization/environment/path.sh
+[1.522s] -- Up-to-date symlink: /home/asimkumar/asitlorbot8_ws/install/asitlorbot8_localization/share/asitlorbot8_localization/environment/path.dsv
+[1.522s] -- Up-to-date symlink: /home/asimkumar/asitlorbot8_ws/install/asitlorbot8_localization/share/asitlorbot8_localization/local_setup.bash
+[1.522s] -- Up-to-date symlink: /home/asimkumar/asitlorbot8_ws/install/asitlorbot8_localization/share/asitlorbot8_localization/local_setup.sh
+[1.523s] -- Up-to-date symlink: /home/asimkumar/asitlorbot8_ws/install/asitlorbot8_localization/share/asitlorbot8_localization/local_setup.zsh
+[1.523s] -- Up-to-date symlink: /home/asimkumar/asitlorbot8_ws/install/asitlorbot8_localization/share/asitlorbot8_localization/local_setup.dsv
+[1.523s] -- Symlinking: /home/asimkumar/asitlorbot8_ws/install/asitlorbot8_localization/share/asitlorbot8_localization/package.dsv
+[1.535s] -- Up-to-date symlink: /home/asimkumar/asitlorbot8_ws/install/asitlorbot8_localization/share/ament_index/resource_index/packages/asitlorbot8_localization
+[1.536s] -- Up-to-date symlink: /home/asimkumar/asitlorbot8_ws/install/asitlorbot8_localization/share/asitlorbot8_localization/cmake/asitlorbot8_localizationConfig.cmake
+[1.536s] -- Up-to-date symlink: /home/asimkumar/asitlorbot8_ws/install/asitlorbot8_localization/share/asitlorbot8_localization/cmake/asitlorbot8_localizationConfig-version.cmake
+[1.536s] -- Up-to-date symlink: /home/asimkumar/asitlorbot8_ws/install/asitlorbot8_localization/share/asitlorbot8_localization/package.xml
+[1.670s] Listing '/home/asimkumar/asitlorbot8_ws/install/asitlorbot8_localization/local/lib/python3.10/dist-packages/asitlorbot8_localization'...
+[1.685s] Invoked command in '/home/asimkumar/asitlorbot8_ws/build/asitlorbot8_localization' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/asimkumar/asitlorbot8_ws/install/motor_control_pkg:/home/asimkumar/asitlorbot12_ws/install/asitlorbot12_py_examples:/home/asimkumar/asitlorbotsix_ws/install/asitlorbot_six:/home/asimkumar/asitlor_ws/install/serial_motor_demo:/opt/ros/humble /usr/bin/cmake --install /home/asimkumar/asitlorbot8_ws/build/asitlorbot8_localization

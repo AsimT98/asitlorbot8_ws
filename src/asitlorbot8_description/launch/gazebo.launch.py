@@ -7,6 +7,7 @@ from launch.substitutions import Command, LaunchConfiguration
 from launch.launch_description_sources import PythonLaunchDescriptionSource
 from launch_ros.actions import Node
 from launch_ros.parameter_descriptions import ParameterValue
+import yaml
 
 def generate_launch_description():
     
@@ -32,19 +33,29 @@ def generate_launch_description():
     robot_state_publisher_node = Node(
         package="robot_state_publisher",
         executable="robot_state_publisher",
-        parameters=[{"robot_description": robot_description, "use_sim_time": False}]
+        parameters=[{"robot_description": robot_description, "use_sim_time": True}] #
     )
 
     start_robot_state_publisher_cmd = IncludeLaunchDescription(
         os.path.join(asitlorbot8_description, 'launch', 'rsp.launch.py'),
     )
     
+    # start_gazebo_server = IncludeLaunchDescription(
+    #     PythonLaunchDescriptionSource(
+    #         os.path.join(gazebo_ros_dir, "launch", "gzserver.launch.py")
+    #     )
+    # )
+    gazebo_params_file = os.path.join(asitlorbot8_description, 'config', 'gazebo_params.yaml')
+    with open(gazebo_params_file, 'r') as file:
+        gazebo_params = yaml.safe_load(file)['gazebo']['ros__parameters']
     start_gazebo_server = IncludeLaunchDescription(
         PythonLaunchDescriptionSource(
             os.path.join(gazebo_ros_dir, "launch", "gzserver.launch.py")
-        )
+        ),
+        launch_arguments={
+            'extra_gazebo_args': '--ros-args --params-file ' + gazebo_params_file
+        }.items()
     )
-
     start_gazebo_client = IncludeLaunchDescription(
         PythonLaunchDescriptionSource(
             os.path.join(gazebo_ros_dir, "launch", "gzclient.launch.py")

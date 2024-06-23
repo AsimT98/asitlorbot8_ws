@@ -72,12 +72,20 @@ for start_idx in range(0, total_rows, batch_size):
         continue
 
     # Filter out NEES values greater than 100
-    NEES_batch = [nees for nees in NEES_batch if nees <= 100]
+    # NEES_batch = [nees for nees in NEES_batch if nees <= 100]
 
     # Append NEES values to the respective list
     NEES_values.append(NEES_batch)
     batch_colors.append(np.random.rand(3,))  # Store a random color for each batch
 
+plt.rcParams.update({
+    'font.size': 14,        # General font size
+    'axes.titlesize': 18,   # Title font size
+    'axes.labelsize': 16,   # X and Y axis labels font size
+    'xtick.labelsize': 12,  # X axis ticks font size
+    'ytick.labelsize': 12,  # Y axis ticks font size
+    'legend.fontsize': 14   # Legend font size
+})
 # Plot all NEES values for all batches on a single figure with different colors for each batch
 plt.figure(figsize=(12, 6))
 for i in range(len(NEES_values)):
@@ -88,7 +96,7 @@ for i in range(len(NEES_values)):
 plt.axhline(y=target_NEES, color='r', linestyle='--', label='Target NEES')
 plt.xlabel('Data Point')
 plt.ylabel('NEES')
-plt.title('NEES Values for All Batches')
+plt.title('NEES Values')
 plt.legend()
 plt.grid(True)
 plt.tight_layout()
@@ -149,6 +157,14 @@ plt.show()
 # }
 # metrics_df = pd.DataFrame(metrics_data)
 
+# plt.rcParams.update({
+#     'font.size': 14,        # General font size
+#     'axes.titlesize': 18,   # Title font size
+#     'axes.labelsize': 16,   # X and Y axis labels font size
+#     'xtick.labelsize': 12,  # X axis ticks font size
+#     'ytick.labelsize': 12,  # Y axis ticks font size
+#     'legend.fontsize': 14   # Legend font size
+# })
 # # Plotting table
 # plt.figure(figsize=(12, 4))
 # ax1 = plt.subplot(131)
